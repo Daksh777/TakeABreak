@@ -1,0 +1,35 @@
+<html>
+<head>
+    
+    <style>
+        p {font-family: 'Product Sans', sans-serif;}
+    </style>
+  <style>
+    h1 {margin: 0;
+    font-family: Product Sans, sans-serif;
+    text-align: center;
+    color: #fff;
+    font-size: 61px;}
+  </style>
+</head>
+<body style="text-align:center;vertical-align: middle;display: flex;align-items: center;justify-content: center;background-color: #232323;">
+ 
+    <h1>Loading site in <span id="countdown"></span> seconds.<br>
+    This website will self destruct in the specified time.</h1>
+
+</body>
+
+<script>
+    var timeleft = 5;
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    document.getElementById("countdown").innerHTML = "0";
+  } else {
+    document.getElementById("countdown").innerHTML = timeleft;
+  }
+  timeleft -= 1;
+}, 1000);
+</script>
+
+</html>
