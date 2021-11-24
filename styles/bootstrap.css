@@ -303,7 +303,7 @@ hr {
 .btn:hover,
 .btn:focus,
 .btn.focus {
-  color: rgb(209, 209, 209);
+  color: #000;
   text-decoration: none;
 }
 .btn:active,
