@@ -293,7 +293,7 @@ a#question {
 
 #btn_end {
     border-radius: 0 10px 10px 0;
-    padding: 14px 38px
+    padding: 14px 35px
 }
 
 div#takeAnotherButton {
@@ -575,7 +575,8 @@ input#enterUrl {
     }
 
     #btn_end {
-        width: 83px;
+        width: -webkit-fill-available;
+        width: -moz-available;
         border-radius: 10px
     }
 

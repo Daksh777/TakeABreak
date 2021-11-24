@@ -291,7 +291,6 @@ $(document).ready(function() {
 
 
     if (screen.width <= 480) {
-        $('#social_icons').hide();
         $('#background').hide();
         $('#notification').hide();
         $('#logo').hide();
