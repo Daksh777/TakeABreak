@@ -3,6 +3,24 @@ html {
     overflow: auto !important;
 }
 
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../fonts/ProductSans-Bold.woff2') format('woff2'),
+        url('fonts/ProductSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Product Sans';
+    src: url('../fonts/ProductSans-Regular.woff2') format('woff2'),
+        url('fonts/ProductSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 @media screen {
     html {
         padding: 10px;
@@ -44,7 +62,7 @@ li {
 
 h1,
 ul.rig li {
-    font-family: Product Sans, sans-serif
+    font-family: 'Product Sans', sans-serif
 }
 
 ul.rig li {
@@ -141,7 +159,7 @@ input.button {
     text-decoration: none !important;
     text-transform: uppercase;
     font-size: .778em !important;
-    font-family: Product Sans, sans-serif !important;
+    font-family: 'Product Sans', sans-serif !important;
     line-height: 1.714em !important;
     cursor: pointer
 }
@@ -195,7 +213,7 @@ h1 {
 
 h2 {
     font-size: 45px;
-    font-family: Product Sans, sans-serif;
+    font-family: 'Product Sans', sans-serif;
     text-align: center
 }
 
@@ -204,7 +222,7 @@ h2 {
 }
 
 h3#content-label {
-    font-family: Product Sans, sans-serif;
+    font-family: 'Product Sans', sans-serif;
     text-align: center;
     font-size: 2.8em;
     padding-bottom: .3em;
@@ -250,7 +268,7 @@ div.buttons {
 }
 
 .buttons ul li a {
-    font-family: Product Sans, sans-serif;
+    font-family: 'Product Sans', sans-serif;
     cursor: pointer;
     color: #000;
     font-size: 22px;
@@ -310,7 +328,7 @@ footer {
 }
 
 input::-webkit-input-placeholder {
-    font-family: 'Product Sans' !important;
+    font-family: ''Product Sans'' !important;
     color: #dbdbdb;
     transition: .3s
 }
@@ -321,7 +339,7 @@ input:focus::-webkit-input-placeholder {
 
 .footer a,
 .footer-part {
-    font-family: Product Sans, sans-serif;
+    font-family: 'Product Sans', sans-serif;
     font-size: 14px
 }
 
@@ -373,7 +391,7 @@ input[type=select],
 input[type=submit],
 input[type=text] {
     font-size: 1.2em;
-    font-family: 'Product Sans' !important;
+    font-family: ''Product Sans'' !important;
     border-radius: 2px
 }
 
@@ -814,7 +832,7 @@ input#enterUrl {
 
     .footer a,
     h2 {
-        font-family: Product Sans, sans-serif
+        font-family: 'Product Sans', sans-serif
     }
 
     h1 {
@@ -889,7 +907,7 @@ input#enterUrl {
     h1,
     h2 {
         color: #e9e9e9;
-        font-family: Product Sans, sans-serif;
+        font-family: 'Product Sans', sans-serif;
         text-align: center
     }
 
@@ -939,7 +957,7 @@ input#enterUrl {
     }
 
     .buttons ul li a {
-        font-family: Product Sans, sans-serif;
+        font-family: 'Product Sans', sans-serif;
         color: #303030;
         font-size: 36px;
         background: #dbdbdb;
@@ -953,7 +971,7 @@ input#enterUrl {
     }
 
     .footer a {
-        font-family: Product Sans, sans-serif;
+        font-family: 'Product Sans', sans-serif;
         font-size: 20px
     }
 
@@ -1031,7 +1049,7 @@ input#enterUrl {
 }
 
 .sweet-alert p {
-    font-family: "Product Sans";
+    font-family: "'Product Sans'";
     color: #fff;
     font-size: 16px;
     font-weight: 300;
@@ -1195,7 +1213,7 @@ input#enterUrl {
 }
 
 .sweet-alert button {
-    font-family: "Product Sans";
+    font-family: "'Product Sans'";
     background-color: #8cb3ee !important;
     color: #fff;
     border: none;
