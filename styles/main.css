@@ -260,12 +260,6 @@ div.buttons {
     line-height: 1.3em
 }
 
-a#question {
-    margin-left: 40px;
-    margin-top: 25px;
-    padding: 0
-}
-
 #btn_end:hover,
 #btn_midL:hover,
 #btn_midR:hover,
@@ -281,15 +275,6 @@ a#question {
 #takeAnother {
     background: #8cb3ee;
     border-radius: 5px !important
-}
-
-.question_mark {
-    position: relative;
-    bottom: 35px;
-    left: 125px;
-    background: 0 0;
-    border-color: transparent;
-    cursor: pointer
 }
 
 #btn_front {
@@ -312,16 +297,6 @@ div#takeAnotherButton {
 
 #takeAnother {
     border-radius: 10px
-}
-
-.question_mark img {
-    height: 15px;
-    cursor: pointer;
-    border-color: transparent
-}
-
-#question {
-    border-color: transparent
 }
 
 div#social_icons,
@@ -595,10 +570,6 @@ input#enterUrl {
         font-size: 10px
     }
 
-    .question_mark {
-        bottom: 40px
-    }
-
     #takeAnotherButton {
         font-size: 14px;
         margin-bottom: 10px
@@ -665,15 +636,6 @@ input#enterUrl {
 
     #btn_end {
         height: 29px
-    }
-
-    .question_mark {
-        position: relative;
-        bottom: 40px;
-        left: 90px;
-        cursor: pointer;
-        background: 0 0;
-        border-color: transparent
     }
 
     .footer a {
@@ -762,15 +724,6 @@ input#enterUrl {
     #takeAnother {
         width: 125px;
         padding-bottom: 2px
-    }
-
-    .question_mark {
-        position: relative;
-        bottom: 35px;
-        left: 95px;
-        cursor: pointer;
-        background: 0 0;
-        border-color: transparent
     }
 
     .footer #author {
