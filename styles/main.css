@@ -569,7 +569,8 @@ input#enterUrl {
 
     #btn_front,
     #btn_midL {
-        width: 77px;
+        width: -webkit-fill-available;
+        width: -moz-available;
         border-radius: 10px
     }
 
@@ -790,17 +791,6 @@ input#enterUrl {
     .buttons ul li a {
         font-size: 18px;
         padding: 14px 44px;
-        border: solid #4f94cd
-    }
-
-    .buttons ul li a:hover {
-        background: #4f94cd;
-        color: #e4e4e4
-    }
-
-    #btn_front {
-        border-width: 2px 1px 2px 2px;
-        border-radius: 10px 0 0 10px
     }
 
     .footer a {
@@ -815,16 +805,6 @@ input#enterUrl {
     .buttons ul li {
         float: left;
         position: relative
-    }
-
-    #btn_midL,
-    #btn_midR {
-        border-radius: 0
-    }
-
-    #btn_end,
-    #btn_front {
-        border-width: 2px 1px 2px 2px
     }
 
     .buttons ul,
@@ -879,22 +859,11 @@ input#enterUrl {
         font-size: 19px
     }
 
-    .buttons ul li a:hover {
-        background: #4f94cd;
-        color: #e4e4e4
-    }
-
-    #btn_front {
-        border-radius: 10px 0 0 10px
-    }
-
     #btn_midL {
-        border-width: 2px 1px;
         padding: 14px 40px
     }
 
     #btn_end {
-        border-radius: 0 10px 10px 0;
         display: inline
     }
 
@@ -964,7 +933,6 @@ input#enterUrl {
         font-size: 36px;
         background: #dbdbdb;
         padding: 14px 44px;
-        border: solid #4f94cd;
         text-decoration: none;
         float: left;
         transition: .3s;
@@ -975,19 +943,6 @@ input#enterUrl {
     .footer a {
         font-family: 'Product Sans', sans-serif;
         font-size: 20px
-    }
-
-    #btn_end,
-    #btn_front {
-        border-width: 2px 1px 2px 2px
-    }
-
-    #btn_front {
-        border-radius: 10px 0 0 10px
-    }
-
-    #btn_end {
-        border-radius: 0 10px 10px 0
     }
 
     .footer a {
