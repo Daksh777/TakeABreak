@@ -51,6 +51,11 @@ html {
     }
 }
 
+#enterUrl::placeholder {
+    font-family: 'Product Sans', sans-serif !important;
+    opacity: 1;
+}
+
 .rig ul li {
     display: inline;
     text-align: center
