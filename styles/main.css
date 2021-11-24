@@ -51,11 +51,6 @@ html {
     }
 }
 
-#enterUrl::placeholder {
-    font-family: 'Product Sans', sans-serif !important;
-    opacity: 1;
-}
-
 .rig ul li {
     display: inline;
     text-align: center
@@ -333,7 +328,7 @@ footer {
 }
 
 input::-webkit-input-placeholder {
-    font-family: ''Product Sans'' !important;
+    font-family: 'Product Sans' !important;
     color: #dbdbdb;
     transition: .3s
 }
@@ -396,7 +391,7 @@ input[type=select],
 input[type=submit],
 input[type=text] {
     font-size: 1.2em;
-    font-family: ''Product Sans'' !important;
+    font-family: 'Product Sans' !important;
     border-radius: 2px
 }
 
@@ -1054,7 +1049,7 @@ input#enterUrl {
 }
 
 .sweet-alert p {
-    font-family: "'Product Sans'";
+    font-family: 'Product Sans';
     color: #fff;
     font-size: 16px;
     font-weight: 300;
@@ -1218,7 +1213,7 @@ input#enterUrl {
 }
 
 .sweet-alert button {
-    font-family: "'Product Sans'";
+    font-family: 'Product Sans';
     background-color: #8cb3ee !important;
     color: #fff;
     border: none;
