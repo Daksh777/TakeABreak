@@ -1165,24 +1165,15 @@ input#enterUrl {
 
 .sweet-alert input {
     width: 100%;
-    box-sizing: border-box;
-    border-radius: 3px;
-    border: 1px solid #d7d7d7;
+    border-radius: 5px;
     height: 43px;
     margin-top: 10px;
     margin-bottom: 17px;
     font-size: 18px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .06);
     padding: 0 12px;
     display: none;
     -webkit-transition: all .3s;
     transition: all .3s
-}
-
-.sweet-alert input:focus {
-    outline: 0;
-    box-shadow: 0 0 3px #c4e6f5;
-    border: 1px solid #b4dbed
 }
 
 .sweet-alert input:focus::-moz-placeholder {
@@ -1201,15 +1192,15 @@ input#enterUrl {
 }
 
 .sweet-alert input::-moz-placeholder {
-    color: #bdbdbd
+    color: #fff
 }
 
 .sweet-alert input:-ms-input-placeholder {
-    color: #bdbdbd
+    color: #fff
 }
 
 .sweet-alert input::-webkit-input-placeholder {
-    color: #bdbdbd
+    color: #fff
 }
 
 .sweet-alert button {
