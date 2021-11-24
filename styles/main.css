@@ -1,6 +1,12 @@
 body,
 html {
-    overflow: auto !important
+    overflow: auto !important;
+}
+
+@media screen {
+    html {
+        padding: 10px;
+    }
 }
 
 
