@@ -305,7 +305,9 @@ div.buttons {
 
 #btn_end {
     border-radius: 0 10px 10px 0;
-    padding: 14px 35px
+    padding: 14px 35px;
+    width: -webkit-fill-available;
+    width: -moz-available;
 }
 
 div#takeAnotherButton {
