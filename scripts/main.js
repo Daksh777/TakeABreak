@@ -387,7 +387,7 @@ function OpenInNew(min, tab, type) {
             diff = 0;
 
             document.getElementById("header").innerHTML ="Time's up!";
-            document.getElementById("subHeader").innerHTML ="Get back to work!";
+            document.getElementById("subHeader").innerHTML ="Get back to work! <br> PUSH YOURSELF BECAUSE NO ONE ELSE IS GOING TO DO IT FOR YOU.";
             document.title ="Take a Break";
 
             swal({
