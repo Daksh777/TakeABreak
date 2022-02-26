@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
 body,
 html {
     overflow: auto !important;
@@ -1494,4 +1496,11 @@ button.confirm {
 }
 .sweet-alert .cancel:hover {
     color: rgb(209, 209, 209) !important
+}
+
+.moti_qoute{
+    font-size: 20px;
+    /* font-weight: 600; */
+    font-style: italic;
+    font-family: 'Roboto Slab', serif;
 }

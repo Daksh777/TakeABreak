@@ -387,12 +387,13 @@ function OpenInNew(min, tab, type) {
             diff = 0;
 
             document.getElementById("header").innerHTML ="Time's up!";
-            document.getElementById("subHeader").innerHTML ="Get back to work! <br> PUSH YOURSELF BECAUSE NO ONE ELSE IS GOING TO DO IT FOR YOU.";
+            document.getElementById("subHeader").innerHTML ="Get back to work!";
             document.title ="Take a Break";
 
             swal({
                     title: "Time's up, back to work!",
                     // text: "<b><u>Quote of the day</u></b><br><br>" + "\"I’m a greater believer in luck, and I find the harder I work the more I have of it\"" + " -Thomas Jefferson",
+                    text: "<span class='moti_qoute'>❝ PUSH YOURSELF BECAUSE NO ONE ELSE IS GOING TO DO IT FOR YOU. ❞</span>",
                     imageSize: "200x200",
                     closeOnConfirm: true,
                     html: true,
