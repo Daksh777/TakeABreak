@@ -260,10 +260,16 @@ $(document).ready(function() {
 
     /*Runs on 'enter url' click*/
     $('#urlClick').click(function() {
-        if (count == 0) {
+        enteredUrl = $('#enterUrl').val();
+        if(enteredUrl) {
+          if (count == 0) {
             customUrl();
             count = 1;
+          }
+        } else {
+          swal("Please enter a valid website URL!!")
         }
+        
     });
     /*$(".outbound-link").fancybox({
 
