@@ -1499,10 +1499,9 @@ button.confirm {
 }
 
 .moti_title{
-    margin-right: 23%;
     font-size: 18px;
-    line-height: 25px;
-    font-family: 'Roboto Slab', serif;
+    padding-bottom: 7px;
+    font-family: 'Product Sans';
 }
 .moti_qoute{
     font-size: 20px;
@@ -1511,7 +1510,10 @@ button.confirm {
 }
 .moti_author{
     margin-left: 40%;
-    font-size: 20px;
+    font-size: 18px;
     font-style: italic;
     font-family: 'Roboto Slab', serif;
+}
+.sa-button-container{
+    margin-top:-5%;
 }
