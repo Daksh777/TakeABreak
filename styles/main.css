@@ -1500,7 +1500,12 @@ button.confirm {
 
 .moti_qoute{
     font-size: 20px;
-    /* font-weight: 600; */
+    font-style: italic;
+    font-family: 'Roboto Slab', serif;
+}
+.moti_author{
+    margin-left: 40%;
+    font-size: 20px;
     font-style: italic;
     font-family: 'Roboto Slab', serif;
 }
