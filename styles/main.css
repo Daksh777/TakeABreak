@@ -1498,6 +1498,12 @@ button.confirm {
     color: rgb(209, 209, 209) !important
 }
 
+.moti_title{
+    margin-right: 23%;
+    font-size: 18px;
+    line-height: 25px;
+    font-family: 'Roboto Slab', serif;
+}
 .moti_qoute{
     font-size: 20px;
     font-style: italic;

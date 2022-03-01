@@ -5,7 +5,7 @@ async function getJson(url) {
     let quote_response = await fetch(url);
     let quote_data = await quote_response.json()
     let random = Math.floor(Math.random() * 1642);
-    return `<span class='moti_qoute'>❝ ${quote_data[random].text} ❞</span> <br> <span class='moti_author'> ━ ${quote_data[random].author}</span>`;
+    return `<span class='moti_title'>Here's a quote to keep you motivated:</span><br> <span class='moti_qoute'>❝ ${quote_data[random].text} ❞</span> <br> <span class='moti_author'> ━ ${quote_data[random].author}</span>`;
 }
 async function DailyQuotes() {
     quote = await getJson(apiUrl)
@@ -365,7 +365,6 @@ var windowCount = 0;
 //Stores windows
 var windows = [];
 
-// const OpenInNew = async (min, tab, type) => {
 function OpenInNew(min, tab, type) {
   
     /*MAJOR KEY*/
