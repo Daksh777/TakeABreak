@@ -222,7 +222,7 @@ $(document).ready(function() {
     var site = $("form input[type='site']").val()
     var site_link = $("form input[type='site_link']").val()
     var flag=0;
-    if(site_link===""){
+    if(site_link.trim()===""){
       flag=1;
       swal("No site link found !!")
     }
