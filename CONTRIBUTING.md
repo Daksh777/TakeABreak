@@ -1,6 +1,6 @@
 ## ⚙ Setup Git If You've Never Used Git Before
-- git config --global user.name "Susmita-Dey"
-- git config --global user.email "susmita@example.com"
+- `git config --global user.name "YourUsername"`
+- `git config --global user.email "youremail@example.com"`
 
 ## 👨‍💻 Contributing
 
@@ -19,7 +19,7 @@
 **2.** Clone your new fork of the repository:
 
 ```bash
-git clone https://github.com/<your-github-username>/TakeABreak
+git clone https://github.com/Daksh777/TakeABreak
 ```
 
 **3.** Set upstream command:
