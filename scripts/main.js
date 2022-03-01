@@ -218,19 +218,21 @@ $(document).ready(function() {
 
     $("#addSiteButton").click(function(event) {
 
-
-
     $('#myModal').modal('toggle');
     var site = $("form input[type='site']").val()
     var site_link = $("form input[type='site_link']").val()
-    if (!~site_link.indexOf("http")) {
-        site_link = "http://" + site_link;
+    var flag=0;
+    if(site_link===""){
+      flag=1;
+      swal("No site link found !!")
     }
-
-    
-
+    else if (~!site_link.indexOf("http")) {
+        site_link = "http://"+site_link;
+    }
+    if(flag!=1){
     Lockr.sadd('customSites', [site, site_link]);
     addGridElement(site, site_link);
+    }
 
     
 
