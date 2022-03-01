@@ -261,7 +261,8 @@ $(document).ready(function() {
     /*Runs on 'enter url' click*/
     $('#urlClick').click(function() {
         enteredUrl = $('#enterUrl').val();
-        if(enteredUrl) {
+        res = enteredUrl.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+        if(res !== null) {
           if (count == 0) {
             customUrl();
             count = 1;
