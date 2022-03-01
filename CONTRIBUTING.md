@@ -1,4 +1,8 @@
-# 💥 How to Contribute
+## ⚙ Setup Git If You've Never Used Git Before
+- git config --global user.name "Susmita-Dey"
+- git config --global user.email "susmita@example.com"
+
+## 👨‍💻 Contributing
 
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/Daksh777/TakeABreak/pulls)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
@@ -78,8 +82,26 @@ You'll receive a notification email once it's done.
 **11.** **Congratulations!** You've made your first contribution! 🙌🏼
 
 
-
 ## All the best! 🥇
+
+## 🛡️ License
+
+TakeABreak is licensed under the GNU AFFERO GENERAL PUBLIC LICENSE - see the [`LICENSE`](https://github.com/Daksh777/TakeABreak/blob/main/LICENSE) file for details.
+
+
+### Any questions, feel free to let us know!
+
+**You can contact me [here](https://daksh.eu.org/contact.html)**
+
+## 🙏 Support
+
+This project needs a ⭐️ from you. Don't forget to leave a star ⭐️
+
+## Thanks to all the contributors ❤️
+<a href = "https://github.com/Daksh777/TakeABreak/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=Daksh777/TakeABreak"/>
+</a>
+<hr>
 
 <p align="center">
 
