@@ -30,4 +30,4 @@ body:
   - type: textarea #Additional Context
     attributes:
       label: Add any other context or screenshots about the feature request here.
-      description: A clear and concise description of any alternative solutions or features you've considered.
+      description: Any miscellaneous suggestions you'd like to give.

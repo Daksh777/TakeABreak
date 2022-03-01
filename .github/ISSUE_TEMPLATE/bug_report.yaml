@@ -24,14 +24,6 @@ body:
     validations:
       required: true
 
-  - type: textarea #desktop info
-    attributes:
-      label: Desktop Information
-      description: Please provide the desktop configuration (OS,Browser, dependency version etc)
-      placeholder: Type here.
-    validations:
-      required: true
-
   - type: dropdown #urgent
     attributes:
       label: Urgency (optional)
