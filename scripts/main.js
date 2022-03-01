@@ -321,8 +321,17 @@ function Custom() {
                 swal.showInputError("You need to write something!");
                 return false
             }
-            choice(inputValue);
-            $(".content").css("display", "inline");
+            if (inputValue>=0) {
+                choice(inputValue);
+                $(".content").css("display", "inline");
+                return true
+            } 
+            else {
+                swal.showInputError("Please enter valid number!");
+                return false
+            }
+            /*choice(inputValue);
+            $(".content").css("display", "inline");*/
         });
 };
 
