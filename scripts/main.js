@@ -1,3 +1,19 @@
+//Random quote generator function
+let quote = "";
+let apiUrl = "https://type.fit/api/quotes"
+async function getJson(url) {
+    let quote_response = await fetch(url);
+    let quote_data = await quote_response.json()
+    let random = Math.floor(Math.random() * 1642);
+    return `<div class='moti_title'>Here's a quote to keep you motivated:</div> <span class='moti_qoute'>❝${quote_data[random].text}❞</span> <br> <span class='moti_author'> ━ ${quote_data[random].author}</span>`;
+}
+async function DailyQuotes() {
+    quote = await getJson(apiUrl)
+    console.log(jsondata);
+}
+DailyQuotes();
+//Random quote generated
+
 (function(root, factory) {
 
   if (typeof exports !== 'undefined') {
@@ -357,6 +373,7 @@ var windowCount = 0;
 var windows = [];
 
 function OpenInNew(min, tab, type) {
+  
     /*MAJOR KEY*/
     if (type != "video") {
         /*Assigns win to open loading.html. Write to page. Then change the location to whatever the user chose.*/
@@ -400,10 +417,10 @@ function OpenInNew(min, tab, type) {
             swal({
                     title: "Time's up, back to work!",
                     // text: "<b><u>Quote of the day</u></b><br><br>" + "\"I’m a greater believer in luck, and I find the harder I work the more I have of it\"" + " -Thomas Jefferson",
+                    text: quote,
                     imageSize: "200x200",
                     closeOnConfirm: true,
                     html: true,
-
                     animation: "slide-from-top",
                     confirmButtonText: "OK",
                     // imageUrl: getRandomTimeUp(gifTime, '/assets/gifs/'),
