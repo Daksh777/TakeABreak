@@ -1,3 +1,19 @@
+//Random quote generator function
+let quote = "";
+let apiUrl = "https://type.fit/api/quotes"
+async function getJson(url) {
+    let quote_response = await fetch(url);
+    let quote_data = await quote_response.json()
+    let random = Math.floor(Math.random() * 1642);
+    return `<div class='moti_title'>Here's a quote to keep you motivated:</div> <span class='moti_qoute'>❝${quote_data[random].text}❞</span> <br> <span class='moti_author'> ━ ${quote_data[random].author}</span>`;
+}
+async function DailyQuotes() {
+    quote = await getJson(apiUrl)
+    console.log(jsondata);
+}
+DailyQuotes();
+//Random quote generated
+
 (function(root, factory) {
 
   if (typeof exports !== 'undefined') {
@@ -292,13 +308,40 @@ $(document).ready(function() {
         }
     });
 
+    // Check if the enter url is valid or not using a regex
+    const isUrlValid = () => {
+      enteredUrl = $('#enterUrl').val();
+      res = enteredUrl.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+      return ( res !== null );
+    }
+
     /*Runs on 'enter url' click*/
     $('#urlClick').click(function() {
-        if (count == 0) {
+        if(isUrlValid()) {
+          if (count == 0) {
             customUrl();
             count = 1;
+          }
+        } else {
+          swal("Please enter a valid website URL!")
         }
+        
     });
+
+    $('body').keyup(e => {
+
+      isVisible = $('.content').hasClass('visible')
+      if(e.key === 'Enter' &&  isVisible) {
+        if(isUrlValid()) {
+          if (count == 0) {
+            customUrl();
+            count = 1;
+          }
+        } else {
+          swal("Please enter a valid website URL!");
+        }
+      }
+    })
     /*$(".outbound-link").fancybox({
 
         maxWidth: 800,
@@ -338,6 +381,7 @@ $(document).ready(function() {
 
 /*Function that runs when custom button is pressed. Presents sweet alert then parses input accordingly*/
 function Custom() {
+    $('.content').removeClass('visible');
     swal({
             title: "Custom Time",
             text: "How long do you want a break (in minutes)?",
@@ -371,6 +415,9 @@ function choice(minutes) {
     }
     min = minutes;
     $(".content").fadeIn();
+    setTimeout(() => {
+      $(".content").addClass('visible');
+    }, 400);
     $(window).animate({
         scrollTop: $(".custom-url").offset().top + 80
     }, 500);
@@ -384,6 +431,7 @@ var windowCount = 0;
 var windows = [];
 
 function OpenInNew(min, tab, type) {
+  
     /*MAJOR KEY*/
     if (type != "video") {
         /*Assigns win to open loading.html. Write to page. Then change the location to whatever the user chose.*/
@@ -427,10 +475,10 @@ function OpenInNew(min, tab, type) {
             swal({
                     title: "Time's up, back to work!",
                     // text: "<b><u>Quote of the day</u></b><br><br>" + "\"I’m a greater believer in luck, and I find the harder I work the more I have of it\"" + " -Thomas Jefferson",
+                    text: quote,
                     imageSize: "200x200",
                     closeOnConfirm: true,
                     html: true,
-
                     animation: "slide-from-top",
                     confirmButtonText: "OK",
                     // imageUrl: getRandomTimeUp(gifTime, '/assets/gifs/'),
@@ -593,15 +641,15 @@ function startTimer(duration, display) {
 //     }
 // };
 // check if input form has focus, then check if enter button pressed
-$(document).ready(function(e) {
-    $("#enterUrl").focus(function() {
-        $(document).keypress(function(e) {
-            if (e.which == 13 && run == 1) {
-                customUrl();
-            }
-        });
-    });
-});
+// $(document).ready(function(e) {
+//     $("#enterUrl").focus(function() {
+//         $(document).keypress(function(e) {
+//             if (e.which == 13 && run == 1) {
+//                 customUrl();
+//             }
+//         });
+//     });
+// });
 
 function customUrl() {
     if (count == 0) {

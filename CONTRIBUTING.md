@@ -19,7 +19,7 @@
 **2.** Clone your new fork of the repository:
 
 ```bash
-git clone https://github.com/Daksh777/TakeABreak
+git clone https://github.com/<your-github-username>/TakeABreak
 ```
 
 **3.** Set upstream command:
