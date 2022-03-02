@@ -257,7 +257,7 @@ $(document).ready(function() {
       document.getElementById("erro").style.display="hidden";
     }
     if(flagname===1&&flaglink!=1){
-      document.getElementById("erro").innerHTML="<p style='color:#FF0000;'><b>ERROR : No Label provided</b></p>";
+      document.getElementById("erro").innerHTML="<p style='color:#FF0000;'>ERROR : No Label provided</p>";
       document.getElementById("erro").style.display="block";
       document.getElementById("error").innerHTML="";
       document.getElementById("error").style.display="hidden";
