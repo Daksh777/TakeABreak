@@ -215,35 +215,60 @@ $(document).ready(function() {
             $('#btn_end').addClass("clicked");
         };
     };
-
+    $("#modalClose").click(function(event) {
+      document.getElementById("error").innerHTML="";
+    document.getElementById("error").style.display="hidden";
+    document.getElementById("erro").innerHTML="";
+    document.getElementById("erro").style.display="hidden";
+    document.getElementById("inputSiteLink").value="";
+    document.getElementById("inputSiteName").value="";
+      
+  });
+    
     $("#addSiteButton").click(function(event) {
-
-    $('#myModal').modal('toggle');
+      
     var site = $("form input[type='site']").val()
     var site_link = $("form input[type='site_link']").val()
-    var flag=0;
+    var flaglink=0,flagname=0;
     if(site_link.trim()===""){
-      flag=1;
-      swal({
-        title: '<h4 style="color:red;">Incorrect Website URL</h4>',
-        html:
-          '<h4 style="color:red;">Incorrect Website URL</h4> ',
-          type: "warning",
-            
-      },
-      function(){
-        $('#myModal').modal('toggle');
-  })
+      flaglink=1;
+    }
+    if(site.trim()===""){
+      flagname=1;
     }
     else if (~!site_link.indexOf("http")) {
         site_link = "http://"+site_link;
     }
-    if(flag!=1){
+    if(flaglink!=1&&flagname!=1){
     Lockr.sadd('customSites', [site, site_link]);
     addGridElement(site, site_link);
+    document.getElementById("error").innerHTML="";
+    document.getElementById("error").style.display="hidden";
+    document.getElementById("erro").innerHTML="";
+    document.getElementById("erro").style.display="hidden";
+    document.getElementById("inputSiteLink").value="";
+    document.getElementById("inputSiteName").value="";
+    $('#myModal').modal('toggle');
     }
-
-   event.preventDefault();
+    if(flaglink===1&&flagname!=1){
+      document.getElementById("error").innerHTML="<p style='color:#FF0000;'>Wrong Website URL</p>";
+      document.getElementById("error").style.display="block";
+      document.getElementById("erro").innerHTML="";
+      document.getElementById("erro").style.display="hidden";
+    }
+    if(flagname===1&&flaglink!=1){
+      document.getElementById("erro").innerHTML="<p style='color:#FF0000;'>No Label provided</p>";
+      document.getElementById("erro").style.display="block";
+      document.getElementById("error").innerHTML="";
+      document.getElementById("error").style.display="hidden";
+    }
+    else if(flagname==1&&flaglink===1){
+      document.getElementById("error").innerHTML="<p style='color:#FF0000;'>Wrong Website URL</p>";
+      document.getElementById("error").style.display="block";
+      document.getElementById("erro").innerHTML="<p style='color:#FF0000;'>No Label provided</p>";
+      document.getElementById("erro").style.display="block";
+    }
+    event.preventDefault();
 });
 
     $('.content').on('click', '.delete', function() {
