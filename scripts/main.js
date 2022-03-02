@@ -260,10 +260,17 @@ $(document).ready(function() {
 
     /*Runs on 'enter url' click*/
     $('#urlClick').click(function() {
-        if (count == 0) {
+        enteredUrl = $('#enterUrl').val();
+        res = enteredUrl.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+        if(res !== null) {
+          if (count == 0) {
             customUrl();
             count = 1;
+          }
+        } else {
+          swal("Please enter a valid website URL!")
         }
+        
     });
     /*$(".outbound-link").fancybox({
 
