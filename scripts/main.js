@@ -304,7 +304,7 @@ $(document).ready(function() {
             count = 1;
           }
         } else {
-          swal("Please enter a valid website URL or select a website from the available ones!!");
+          swal("Please enter a valid website URL!");
         }
       }
     })
