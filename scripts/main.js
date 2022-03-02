@@ -267,21 +267,21 @@ $(document).ready(function() {
     $('#myModal').modal('toggle');
     }
     if(flaglink===1&&flagname!=1){
-      document.getElementById("error").innerHTML="<p style='color:#FF0000;font-family:Product Sans'>ERROR : Incorrect Website URL</p>";
+      document.getElementById("error").innerHTML="<p style='color:#FF0000;font-family:Product Sans'>ERROR: Incorrect website URL</p>";
       document.getElementById("error").style.display="block";
       document.getElementById("erro").innerHTML="";
       document.getElementById("erro").style.display="hidden";
     }
     if(flagname===1&&flaglink!=1){
-      document.getElementById("erro").innerHTML="<p style='color:#FF0000;font-family:Product Sans''>ERROR : No Label provided</p>";
+      document.getElementById("erro").innerHTML="<p style='color:#FF0000;font-family:Product Sans''>ERROR: No label provided</p>";
       document.getElementById("erro").style.display="block";
       document.getElementById("error").innerHTML="";
       document.getElementById("error").style.display="hidden";
     }
     else if(flagname==1&&flaglink===1){
-      document.getElementById("error").innerHTML="<p style='color:#FF0000;font-family:Product Sans''>ERROR : Incorrect Website URL</p>";
+      document.getElementById("error").innerHTML="<p style='color:#FF0000;font-family:Product Sans''>ERROR: Incorrect website URL</p>";
       document.getElementById("error").style.display="block";
-      document.getElementById("erro").innerHTML="<p style='color:#FF0000;font-family:Product Sans''>ERROR : No Label provided</p>";
+      document.getElementById("erro").innerHTML="<p style='color:#FF0000;font-family:Product Sans''>ERROR: No label provided</p>";
       document.getElementById("erro").style.display="block";
     }
     event.preventDefault();
