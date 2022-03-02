@@ -301,6 +301,12 @@ $(document).ready(function() {
     }
 });
 
+/* Function when i image is pressed*/
+
+function togglePopup(){
+  document.getElementById("popup1")
+  .classList.toggle("active")
+}
 
 /*Function that runs when custom button is pressed. Presents sweet alert then parses input accordingly*/
 function Custom() {
