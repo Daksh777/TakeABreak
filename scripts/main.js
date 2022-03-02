@@ -268,7 +268,7 @@ $(document).ready(function() {
             count = 1;
           }
         } else {
-          swal("Please enter a valid website URL!!")
+          swal("Please enter a valid website URL!")
         }
         
     });
