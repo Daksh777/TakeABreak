@@ -34,51 +34,6 @@ html {
     padding:5px 5px;
 }
 
-.popup .overlay{
-    position:fixed;
-    top:0;left:0;
-    background:rgba(0,0,0,.8);
-    height:100%;
-    width:100%;
-    z-index: 1;
-    display:none;
-}
-
-.popup .content{
-    position:absolute;
-    top:50%;left:50%;
-    transform:translate(-50%,-50%) scale(0);
-    background:#222;
-    font-family: 'Product Sans', sans-serif;
-    border-radius:10px;
-    width:450px;
-    height:300px;
-    z-index:2;
-    text-align:center;
-    padding:20px;
-    box-sizing:border-box;
-    object-fit:cover;
-}
-
-.popup .content .button{
-    padding:10px 50px;
-    bottom:-40px;
-    font-family: 'Product Sans', sans-serif;
-    font-weight:lighter;
-    background-color:#8cb3ee;
-    color:black;
-    font-display:block ;
-}
-
-.popup.active .overlay{
-    display:block;
-}
-
-.popup.active .content{
-    transition:all 300ms ease-in-out;
-    transform:translate(-50%,-50%) scale(1);
-}
-
 #delete {
     border-color: transparent;
 }

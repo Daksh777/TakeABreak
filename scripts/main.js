@@ -302,10 +302,8 @@ $(document).ready(function() {
 });
 
 /* Function when i image is pressed*/
-
-function togglePopup(){
-  document.getElementById("popup1")
-  .classList.toggle("active")
+function togglePopup (){ 
+  swal("Welcome!", "Select a break time, go to your favorite website and when the time's up, your tab will self-destruct!")
 }
 
 /*Function that runs when custom button is pressed. Presents sweet alert then parses input accordingly*/
