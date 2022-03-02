@@ -274,11 +274,16 @@ $(document).ready(function() {
         }
     });
 
+    // Check if the enter url is valid or not using a regex
+    const isUrlValid = () => {
+      enteredUrl = $('#enterUrl').val();
+      res = enteredUrl.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+      return ( res !== null );
+    }
+
     /*Runs on 'enter url' click*/
     $('#urlClick').click(function() {
-        enteredUrl = $('#enterUrl').val();
-        res = enteredUrl.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-        if(res !== null) {
+        if(isUrlValid()) {
           if (count == 0) {
             customUrl();
             count = 1;
@@ -288,6 +293,21 @@ $(document).ready(function() {
         }
         
     });
+
+    $('body').keyup(e => {
+
+      isVisible = $('.content').hasClass('visible')
+      if(e.key === 'Enter' &&  isVisible) {
+        if(isUrlValid()) {
+          if (count == 0) {
+            customUrl();
+            count = 1;
+          }
+        } else {
+          swal("Please enter a valid website URL!");
+        }
+      }
+    })
     /*$(".outbound-link").fancybox({
 
         maxWidth: 800,
@@ -327,6 +347,7 @@ $(document).ready(function() {
 
 /*Function that runs when custom button is pressed. Presents sweet alert then parses input accordingly*/
 function Custom() {
+    $('.content').removeClass('visible');
     swal({
             title: "Custom Time",
             text: "How long do you want a break (in minutes)?",
@@ -360,6 +381,9 @@ function choice(minutes) {
     }
     min = minutes;
     $(".content").fadeIn();
+    setTimeout(() => {
+      $(".content").addClass('visible');
+    }, 400);
     $(window).animate({
         scrollTop: $(".custom-url").offset().top + 80
     }, 500);
@@ -583,15 +607,15 @@ function startTimer(duration, display) {
 //     }
 // };
 // check if input form has focus, then check if enter button pressed
-$(document).ready(function(e) {
-    $("#enterUrl").focus(function() {
-        $(document).keypress(function(e) {
-            if (e.which == 13 && run == 1) {
-                customUrl();
-            }
-        });
-    });
-});
+// $(document).ready(function(e) {
+//     $("#enterUrl").focus(function() {
+//         $(document).keypress(function(e) {
+//             if (e.which == 13 && run == 1) {
+//                 customUrl();
+//             }
+//         });
+//     });
+// });
 
 function customUrl() {
     if (count == 0) {
