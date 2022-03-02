@@ -224,7 +224,16 @@ $(document).ready(function() {
     var flag=0;
     if(site_link.trim()===""){
       flag=1;
-      swal("No site link found !!")
+      swal({
+        title: '<h4 style="color:red;">Incorrect Website URL</h4>',
+        html:
+          '<h4 style="color:red;">Incorrect Website URL</h4> ',
+          type: "warning",
+            
+      },
+      function(){
+        $('#myModal').modal('toggle');
+  })
     }
     else if (~!site_link.indexOf("http")) {
         site_link = "http://"+site_link;
@@ -234,9 +243,7 @@ $(document).ready(function() {
     addGridElement(site, site_link);
     }
 
-    
-
-    event.preventDefault();
+   event.preventDefault();
 });
 
     $('.content').on('click', '.delete', function() {
