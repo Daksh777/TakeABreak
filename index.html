@@ -7,6 +7,10 @@
     <link rel="icon" type="image/x-icon" href="assets/icon.svg">
     <link rel="stylesheet" href="styles/IconFont.css">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+     
+    <!-- @Google icon and Font Awesome icon pack link -------------------------------------------------------------------------------------->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="scripts/jquery.min.js"></script>
     
@@ -34,9 +38,32 @@
 
 <body class="main">
 
+    <!-- @A dropdown menu for controlling notifications and audio alerts.----------------------------------------------------------------------------------------------------------------------------- -->
+        <div class="dropdown" style="display: inline-block; width: 100%; position: relative;">
+            <button class="dropbtn"  >
+                <span class="material-icons" onmouseover="inside()" onmouseout="outside()" style="font-size: 2.3em;">settings</span>
+                <!-- <i class="fa fa-cog" onmouseover="inside()" onmouseout="outside()" style="font-size: 2.3em;"></i> -->
+            </button>
+            <div class="container" onmouseover="inside()" onmouseout="outside()">
+                <ul id="list" style="display: none;">
+                    <li><a href="javascript:void(0);" id="list1" onclick="list1click()">Notifications On <span class="material-icons">notifications</span></a></li>
+                    <li><a href="javascript:void(0);" id="list3" onclick="list3click()" style="display: none;">Notifications Off <span class="material-icons">notifications_off</span></a></li>
+                    <li><a href="javascript:void(0);" id="list2" onclick="list2click()">Audio Alerts On<span class="material-icons">volume_up</span></a></li>
+                    <li><a href="javascript:void(0);" id="list4" onclick="list4click()" style="display: none;">Audio Alerts Off<span class="material-icons">volume_off</span></a></li>
+                </ul>
+            </div>
+        </div>
         <h1 id="header">Take a Break</h1>
         <h2 id="subHeader" href="">Select a time to start your break</h2>
         <div id="time" style="display: none"></div>
+
+        <!-- @2 computerised voice alert audio added which will not be visible on home screen----------------------------------------------- -->
+        <div>
+            <audio id="audio1" src="assets/male50.mp3" controls style="display: none;"></audio>
+            <audio id="audio2" src="assets/male90.mp3" controls style="display: none;"></audio>
+        </div>
+
+
         <div class="buttons" id="buttons">
             <ul>
                 

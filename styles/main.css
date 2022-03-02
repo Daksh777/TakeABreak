@@ -143,6 +143,42 @@ ul.rig.columns-6 li {
     }
 }
 
+
+
+/* Styling of the Dropdown begins------------------------------------------------------------------------------------------------------ */
+.dropbtn{
+    padding: 0rem;
+    margin: 1rem 0rem 0rem 2rem;
+ }
+ .dropbtn:hover{
+    cursor: pointer;
+
+ }
+ .container{
+    margin: -0.3rem 0rem 0rem -1.2rem;
+    position: absolute;
+ }
+ .container a{
+    text-decoration: none;
+    color: white;
+
+ }
+ .container a:hover{
+    font-size: 1.2rem;
+    color: grey;
+ }
+ .container ul{
+    list-style-type: none;
+    box-shadow: 2px 2px 2px gray;
+    border-radius: 0.25rem;
+ }
+ #list span{
+     margin: 1rem 0rem 0rem 0.2rem;
+ }
+/* Dropdown Styling Ends-------------------------------------------------------------------------------------------------------------- */
+
+
+
 .button,
 input.button {
     position: relative;
