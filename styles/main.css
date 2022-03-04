@@ -48,12 +48,15 @@ html {
 
 #delete {
     border-color: transparent;
-    height: 20px;
+    height: 30px;
+    width: 30px;
     cursor: pointer;
     z-index: 100;
-    margin-left: -22px;
-    margin-top: -3.7vh;
+    margin-left: -37px;
+    margin-top: -5.9vh;
     padding-top: 19vh;
+    padding-right: 5px;
+    color: red;
 }
 
 @media screen and (max-width:690px) {
