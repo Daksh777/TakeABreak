@@ -388,6 +388,7 @@ $(document).ready(function () {
       background: "#353535",
       confirmButtonColor: '#8cb3ee',
       color: "white",
+      icon: "info",
     })
   }
 });
