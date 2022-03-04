@@ -320,7 +320,7 @@ $(document).ready(function () {
         count = 1;
       }
     } else {
-      Swal.fire("Please enter a valid website URL!")
+      Swal.fire({text: "Please enter a valid website URL!", icon: "error"})
     }
 
   });
@@ -335,7 +335,7 @@ $(document).ready(function () {
           count = 1;
         }
       } else {
-        Swal.fire("Please enter a valid website URL!");
+        Swal.fire({text: "Please enter a valid website URL!", icon: "error"});
       }
     }
   })
