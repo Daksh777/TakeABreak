@@ -391,7 +391,7 @@ function Custom() {
     inputPlaceholder: "Time in minutes",
     allowOutsideClick: false,
     preConfirm: (inputValue) => {
-      console.log(inputValue);
+      // console.log(inputValue);
       if (inputValue === false) {
         return false;
       }
