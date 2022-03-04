@@ -9,7 +9,6 @@ async function getJson(url) {
 }
 async function DailyQuotes() {
   quote = await getJson(apiUrl)
-  console.log(jsondata);
 }
 DailyQuotes();
 //Random quote generated
