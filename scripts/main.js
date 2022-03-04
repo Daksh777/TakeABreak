@@ -389,6 +389,8 @@ function Custom() {
     confirmButtonText: "Let's go!",
     showCancelButton: true,
     inputPlaceholder: "Time in minutes",
+    background: "#353535",
+    color: "white",
     allowOutsideClick: false,
     preConfirm: (inputValue) => {
       // console.log(inputValue);
@@ -477,6 +479,8 @@ function OpenInNew(min, tab, type) {
         title: "Time's up, back to work!",
         // text: "<b><u>Quote of the day</u></b><br><br>" + "\"I’m a greater believer in luck, and I find the harder I work the more I have of it\"" + " -Thomas Jefferson",
         html: quote,
+        background: "#353535",
+        color: "white",
         imageSize: "200x200",
         confirmButtonText: 'OK',
         animation: "slide-from-top",
@@ -533,6 +537,8 @@ function OpenInNew(min, tab, type) {
           // animation: "slide-from-top",
           confirmButtonText: "Keep Browsing!",
           denyButtonText: "I'm done",
+          background: "#353535",
+          color: "white",
         }).then((result) => {
           if (result.isDenied) {
             window.location = "index.html";
