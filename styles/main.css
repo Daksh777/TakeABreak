@@ -4,6 +4,10 @@
     font-family: 'Product Sans';
 }
 
+.swal2-styled.swal2-confirm {
+    color: #000;
+}
+
 body,
 html {
     overflow: auto !important;
@@ -151,6 +155,7 @@ ul.rig.columns-6 li {
     input[type=select],
     input[type=text] {
         padding: 0px 25px !important;
+        margin: 0;
     }
 }
 
@@ -413,9 +418,8 @@ input[type=password],
 input[type=select],
 input[type=text] {
     height: 40px;
-    margin: 0 auto;
     padding: 0 25px;
-    background: #353535;
+    background: #1f1f1f;
     border-radius: 5px;
     border: none;
     outline: 0;

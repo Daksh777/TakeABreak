@@ -403,10 +403,12 @@ function Custom() {
     input: 'text',
     animation: "slide-from-top",
     confirmButtonText: "Let's go!",
+    confirmButtonTextColor: "black",
     showCancelButton: true,
     inputPlaceholder: "Time in minutes",
     background: "#353535",
     color: "white",
+    inputColor: '#1f1f1f',
     confirmButtonColor: '#8cb3ee',
     allowOutsideClick: false,
     preConfirm: (inputValue) => {
