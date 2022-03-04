@@ -327,7 +327,7 @@ function Custom() {
                 return true
             } 
             else {
-                swal.showInputError("Please enter valid number!");
+                alert("Please enter valid number!");
                 return false
             }
             /*choice(inputValue);
