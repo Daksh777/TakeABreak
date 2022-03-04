@@ -320,9 +320,14 @@ $(document).ready(function () {
         count = 1;
       }
     } else {
-      Swal.fire({text: "Please enter a valid website URL!", icon: "error"})
+      Swal.fire({
+        html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter a valid website URL!</p>",
+        background: "#353535",
+        color: "white",
+        icon: "error",
+        confirmButtonColor: '#8cb3ee',
+      })
     }
-
   });
 
   $('body').keyup(e => {
@@ -335,7 +340,13 @@ $(document).ready(function () {
           count = 1;
         }
       } else {
-        Swal.fire({text: "Please enter a valid website URL!", icon: "error"});
+        Swal.fire({
+          html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter a valid website URL!</p>",
+          background: "#353535",
+          icon: "error",
+          confirmButtonColor: '#8cb3ee',
+          color: "white",
+        });
       }
     }
   })
@@ -372,7 +383,13 @@ $(document).ready(function () {
   if (Lockr.get('pastUser') == undefined) {
     Lockr.set('pastUser', 'yes');
 
-    Swal.fire("Welcome!", "Select a break time, go to your favorite website and when the time's up, your tab will self-destruct!", "info")
+    Swal.fire({
+      html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Welcome! Select a break time, go to your favorite website and when the time's up, your tab will self-destruct!</p>",
+      background: "#353535",
+      confirmButtonColor: '#8cb3ee',
+      color: "white",
+      icon: "info",
+    })
   }
 });
 
@@ -382,14 +399,17 @@ function Custom() {
   $('.content').removeClass('visible');
   Swal.fire({
     title: "Custom Time",
-    text: "How long do you want a break (in minutes)?",
+    html: "<p style='font-family:Product Sans; letter-spacing:1px;'>How long do you want a break (in minutes)?</p>",
     input: 'text',
     animation: "slide-from-top",
     confirmButtonText: "Let's go!",
+    confirmButtonTextColor: "black",
     showCancelButton: true,
     inputPlaceholder: "Time in minutes",
     background: "#353535",
     color: "white",
+    inputColor: '#1f1f1f',
+    confirmButtonColor: '#8cb3ee',
     allowOutsideClick: false,
     preConfirm: (inputValue) => {
       // console.log(inputValue);
@@ -397,7 +417,14 @@ function Custom() {
         return false;
       }
       if (inputValue === "") {
-        Swal.fire({text: "You need to write something!", icon: "error"});
+        Swal.fire({
+          html: "<p style='font-family:Product Sans; letter-spacing:1px;'>You need to write something!</p>",
+          text: "",
+          background: "#353535",
+          confirmButtonColor: '#8cb3ee',
+          color: "white",
+          icon: "error",
+        });
         return false
       }
       if (inputValue >= 0) {
@@ -407,9 +434,10 @@ function Custom() {
       }
       else {
         Swal.fire({
-          text: "Please enter valid number!",
-          icon: "error",
+
+          html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter valid number!</p>",
           background: "#353535",
+          confirmButtonColor: '#8cb3ee',
           color: "white",
         });
         return false
@@ -495,6 +523,7 @@ function OpenInNew(min, tab, type) {
         color: "white",
         imageSize: "200x200",
         confirmButtonText: 'OK',
+        confirmButtonColor: '#8cb3ee',
         animation: "slide-from-top",
         filter: 'blur(10px)',
         allowOutsideClick: false,
@@ -545,9 +574,10 @@ function OpenInNew(min, tab, type) {
         Swal.fire({
           showCancelButton: true,
           title: "You closed out early!",
-          text: "Keep browsing to visit other sites before time's up",
+          html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Keep browsing to visit other sites before time's up</p>",
           // animation: "slide-from-top",
           confirmButtonText: "Keep Browsing!",
+          confirmButtonColor: '#8cb3ee',
           denyButtonText: "I'm done",
           background: "#353535",
           color: "white",
