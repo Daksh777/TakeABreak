@@ -9,7 +9,6 @@ async function getJson(url) {
 }
 async function DailyQuotes() {
   quote = await getJson(apiUrl)
-  console.log(jsondata);
 }
 DailyQuotes();
 //Random quote generated
@@ -325,6 +324,7 @@ $(document).ready(function () {
         html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter a valid website URL!</p>",
         background: "#353535",
         color: "white",
+        icon: "error",
         confirmButtonColor: '#8cb3ee',
       })
     }
@@ -343,6 +343,7 @@ $(document).ready(function () {
         Swal.fire({
           html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter a valid website URL!</p>",
           background: "#353535",
+          icon: "error",
           confirmButtonColor: '#8cb3ee',
           color: "white",
         });
@@ -419,6 +420,7 @@ function Custom() {
           background: "#353535",
           confirmButtonColor: '#8cb3ee',
           color: "white",
+          icon: "error",
         });
         return false
       }
