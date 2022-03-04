@@ -5,7 +5,7 @@
 }
 
 .swal2-styled.swal2-confirm {
-    color: #000;
+    color: #000 !important;
 }
 
 body,
