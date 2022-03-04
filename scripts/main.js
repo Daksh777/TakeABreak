@@ -372,7 +372,7 @@ $(document).ready(function () {
   if (Lockr.get('pastUser') == undefined) {
     Lockr.set('pastUser', 'yes');
 
-    Swal.fire("Welcome!", "Select a break time, go to your favorite website and when the time's up, your tab will self-destruct!")
+    Swal.fire("Welcome!", "Select a break time, go to your favorite website and when the time's up, your tab will self-destruct!", "info")
   }
 });
 
@@ -397,7 +397,7 @@ function Custom() {
         return false;
       }
       if (inputValue === "") {
-        Swal.fire("You need to write something!");
+        Swal.fire({text: "You need to write something!", icon: "error"});
         return false
       }
       if (inputValue >= 0) {
@@ -408,6 +408,7 @@ function Custom() {
       else {
         Swal.fire({
           text: "Please enter valid number!",
+          icon: "error",
           background: "#353535",
           color: "white",
         });
@@ -489,6 +490,7 @@ function OpenInNew(min, tab, type) {
         title: "Time's up, back to work!",
         // text: "<b><u>Quote of the day</u></b><br><br>" + "\"I’m a greater believer in luck, and I find the harder I work the more I have of it\"" + " -Thomas Jefferson",
         html: quote,
+        icon: "success",
         background: "#353535",
         color: "white",
         imageSize: "200x200",
