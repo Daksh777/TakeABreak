@@ -14,7 +14,8 @@
 - [ ] This PR does not contain plagiarized content.
 - [ ] The title of my pull request is a short description of the requested changes.
 
-### 📄 Note to reviewers
+
+### 📷 Screenshots
 
 
-## 📷 Screenshots
+### 📄 Note to reviewers (optional)
