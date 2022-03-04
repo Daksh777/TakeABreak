@@ -39,18 +39,22 @@
 <body class="main">
 
     <!-- @A dropdown menu for controlling notifications and audio alerts.----------------------------------------------------------------------------------------------------------------------------- -->
-        <div class="dropdown" style="display: inline-block; width: 100%; position: relative;">
-            <button class="dropbtn"  >
-                <span class="material-icons" onmouseover="inside()" onmouseout="outside()" style="font-size: 2.3em;">settings</span>
-                <!-- <i class="fa fa-cog" onmouseover="inside()" onmouseout="outside()" style="font-size: 2.3em;"></i> -->
-            </button>
-            <div class="container" onmouseover="inside()" onmouseout="outside()">
-                <ul id="list" style="display: none;">
-                    <li><a href="javascript:void(0);" id="list1" onclick="list1click()">Notifications On <span class="material-icons">notifications</span></a></li>
-                    <li><a href="javascript:void(0);" id="list3" onclick="list3click()" style="display: none;">Notifications Off <span class="material-icons">notifications_off</span></a></li>
-                    <li><a href="javascript:void(0);" id="list2" onclick="list2click()">Audio Alerts On<span class="material-icons">volume_up</span></a></li>
-                    <li><a href="javascript:void(0);" id="list4" onclick="list4click()" style="display: none;">Audio Alerts Off<span class="material-icons">volume_off</span></a></li>
-                </ul>
+        <div class="top">
+            <a class="dropbtn" onmouseover="inside2()" onmouseout="outside2()" onclick="btnClick()">
+                <img src="assets/settings.svg" width="35rem" height="35rem" style="background-color: #232323; border: none;"  >
+            </a><br>
+            <div class="list" id="list2" onmouseover="inside2()" onmouseout="outside2()"> 
+                <p id="show"></p>
+                <label class="switch" id="switch1" >
+                    <input type="checkbox" >
+                    <span onclick="Notif_Click()">Notifications</span>
+                  </label>
+                  <br>
+                  <label class="switch" id="switch2" style="padding-bottom: 0.6rem;" >
+                    <input type="checkbox" >
+                    <span onclick="Audio_Click()" >Audio Alerts</span>
+                  </label>
+                  <br>
             </div>
         </div>
         <h1 id="header">Take a Break</h1>

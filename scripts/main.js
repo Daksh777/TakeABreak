@@ -302,56 +302,45 @@ $(document).ready(function() {
 });
 
 //@Runs when the settings dropdown is Hovered-----------------------------------------------------------------------------------------------------
-var flag1=0;
-var flag2=0;
-function inside(){
-  document.getElementById("list").style.display="block";
+var flag3=0;
+
+function inside2(){
+  document.getElementById("list2").style.display="block";
 }
-function outside(){
-  document.getElementById("list").style.display="none";
+function outside2(){
+  document.getElementById("list2").style.display="none";
+}
+function btnClick(){
+  if(flag3==0){
+    document.getElementById("list2").style.display="block";
+    flag3=1;
+  }
+  else{
+    document.getElementById("list2").style.display="none";
+    flag3=0;
+  }
 }
 
 //@Runs when the list elements of the dropdown is clicked------------------------------------------------------------------------------------------
-function list1click(){
-  document.getElementById("list3").style.display="block";
-  document.getElementById("list1").style.display="none";
+var flag1=0;
+var flag2=0;
+function Notif_Click(){
   if(flag1==0){
+    document.getElementById("show").innerHTML="";
     flag1=1;
   }
   else{
+    document.getElementById("show").innerHTML="";
     flag1=0;
   }
 }
-function list2click(){
-  document.getElementById("list4").style.display="block";
-  document.getElementById("list2").style.display="none";
-
+function Audio_Click(){
   if(flag2==0){
+    document.getElementById("show").innerHTML="";
     flag2=1;
   }
   else{
-    flag2=0;
-  }
-}
-function list3click(){
-  document.getElementById("list1").style.display="block";
-  document.getElementById("list3").style.display="none";
-
-  if(flag1==0){
-    flag1=1;
-  }
-  else{
-    flag1=0;
-  }
-}
-function list4click(){
-  document.getElementById("list2").style.display="block";
-  document.getElementById("list4").style.display="none";
-
-  if(flag2==0){
-    flag2=1;
-  }
-  else{
+    document.getElementById("show").innerHTML="";
     flag2=0;
   }
 }
@@ -439,14 +428,14 @@ function OpenInNew(min, tab, type) {
           function halfAlertAudio(){
             var a1=document.getElementById("audio1");
             // plays the alert if audio permission in dropdown is allowed
-            if(flag2==0){
+            if(flag2==1){
               a1.play();
             }
           }
           function fullAlertAudio(){
             var a2=document.getElementById("audio2");
             // plays the alert if audio permission in dropdown is allowed
-            if(flag2==0){
+            if(flag2==1){
               a2.play();
             }
           }
@@ -645,7 +634,7 @@ function startTimer(duration, display) {
             if(diff==duration*0.5){ 
               showNotification1();
               function showNotification1() {
-                if(flag1==0){
+                if(flag1==1){
                   const notification=new Notification("New Message from TakeABreak!",{
                     body: "50% of your break is over",
                     icon: "assets/banner.png",
@@ -662,7 +651,7 @@ function startTimer(duration, display) {
             else if(diff==duration*0.1){
               showNotification2();
               function showNotification2() {
-                if(flag1==0){
+                if(flag1==1){
                   const notification=new Notification("New Message from TakeABreak!",{
                     body: "90% of your break is over",
                     icon: "assets/banner.png",
