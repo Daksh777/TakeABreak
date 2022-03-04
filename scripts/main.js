@@ -401,8 +401,19 @@ function Custom() {
         Swal.fire("You need to write something!");
         return false
       }
-      choice(inputValue);
-      $(".content").css("display", "inline");
+      if (inputValue >= 0) {
+        choice(inputValue);
+        $(".content").css("display", "inline");
+        return true
+      }
+      else {
+        Swal.fire({
+          text: "Please enter valid number!",
+          background: "#353535",
+          color: "white",
+        });
+        return false
+      }
     }
   });
 };
