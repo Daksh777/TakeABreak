@@ -33,10 +33,37 @@
 </head>
 
 <body class="main">
+    <!-- @A dropdown menu for controlling notifications and audio alerts.----------------------------------------------------------------------------------------------------------------------------- -->
+    <div class="top">
+        <a class="dropbtn" onmouseover="inside2()" onmouseout="outside2()" onclick="btnClick()">
+            <img src="assets/settings.svg" width="35rem" height="35rem" style="background-color: #232323; border: none;"  >
+        </a><br>
+        <div class="list" id="list2" onmouseover="inside2()" onmouseout="outside2()"> 
+            <p id="show"></p>
+            <label class="switch" id="switch1" >
+                <input type="checkbox" >
+                <span onclick="Notif_Click()">Notifications</span>
+              </label>
+              <br>
+              <label class="switch" id="switch2" style="padding-bottom: 0.6rem;" >
+                <input type="checkbox" >
+                <span onclick="Audio_Click()" >Audio Alerts</span>
+              </label>
+              <br>
+        </div>
+    </div>
 
         <h1 id="header">Take a Break</h1>
         <h2 id="subHeader" href="">Select a time to start your break</h2>
         <div id="time" style="display: none"></div>
+
+        <!-- @2 computerised voice alert audio added which will not be visible on home screen----------------------------------------------- -->
+        <div>
+            <audio id="audio1" src="assets/male50.mp3" controls style="display: none;"></audio>
+            <audio id="audio2" src="assets/male90.mp3" controls style="display: none;"></audio>
+        </div>
+
+
         <div class="buttons" id="buttons">
             <ul>
                 

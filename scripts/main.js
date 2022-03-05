@@ -302,6 +302,53 @@ $(document).ready(function() {
 });
 
 
+
+//@Runs when the settings dropdown is Hovered-----------------------------------------------------------------------------------------------------
+var flag3=0;
+
+function inside2(){
+  document.getElementById("list2").style.display="block";
+}
+function outside2(){
+  document.getElementById("list2").style.display="none";
+}
+function btnClick(){
+  if(flag3==0){
+    document.getElementById("list2").style.display="block";
+    flag3=1;
+  }
+  else{
+    document.getElementById("list2").style.display="none";
+    flag3=0;
+  }
+}
+
+//@Runs when the list elements of the dropdown is clicked------------------------------------------------------------------------------------------
+var flag1=0;
+var flag2=0;
+function Notif_Click(){
+  if(flag1==0){
+    document.getElementById("show").innerHTML="";
+    flag1=1;
+  }
+  else{
+    document.getElementById("show").innerHTML="";
+    flag1=0;
+  }
+}
+function Audio_Click(){
+  if(flag2==0){
+    document.getElementById("show").innerHTML="";
+    flag2=1;
+  }
+  else{
+    document.getElementById("show").innerHTML="";
+    flag2=0;
+  }
+}
+
+
+
 /*Function that runs when custom button is pressed. Presents sweet alert then parses input accordingly*/
 function Custom() {
     swal({
@@ -348,6 +395,8 @@ var complete = false;
 var windowCount = 0;
 //Stores windows
 var windows = [];
+var first=true; //@a variable to check whether a function is being called for the first time--------------------------------------------
+
 
 function OpenInNew(min, tab, type) {
     /*MAJOR KEY*/
@@ -369,11 +418,33 @@ function OpenInNew(min, tab, type) {
     }
     if (count == 0) {
         count = 1;
-        time = min * 60000;
+        time = min * 60000 + 6000;
         var duration = 60 * min;
         timeDisplay = document.querySelector("#time");
         document.getElementById("buttons").style.visibility = "hidden";
         startTimer(duration, timeDisplay);
+
+        
+
+        //@Alert audio automatically plays after 50% and 90% time completion--------------------------------------------------------------
+        if(flag2==0){
+          var halfcall=setTimeout(halfAlertAudio , 0.5*time);
+          var fullcall=setTimeout(fullAlertAudio , 0.9*time);
+          function halfAlertAudio(){
+            var a1=document.getElementById("audio1");
+            // plays the alert if audio permission in dropdown is allowed
+            if(flag2==1){
+              a1.play();
+            }
+          }
+          function fullAlertAudio(){
+            var a2=document.getElementById("audio2");
+            // plays the alert if audio permission in dropdown is allowed
+            if(flag2==1){
+              a2.play();
+            }
+          }
+        }  
 
 
 
@@ -498,6 +569,12 @@ window.onunload = function() {
 //     return imgStr;
 // }
 
+//@Alert Permission to Display Desktop Notifications--------------------------------------------------------------------------------------------------
+if(Notification.permission !== 'denied'){ 
+  Notification.requestPermission()
+}
+
+
 function startTimer(duration, display) {
     var start = Date.now(),
         seconds,
@@ -507,7 +584,7 @@ function startTimer(duration, display) {
     function timer() {
         var once = 0;
         /*get the number of seconds that have elapsed since startTimer() was called*/
-        diff = duration - (((Date.now() - start) / 1000) | 0);
+        diff = duration + 6 - (((Date.now() - start) / 1000) | 0);//@Added 6sec to the total duration of timer-----------------------------
         // does the same job as parseInt truncates the float
         minutes = (diff / 60) | 0;
         seconds = (diff % 60) | 0;
@@ -522,7 +599,17 @@ function startTimer(duration, display) {
 
             } else if (diff < 60) {
                 display.textContent = seconds + " seconds";
-                document.title = seconds + " seconds";
+
+                //@stops the timer to be displayed on title till the loading page is shown--------------------------------
+                if(first==true){ 
+                  setTimeout(() => {
+                    first=false;
+                  }, 6000);
+                }
+                else{
+                  document.title = seconds + " seconds";
+                }
+
                 document.getElementById("subHeader").innerHTML = seconds + " seconds remaining!";
                 // if (diff == 15) {
                 //     var notification = new Notification('Take a break', {
@@ -532,7 +619,17 @@ function startTimer(duration, display) {
                 // }
             } else {
                 display.textContent = minutes + ":" + seconds + " minutes";
-                document.title = minutes + ":" + seconds + " minutes";
+
+                //@stops the timer to be displayed on title till the loading page is shown------------------------------------------------
+                if(first==true){ 
+                  setTimeout(() => {
+                    first=false;
+                  }, 6000);
+                }
+                else{
+                  document.title = minutes + ":" + seconds + " minutes";
+                }
+
                 document.getElementById("subHeader").innerHTML = minutes + ":" + seconds + " minutes remaining!";
             }
             if (diff <= 0) {
@@ -540,6 +637,42 @@ function startTimer(duration, display) {
                 // example 05:00 not 04:59
                 start = Date.now() + 1000;
             }
+            //@Executes after 50percent of the time is over----------------------------------------------------------------------------------
+            if(diff==duration*0.5){ 
+              showNotification1();
+              function showNotification1() {
+                if(flag1==1){
+                  const notification=new Notification("New Message from TakeABreak!",{
+                    body: "50% of your break is over",
+                    icon: "assets/banner.png",
+                    vibrate: true
+                  })
+                   
+                  setTimeout(() => {
+                    notification.close();
+                  }, 10000);
+                } 
+              } 
+            }
+            //@Executes after 90percent of the time is over----------------------------------------------------------------------------------
+            else if(diff==duration*0.1){
+              showNotification2();
+              function showNotification2() {
+                if(flag1==1){
+                  const notification=new Notification("New Message from TakeABreak!",{
+                    body: "90% of your break is over",
+                    icon: "assets/banner.png",
+                    vibrate: true
+                  })
+                  
+                  setTimeout(() => {
+                    notification.close();
+                  }, 10000);
+                }
+              }
+            }
+
+            
         }
         if (complete == true || diff == 0) {
             /*("cleared setInt");*/
