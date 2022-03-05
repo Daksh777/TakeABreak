@@ -339,10 +339,10 @@ $(document).ready(function () {
         background: "#353535",
         color: "white",
         icon: "error",
-        confirmButtonColor: '#8cb3ee',
+        
       })
     }
-  });
+  }); 
 
   $('body').keyup(e => {
 
@@ -358,7 +358,7 @@ $(document).ready(function () {
           html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter a valid website URL!</p>",
           background: "#353535",
           icon: "error",
-          confirmButtonColor: '#8cb3ee',
+          
           color: "white",
         });
       }
@@ -400,7 +400,7 @@ $(document).ready(function () {
     Swal.fire({
       html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Welcome! Select a break time, go to your favorite website and when the time's up, your tab will self-destruct!</p>",
       background: "#353535",
-      confirmButtonColor: '#8cb3ee',
+      
       color: "white",
       icon: "info",
     })
@@ -422,7 +422,7 @@ function Custom() {
     background: "#353535",
     color: "white",
     inputColor: '#1f1f1f',
-    confirmButtonColor: '#8cb3ee',
+    
     allowOutsideClick: false,
     preConfirm: (inputValue) => {
       // console.log(inputValue);
@@ -434,7 +434,7 @@ function Custom() {
           html: "<p style='font-family:Product Sans; letter-spacing:1px;'>You need to write something!</p>",
           text: "",
           background: "#353535",
-          confirmButtonColor: '#8cb3ee',
+          
           color: "white",
           icon: "error",
         });
@@ -450,7 +450,7 @@ function Custom() {
 
           html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter valid number!</p>",
           background: "#353535",
-          confirmButtonColor: '#8cb3ee',
+          
           color: "white",
         });
         return false
@@ -536,7 +536,7 @@ function OpenInNew(min, tab, type) {
         color: "white",
         imageSize: "200x200",
         confirmButtonText: 'OK',
-        confirmButtonColor: '#8cb3ee',
+        
         animation: "slide-from-top",
         filter: 'blur(10px)',
         allowOutsideClick: false,
@@ -590,7 +590,7 @@ function OpenInNew(min, tab, type) {
           html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Keep browsing to visit other sites before time's up</p>",
           // animation: "slide-from-top",
           confirmButtonText: "Keep Browsing!",
-          confirmButtonColor: '#8cb3ee',
+          
           denyButtonText: "I'm done",
           background: "#353535",
           color: "white",
@@ -820,11 +820,11 @@ function addGridElement(siteLabel, siteLink) {
     url: testLink,
     success: function () {
       $('.rig.columns-6.websites').append("<a class='siteLink' data-link=" + siteLink + " target='_blank'><li class='outbound-link' class='outbound-link'><img id='" + siteLabel + "' src='https://logo.clearbit.com/" + newLabel.toLowerCase() + ".com'/><p>" + newSiteLabel + "</p></li></a>");
-      $('.rig.columns-6.websites').append("<img src='https://img.icons8.com/plasticine/30/000000/filled-trash.png' class='delete' id='delete' data-tab = '" + siteLabel + "' data-name='" + siteLink + "'>");
+      $('.rig.columns-6.websites').append("<img src='../assets/delete.svg' class='delete' id='delete' data-tab = '" + siteLabel + "' data-name='" + siteLink + "'>");
     },
     error: function () {
       $('.rig.columns-6.websites').append("<a class='siteLink' data-link=" + siteLink + " target='_blank'><li class='outbound-link' class='outbound-link'><img id='" + siteLabel + "' src='assets//web.png'/><p>" + newSiteLabel + "</p></li></a>");
-      $('.rig.columns-6.websites').append("<img src='https://img.icons8.com/plasticine/30/000000/filled-trash.png' style='cursor:pointer' id='delete' class='delete' data-tab = '" + siteLabel + "' data-name='" + siteLink + "'>");
+      $('.rig.columns-6.websites').append("<img src='../assets/delete.svg' style='cursor:pointer' id='delete' class='delete' data-tab = '" + siteLabel + "' data-name='" + siteLink + "'>");
     }
   });
 };

@@ -6,6 +6,7 @@
 
 .swal2-styled.swal2-confirm {
     color: #000 !important;
+    background-color: #8cb3ee !important;
 }
 
 body,
@@ -41,22 +42,19 @@ html {
     }
 }
 
-
 #delete {
     border-color: transparent;
 }
 
 #delete {
     border-color: transparent;
-    height: 30px;
-    width: 30px;
     cursor: pointer;
     z-index: 100;
-    margin-left: -37px;
-    margin-top: -5.9vh;
+    margin-left: -25px;
+    margin-top: -4.5vh;
     padding-top: 19vh;
     padding-right: 5px;
-    color: red;
+  
 }
 
 @media screen and (max-width:690px) {
