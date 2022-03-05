@@ -812,7 +812,7 @@ function updateSites() {
 function addGridElement(siteLabel, siteLink) {
   var newLabel = siteLabel.replace(/\s+/g, '');
   var testLink = 'https://logo.clearbit.com/' + newLabel.toLowerCase() + '.com';
-  var newSiteLabel = siteLabel.substring(0, 7);
+  var newSiteLabel = siteLabel.substring(0, 14);
   var newSiteLabel = newSiteLabel.replace(/\s/g, '&nbsp;')
 
   $.ajax({
