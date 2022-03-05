@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+.swal2-styled {
+    font-family: 'Product Sans';
+}
+
+.swal2-styled.swal2-confirm {
+    color: #000 !important;
+    background-color: #8cb3ee !important;
+}
+
 body,
 html {
     overflow: auto !important;
@@ -25,29 +36,31 @@ html {
     html {
         padding: 10px;
     }
+
     .buttons ul {
         left: 54%;
     }
 }
 
-
 #delete {
     border-color: transparent;
 }
+
 #delete {
     border-color: transparent;
-    height: 20px;
     cursor: pointer;
     z-index: 100;
-    margin-left: -22px;
-    margin-top: -3.7vh;
-    padding-top: 19vh;
+    margin-left: -25px;
+    margin-top: -4.5vh;
+    padding-top: 5vh;
+    padding-right: 5px;
+  
 }
 
 @media screen and (max-width:690px) {
     #delete {
         margin-left: 232px;
-    margin-top: -27.2vh;
+        margin-top: -27.2vh;
     }
 }
 
@@ -128,18 +141,22 @@ ul.rig.columns-6 li {
     ul.rig.columns-6 li {
         width: auto;
     }
+
     ul.rig li {
         display: list-item;
         margin: 10%;
     }
+
     ul.rig.websites li p {
         font-size: 5vw;
     }
+
     .form-control,
     input[type=password],
     input[type=select],
     input[type=text] {
         padding: 0px 25px !important;
+        margin: 0;
     }
 }
 
@@ -566,9 +583,8 @@ input[type=password],
 input[type=select],
 input[type=text] {
     height: 40px;
-    margin: 0 auto;
     padding: 0 25px;
-    background: #353535;
+    background: #1f1f1f;
     border-radius: 5px;
     border: none;
     outline: 0;
@@ -1181,6 +1197,7 @@ input#enterUrl {
     padding: 0;
     line-height: normal
 }
+
 .sweet-alert fieldset {
     border: none;
     position: relative
@@ -1355,7 +1372,7 @@ button.confirm {
     box-shadow: none !important;
 }
 
-.confirm .sweet-alert button:hover{
+.confirm .sweet-alert button:hover {
     background-color: #75a8f5 !important;
 }
 
@@ -1656,6 +1673,30 @@ button.confirm {
     background: transparent !important;
     color: white !important;
 }
+
 .sweet-alert .cancel:hover {
     color: rgb(209, 209, 209) !important
+}
+
+.moti_title {
+    font-size: 18px;
+    padding-bottom: 7px;
+    font-family: 'Product Sans';
+}
+
+.moti_qoute {
+    font-size: 20px;
+    font-style: italic;
+    font-family: 'Roboto Slab', serif;
+}
+
+.moti_author {
+    margin-left: 40%;
+    font-size: 18px;
+    font-style: italic;
+    font-family: 'Roboto Slab', serif;
+}
+
+.sa-button-container {
+    margin-top: -5%;
 }
