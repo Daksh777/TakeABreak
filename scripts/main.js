@@ -825,7 +825,7 @@ function updateSites() {
 
 function addGridElement(siteLabel, siteLink) {
   var newLabel = siteLabel.replace(/\s+/g, '');
-  var testLink = 'https://logo.clearbit.com/' + newLabel.toLowerCase() + '.com';
+  var testLink = 'www.google.com/s2/favicons?domain='+siteLink;
   var newSiteLabel = siteLabel.substring(0, 14);
   var newSiteLabel = newSiteLabel.replace(/\s/g, '&nbsp;')
 
@@ -833,7 +833,7 @@ function addGridElement(siteLabel, siteLink) {
     type: 'HEAD',
     url: testLink,
     success: function () {
-      $('.rig.columns-6.websites').append("<a class='siteLink' data-link=" + siteLink + " target='_blank'><li class='outbound-link' class='outbound-link'><img id='" + siteLabel + "' src='https://logo.clearbit.com/" + newLabel.toLowerCase() + ".com'/><p>" + newSiteLabel + "</p></li></a>");
+      $('.rig.columns-6.websites').append("<a class='siteLink' data-link=" + siteLink + " target='_blank'><li class='outbound-link' class='outbound-link'><img id='" + siteLabel + "' src='www.google.com/s2/favicons?domain=" + siteLink + "'/><p>" + newSiteLabel + "</p></li></a>");
       $('.rig.columns-6.websites').append("<img src='../assets/delete.svg' class='delete' id='delete' data-tab = '" + siteLabel + "' data-name='" + siteLink + "'>");
     },
     error: function () {
