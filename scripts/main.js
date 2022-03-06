@@ -252,15 +252,7 @@ $(document).ready(function () {
     else if (~!site_link.indexOf("http")) {
       site_link = "http://" + site_link;
     }
-
-    /* Check if the url entered is valid or not using a regex */
-    function ValidUrl(){
-      UrlEntered = $('#inputSiteLink').val();
-      result = UrlEntered.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
-      return result;
-    }
-
-    if (flaglink != 1 && flagname != 1 && ValidUrl()) {
+    if (flaglink != 1 && flagname != 1) {
       Lockr.sadd('customSites', [site, site_link]);
       addGridElement(site, site_link);
       document.getElementById("error").innerHTML = "";
@@ -271,19 +263,13 @@ $(document).ready(function () {
       document.getElementById("inputSiteName").value = "";
       $('#myModal').modal('toggle');
     }
-    else if (flaglink === 1 && flagname != 1) {
+    if (flaglink === 1 && flagname != 1) {
       document.getElementById("error").innerHTML = "<p style='color:#FF0000;font-family:Product Sans'>ERROR: Incorrect website URL</p>";
       document.getElementById("error").style.display = "block";
       document.getElementById("erro").innerHTML = "";
       document.getElementById("erro").style.display = "hidden";
     }
-    else if (!ValidUrl() && flagname != 1) {
-      document.getElementById("error").innerHTML = "<p style='color:#FF0000;font-family:Product Sans'>ERROR: Incorrect website URL</p>";
-      document.getElementById("error").style.display = "block";
-      document.getElementById("erro").innerHTML = "";
-      document.getElementById("erro").style.display = "hidden";
-    }
-    else if (flagname === 1 && flaglink != 1) {
+    if (flagname === 1 && flaglink != 1) {
       document.getElementById("erro").innerHTML = "<p style='color:#FF0000;font-family:Product Sans''>ERROR: No label provided</p>";
       document.getElementById("erro").style.display = "block";
       document.getElementById("error").innerHTML = "";
