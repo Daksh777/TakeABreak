@@ -206,6 +206,14 @@ var tab;
 $(document).ready(function () {
   $('.total-container').fadeIn();
 
+  if (Lockr.get('notificationAlert')) {
+    document.getElementById("notification").checked = true;
+  }
+
+  if (Lockr.get('audioAlert')) {
+    document.getElementById("audioAlert").checked = true;
+  }
+
   updateSites();
 
   // get query string then run choice with that value.
@@ -254,7 +262,7 @@ $(document).ready(function () {
     }
 
     /* Check if the url entered is valid or not using a regex */
-    function ValidUrl(){
+    function ValidUrl() {
       UrlEntered = $('#inputSiteLink').val();
       result = UrlEntered.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
       return result;
@@ -353,10 +361,10 @@ $(document).ready(function () {
         background: "#353535",
         color: "white",
         icon: "error",
-        
+
       })
     }
-  }); 
+  });
 
   $('body').keyup(e => {
 
@@ -372,7 +380,7 @@ $(document).ready(function () {
           html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter a valid website URL!</p>",
           background: "#353535",
           icon: "error",
-          
+
           color: "white",
         });
       }
@@ -414,7 +422,7 @@ $(document).ready(function () {
     Swal.fire({
       html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Welcome! Select a break time, go to your favorite website and when the time's up, your tab will self-destruct!</p>",
       background: "#353535",
-      
+
       color: "white",
       icon: "info",
     })
@@ -422,58 +430,74 @@ $(document).ready(function () {
 });
 
 //@Runs when the settings dropdown is Hovered-----------------------------------------------------------------------------------------------------
-var flag3=0;
+var flag3 = 0;
 
-function inside2(){
-  document.getElementById("list2").style.display="block";
+function inside2() {
+  document.getElementById("list2").style.display = "block";
 }
-function outside2(){
-  document.getElementById("list2").style.display="none";
+function outside2() {
+  document.getElementById("list2").style.display = "none";
 }
-function btnClick(){
-  if(flag3==0){
-    document.getElementById("list2").style.display="block";
-    flag3=1;
+function btnClick() {
+  if (flag3 == 0) {
+    document.getElementById("list2").style.display = "block";
+    flag3 = 1;
   }
-  else{
-    document.getElementById("list2").style.display="none";
-    flag3=0;
+  else {
+    document.getElementById("list2").style.display = "none";
+    flag3 = 0;
   }
 }
 
 //@Runs when the list elements of the dropdown is clicked------------------------------------------------------------------------------------------
-var flag1=0;
-var flag2=0;
-function Notif_Click(){
-  if(flag1==0){
-    document.getElementById("show").innerHTML="";
-    flag1=1;
+var flag1 = 0;
+var flag2 = 0;
+function Notif_Click() {
+  if (flag1 == 0) {
+    document.getElementById("show").innerHTML = "";
+    flag1 = 1;
   }
-  else{
-    document.getElementById("show").innerHTML="";
-    flag1=0;
-  }
-}
-function Audio_Click(){
-  if(flag2==0){
-    document.getElementById("show").innerHTML="";
-    flag2=1;
-  }
-  else{
-    document.getElementById("show").innerHTML="";
-    flag2=0;
+  else {
+    document.getElementById("show").innerHTML = "";
+    flag1 = 0;
   }
 }
-var first=true; //@a variable to check whether a function is being called for the first time--------------------------------------------
+function Audio_Click() {
+  if (flag2 == 0) {
+    document.getElementById("show").innerHTML = "";
+    flag2 = 1;
+  }
+  else {
+    document.getElementById("show").innerHTML = "";
+    flag2 = 0;
+  }
+}
+
+var first = true; //@a variable to check whether a function is being called for the first time--------------------------------------------
 //@Alert Permission to Display Desktop Notifications--------------------------------------------------------------------------------------------------
-setInterval(function(){
-  if(flag1==1){
-    if(Notification.permission !== 'denied'){ 
+setInterval(function () {
+  if (flag1 == 1) {
+    if (Notification.permission !== 'denied') {
       Notification.requestPermission()
     }
   }
 }, 500);
 
+
+$("#notification").click(function (event) {
+  if (flag1 === 1)
+    Lockr.set('notificationAlert', true);
+  // console.log("True");
+  else
+    Lockr.set('notificationAlert', false);
+});
+
+$("#audioAlert").click(function (event) {
+  if (flag2 === 1)
+    Lockr.set('audioAlert', true);
+  else
+    Lockr.set('audioAlert', false);
+});
 
 /*Function that runs when custom button is pressed. Presents sweet alert then parses input accordingly*/
 function Custom() {
@@ -489,7 +513,7 @@ function Custom() {
     background: "#353535",
     color: "white",
     inputColor: '#1f1f1f',
-    
+
     allowOutsideClick: false,
     preConfirm: (inputValue) => {
       // console.log(inputValue);
@@ -501,7 +525,7 @@ function Custom() {
           html: "<p style='font-family:Product Sans; letter-spacing:1px;'>You need to write something!</p>",
           text: "",
           background: "#353535",
-          
+
           color: "white",
           icon: "error",
         });
@@ -517,7 +541,7 @@ function Custom() {
 
           html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter valid number!</p>",
           background: "#353535",
-          
+
           color: "white",
         });
         return false
@@ -580,22 +604,22 @@ function OpenInNew(min, tab, type) {
     startTimer(duration, timeDisplay);
 
     //@Alert audio automatically plays after 50% and 90% time completion--------------------------------------------------------------
-      var halfcall=setTimeout(halfAlertAudio , 0.5*time);
-      var fullcall=setTimeout(fullAlertAudio , 0.9*time);
-      function halfAlertAudio(){
-        var a1=document.getElementById("audio1");
-        // plays the alert if audio permission in dropdown is allowed
-        if(flag2==1){
-          a1.play();
-        }
+    var halfcall = setTimeout(halfAlertAudio, 0.5 * time);
+    var fullcall = setTimeout(fullAlertAudio, 0.9 * time);
+    function halfAlertAudio() {
+      var a1 = document.getElementById("audio1");
+      // plays the alert if audio permission in dropdown is allowed
+      if (flag2 == 1) {
+        a1.play();
       }
-      function fullAlertAudio(){
-        var a2=document.getElementById("audio2");
-        // plays the alert if audio permission in dropdown is allowed
-        if(flag2==1){
-          a2.play();
-        }
+    }
+    function fullAlertAudio() {
+      var a2 = document.getElementById("audio2");
+      // plays the alert if audio permission in dropdown is allowed
+      if (flag2 == 1) {
+        a2.play();
       }
+    }
 
 
 
@@ -621,7 +645,7 @@ function OpenInNew(min, tab, type) {
         color: "white",
         imageSize: "200x200",
         confirmButtonText: 'OK',
-        
+
         animation: "slide-from-top",
         filter: 'blur(10px)',
         allowOutsideClick: false,
@@ -675,7 +699,7 @@ function OpenInNew(min, tab, type) {
           html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Keep browsing to visit other sites before time's up</p>",
           // animation: "slide-from-top",
           confirmButtonText: "Keep Browsing!",
-          
+
           denyButtonText: "I'm done",
           background: "#353535",
           color: "white",
@@ -754,12 +778,12 @@ function startTimer(duration, display) {
         display.textContent = seconds + " seconds";
 
         //@stops the timer to be displayed on title till the loading page is shown--------------------------------
-        if(first==true){ 
+        if (first == true) {
           setTimeout(() => {
-            first=false;
+            first = false;
           }, 6000);
         }
-        else{
+        else {
           document.title = seconds + " seconds";
         }
 
@@ -774,12 +798,12 @@ function startTimer(duration, display) {
         display.textContent = minutes + ":" + seconds + " minutes";
 
         //@stops the timer to be displayed on title till the loading page is shown------------------------------------------------
-        if(first==true){ 
+        if (first == true) {
           setTimeout(() => {
-            first=false;
+            first = false;
           }, 6000);
         }
-        else{
+        else {
           document.title = minutes + ":" + seconds + " minutes";
         }
 
@@ -791,41 +815,41 @@ function startTimer(duration, display) {
         start = Date.now() + 1000;
       }
 
-    //@Executes after 50percent of the time is over----------------------------------------------------------------------------------
-    if(diff==duration*0.5){ 
-      showNotification1();
-      function showNotification1() {
-        if(flag1==1){
-          const notification=new Notification("New Message from TakeABreak!",{
-            body: "50% of your break is over",
-            icon: "assets/banner.png",
-            vibrate: true
-          })
-           
-          setTimeout(() => {
-            notification.close();
-          }, 10000);
-        } 
-      } 
-    }
-    //@Executes after 90percent of the time is over----------------------------------------------------------------------------------
-    else if(diff==duration*0.1){
-      showNotification2();
-      function showNotification2() {
-        if(flag1==1){
-          const notification=new Notification("New Message from TakeABreak!",{
-            body: "90% of your break is over",
-            icon: "assets/banner.png",
-            vibrate: true
-          })
-          
-          setTimeout(() => {
-            notification.close();
-          }, 10000);
+      //@Executes after 50percent of the time is over----------------------------------------------------------------------------------
+      if (diff == duration * 0.5) {
+        showNotification1();
+        function showNotification1() {
+          if (flag1 == 1) {
+            const notification = new Notification("New Message from TakeABreak!", {
+              body: "50% of your break is over",
+              icon: "assets/banner.png",
+              vibrate: true
+            })
+
+            setTimeout(() => {
+              notification.close();
+            }, 10000);
+          }
+        }
+      }
+      //@Executes after 90percent of the time is over----------------------------------------------------------------------------------
+      else if (diff == duration * 0.1) {
+        showNotification2();
+        function showNotification2() {
+          if (flag1 == 1) {
+            const notification = new Notification("New Message from TakeABreak!", {
+              body: "90% of your break is over",
+              icon: "assets/banner.png",
+              vibrate: true
+            })
+
+            setTimeout(() => {
+              notification.close();
+            }, 10000);
+          }
         }
       }
     }
-  }
 
     if (complete == true || diff == 0) {
       /*("cleared setInt");*/
