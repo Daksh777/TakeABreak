@@ -34,36 +34,61 @@
 </head>
 
 <body class="main">
-
-    <h1 id="header">Take a Break</h1>
-    <h2 id="subHeader" href="">Select a time to start your break</h2>
-    <div id="time" style="display: none"></div>
-    <div class="buttons" id="buttons">
-        <ul>
-
-            <li><a class="time-button" id="btn_front" onclick="choice(5)">5 min</a></li>
-            <li><a class="time-button" id="btn_midL" onclick="choice(10)">10 min</a></li>
-            <li><a class="time-button" id="btn_midR" onclick="choice(15)">15 min</a></li>
-            <li><a class="time-button" id="btn_end" onclick="Custom()">Custom</a></li>
-
-
-        </ul>
+    <!-- @A dropdown menu for controlling notifications and audio alerts.----------------------------------------------------------------------------------------------------------------------------- -->
+    <div class="top">
+        <a class="dropbtn" onmouseover="inside2()" onmouseout="outside2()" onclick="btnClick()">
+            <img src="assets/settings.svg" width="35rem" height="35rem" style="background-color: #232323; border: none;"  >
+        </a><br>
+        <div class="list" id="list2" onmouseover="inside2()" onmouseout="outside2()"> 
+            <p id="show"></p>
+            <label class="switch" id="switch1" >
+                <input type="checkbox" >
+                <span onclick="Notif_Click()">Notifications</span>
+              </label>
+              <br>
+              <label class="switch" id="switch2" style="padding-bottom: 0.6rem;" >
+                <input type="checkbox" >
+                <span onclick="Audio_Click()" >Audio Alerts</span>
+              </label>
+              <br>
+        </div>
     </div>
 
-    <div class="content" style="display: none">
-        <div class="custom-url">
-            <h3 id="content-label">Enter website directly</h3>
-            <div class="enterUrlDiv">
-                <input id="enterUrl" pattern="https?://.+" <!--onblur="checkURL(this)-->"
-                    class="form-control ui-autocomplete-input" placeholder="Go to..." name="keywords" type="url"
-                    autocomplete="off" style="background: #353535;">
-                <a id="urlClick" class="iconfont icon-arrow-right"></a>
-            </div>
+        <h1 id="header">Take a Break</h1>
+        <h2 id="subHeader" href="">Select a time to start your break</h2>
+        <div id="time" style="display: none"></div>
+
+        <!-- @2 computerised voice alert audio added which will not be visible on home screen----------------------------------------------- -->
+        <div>
+            <audio id="audio1" src="assets/male50.mp3" controls style="display: none;"></audio>
+            <audio id="audio2" src="assets/male90.mp3" controls style="display: none;"></audio>
         </div>
-        <h3 id="content-label">Or, add websites/use pre-added websites</h3>
-        <div class="website_grid">
-            <ul class="rig columns-6 websites" id="grid">
-            </ul>
+
+
+        <div class="buttons" id="buttons">
+            <ul>
+                
+                <li><a class="time-button" id="btn_front" onclick="choice(5)">5 min</a></li>
+                <li><a class="time-button" id="btn_midL" onclick="choice(10)">10 min</a></li>
+                <li><a class="time-button" id="btn_midR" onclick="choice(15)">15 min</a></li>
+                <li><a class="time-button" id="btn_end" onclick="Custom()">Custom</a></li>
+
+                  
+        </ul></div>
+          
+        <div class="content" style="display: none">
+            <div class="custom-url">
+                <h3 id="content-label">Enter website directly</h3>
+                <div class="enterUrlDiv">
+                    <input id="enterUrl" pattern="https?://.+" onblur="checkURL(this)" class="form-control ui-autocomplete-input" placeholder="Go to..." name="keywords" type="url" autocomplete="off">
+                    <a id="urlClick" class="iconfont icon-arrow-right"></a>
+                </div>
+            </div>
+            <h3 id="content-label">Or, add websites/use pre-added websites</h3>
+            <div class="website_grid">
+                <ul class="rig columns-6 websites" id="grid">
+                </ul>
+
         </div>
     </div>
 
