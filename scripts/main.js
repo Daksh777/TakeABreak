@@ -260,6 +260,8 @@ $(document).ready(function () {
     else if (~!site_link.indexOf("http")) {
       site_link = "http://" + site_link;
     }
+    if (flaglink != 1 && flagname != 1) {
+=======
 
     /* Check if the url entered is valid or not using a regex */
     function ValidUrl() {
@@ -279,19 +281,13 @@ $(document).ready(function () {
       document.getElementById("inputSiteName").value = "";
       $('#myModal').modal('toggle');
     }
-    else if (flaglink === 1 && flagname != 1) {
+    if (flaglink === 1 && flagname != 1) {
       document.getElementById("error").innerHTML = "<p style='color:#FF0000;font-family:Product Sans'>ERROR: Incorrect website URL</p>";
       document.getElementById("error").style.display = "block";
       document.getElementById("erro").innerHTML = "";
       document.getElementById("erro").style.display = "hidden";
     }
-    else if (!ValidUrl() && flagname != 1) {
-      document.getElementById("error").innerHTML = "<p style='color:#FF0000;font-family:Product Sans'>ERROR: Incorrect website URL</p>";
-      document.getElementById("error").style.display = "block";
-      document.getElementById("erro").innerHTML = "";
-      document.getElementById("erro").style.display = "hidden";
-    }
-    else if (flagname === 1 && flaglink != 1) {
+    if (flagname === 1 && flaglink != 1) {
       document.getElementById("erro").innerHTML = "<p style='color:#FF0000;font-family:Product Sans''>ERROR: No label provided</p>";
       document.getElementById("erro").style.display = "block";
       document.getElementById("error").innerHTML = "";
@@ -1009,3 +1005,4 @@ function deleteTab(tab, tabLink) {
     }
   }
 };
+
