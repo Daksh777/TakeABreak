@@ -436,7 +436,7 @@ div.buttons {
 
 .buttons ul li {
     display: block;
-    margin: 0;
+    margin: 1rem;
     right: 50%
 }
 
