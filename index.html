@@ -34,6 +34,31 @@
 </head>
 
 <body class="main">
+    <!-- @A dropdown menu for controlling notifications and audio alerts.----------------------------------------------------------------------------------------------------------------------------- -->
+    <div class="top">
+        <a class="dropbtn" onmouseover="inside2()" onmouseout="outside2()" onclick="btnClick()">
+            <img src="assets/settings.svg" width="35rem" height="35rem"
+                style="background-color: #232323; border: none;">
+        </a><br>
+        <div class="list" id="list2" onmouseover="inside2()" onmouseout="outside2()">
+            <p id="show"></p>
+            <label class="switch" id="switch1">
+                <input type="checkbox" id="notification">
+                <span onclick="Notif_Click()">Notifications</span>
+            </label>
+            <br>
+            <label class="switch" id="switch2" style="padding-bottom: 0.6rem;">
+                <input type="checkbox" id="audioAlert">
+                <span onclick="Audio_Click()">Audio Alerts</span>
+            </label>
+            <br>
+        </div>
+    </div>
+    <!-- @2 computerised voice alert audio added which will not be visible on home screen----------------------------------------------- -->
+    <div>
+        <audio id="audio1" src="assets/male50.mp3" controls style="display: none;"></audio>
+        <audio id="audio2" src="assets/male90.mp3" controls style="display: none;"></audio>
+    </div>
 
     <h1 id="header">Take a Break</h1>
     <h2 id="subHeader" href="">Select a time to start your break</h2>
@@ -133,7 +158,10 @@
                                 style="color: white;font-family: 'Product Sans'">Link</label>
                             <div class="col-sm-10" style="padding-top: 10px;">
                                 <input type="site_link" class="form-control" id="inputSiteLink"
+
                                     placeholder="https://daksh.eu.org" onblur="checkURL(this)">
+
+                                    placeholder="https://daksh.eu.org" <!--onblur="checkURL(this)" -->
                                 <p style="display: none; margin-top: 4px; margin-left: 3px;" id="error"></p>
                             </div>
                         </div>
