@@ -171,12 +171,15 @@ ul.rig.columns-6 li {
     float: right;
     background-color: #232323;
     margin: 0rem 2rem 0rem 0rem;
+    transition: 0.3s ease-in-out;
  }
  .dropbtn:hover{
     cursor: pointer;
+    transform-origin: center;
+    transform: rotate(60deg);
  }
  #list2{
-    margin: 1rem -4rem 0rem 0rem;
+    margin: 2rem -4rem 0rem 0rem;
     float: right;
     display: none;
     background-color: #353535;
@@ -1697,3 +1700,4 @@ button.confirm {
 .sa-button-container {
     margin-top: -5%;
 }
+
