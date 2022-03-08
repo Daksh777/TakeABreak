@@ -6,7 +6,7 @@
 
 .swal2-styled.swal2-confirm {
     color: #000 !important;
-    background-color: #8cb3ee !important;
+    background-color: rgb(140, 179, 238) !important;
 }
 
 body,
@@ -176,7 +176,7 @@ ul.rig.columns-6 li {
  .dropbtn:hover{
     cursor: pointer;
     transform-origin: center;
-    transform: rotate(60deg);
+    transform: rotate(120deg);
  }
  #list2{
     margin: 2rem -4rem 0rem 0rem;
@@ -1700,4 +1700,3 @@ button.confirm {
 .sa-button-container {
     margin-top: -5%;
 }
-

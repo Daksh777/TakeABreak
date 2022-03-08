@@ -232,7 +232,7 @@ $(document).ready(function () {
 
   window.onload = function () {
     if (query != null) {
-      choice(query);
+      choice(null,query);
       $('#btn_end').addClass("clicked");
     };
   };
@@ -430,23 +430,23 @@ $(document).ready(function () {
 });
 
 //@Runs when the settings dropdown is Hovered-----------------------------------------------------------------------------------------------------
-var flag3 = 0;
+var flag3 = true;
 
 function inside2() {
   document.getElementById("list2").style.display = "block";
 }
 function outside2() {
+  if(flag3)
   document.getElementById("list2").style.display = "none";
 }
 function btnClick() {
-  if (flag3 == 0) {
+  if (flag3) {
     document.getElementById("list2").style.display = "block";
-    flag3 = 1;
   }
   else {
     document.getElementById("list2").style.display = "none";
-    flag3 = 0;
   }
+  flag3 = !flag3;
 }
 
 //@Runs when the list elements of the dropdown is clicked------------------------------------------------------------------------------------------
@@ -500,7 +500,7 @@ $("#audioAlert").click(function (event) {
 });
 
 /*Function that runs when custom button is pressed. Presents sweet alert then parses input accordingly*/
-function Custom() {
+function Custom(e) {
   $('.content').removeClass('visible');
   Swal.fire({
     title: "Custom Time",
@@ -532,7 +532,8 @@ function Custom() {
         return false
       }
       if (inputValue >= 0) {
-        choice(inputValue);
+        choice(e,inputValue);
+        document.getElementById("btn_end").innerHTML=inputValue+" min";
         $(".content").css("display", "inline");
         return true
       }
@@ -553,7 +554,15 @@ function Custom() {
 
 /*Run after time button clicked*/
 var run = 0;
-function choice(minutes) {
+function choice(e,minutes) {
+  let arr=(document.getElementsByClassName("time-button"));
+  for(let i=0;i<arr.length;i++)
+  {
+    arr[i].style.backgroundColor="rgb(140, 179, 238)";
+    arr[i].style.color="#000";
+  }
+  e.style.backgroundColor="#3075cf";
+  e.style.color="#E9E9E9";
   run = 1;
   Swal.close();
   if ($("#noty_bottomCenter_layout_container").is(":visible") == true) {
