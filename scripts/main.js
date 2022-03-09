@@ -352,10 +352,13 @@ function Custom() {
             title: "Custom Time",
             text: "How long do you want a break (in minutes)?",
             type: "input",
+            inputType:'number',
+
             animation: "slide-from-top",
             confirmButtonText: "Let's go!",
             showCancelButton: true,
-            inputPlaceholder: "Time in minutes"
+            inputPlaceholder: "Time in minutes",
+           
         },
         function(inputValue) {
             if (inputValue === false) {
@@ -422,9 +425,8 @@ function OpenInNew(min, tab, type) {
         timeDisplay = document.querySelector("#time");
         document.getElementById("buttons").style.visibility = "hidden";
         startTimer(duration, timeDisplay);
-
-
-
+        
+        
         //runs when time is up
         window.setTimeout(function() {
             $.fancybox.close();
@@ -565,22 +567,40 @@ function startTimer(duration, display) {
             if (diff == 60) {
                 display.textContent = "1 minute";
                 document.title = "1 minute";
+                
                 document.getElementById("subHeader").innerHTML = "1 minute remaining!";
                 // oneMinNotif(once);
+                const notification = new Notification("TAKE A BREAK",{
+                  body:"1 minutes left only!",
+                     
+                     icon: "../assets/banner.png",
+                      
+                     
+                    });
+                
+                setTimeout(() => {
+                  notification.close();
+              }, 10 * 1000);
 
             } else if (diff < 60) {
                 display.textContent = seconds + " seconds";
                 document.title = seconds + " seconds";
+                
                 document.getElementById("subHeader").innerHTML = seconds + " seconds remaining!";
-                // if (diff == 15) {
-                //     var notification = new Notification('Take a break', {
-                //         icon: '',
-                //         body:"15 seconds left!",
-                //     });
-                // }
-            } else {
+                if (diff == 15) {
+                    let notification = new Notification('Take a break', {
+                        icon: '../assets/banner.png',
+                        body:"15 seconds left!",
+                        });
+                        setTimeout(() => {
+                          notification.close();
+                      }, 10 * 1000);
+                }
+            } 
+            else {
                 display.textContent = minutes + ":" + seconds + " minutes";
                 document.title = minutes + ":" + seconds + " minutes";
+               
                 document.getElementById("subHeader").innerHTML = minutes + ":" + seconds + " minutes remaining!";
             }
             if (diff <= 0) {
@@ -744,6 +764,46 @@ function deleteTab(tab, tabLink) {
             item = JSON.stringify(items);
             localStorage.setItem("customSites", item);
             return;
-        }
-    }
-};
+        }}};
+    // notification api 
+
+console.log(Notification.permission);
+              if (Notification.permission === "granted") {
+                //  alert("we have permission");
+              } else if (Notification.permission !== "denied") {
+                 Notification.requestPermission().then(permission => {
+                    console.log(permission);
+                 });
+              }
+              
+  //             function showNotification (){
+  //                 const notification = new Notification("TAKE A BREAK",{
+  //                   body:"The remaning time duration is  "+ document.title,
+                       
+  //                      icon: "../assets/banner.png",
+                        
+                       
+  //                     });
+                  
+  //                 setTimeout(() => {
+  //                   notification.close();
+  //               }, 10 * 1000);
+  //                  notification.onclick=(e)=>{
+                   
+  //  };
+  //                  notification.onclick = (e) => {
+  //     window.location.href = "index.html";
+  //  };
+              
+              console.log(Notification.permission);
+              if( Notification.permission==="granted"){
+                  // showNotification();
+
+              }else if(Notification.permission!=="denied"){
+      Notification.requestPermission().then(permission =>{
+          if (permission==="granted") {
+              showNotification();
+
+             }
+                 });
+              }

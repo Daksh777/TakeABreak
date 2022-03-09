@@ -5,6 +5,19 @@ html {
     overflow: auto !important;
 }
 
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: #fff;
+    border-radius: 5rem;
+}
+
 @font-face {
     font-family: 'Product Sans';
     src: url('../fonts/ProductSans-Bold.woff2') format('woff2'),
