@@ -249,9 +249,11 @@ $(document).ready(function () {
     if (site.trim() === "") {
       flagname = 1;
     }
+    /*
     else if (~!site_link.indexOf("http")) {
       site_link = "http://" + site_link;
     }
+    */
 
     /* Check if the url entered is valid or not using a regex */
     function ValidUrl(){
