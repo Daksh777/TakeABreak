@@ -429,7 +429,7 @@ $(document).ready(function () {
   }
 });
 
-//@Runs when the settings dropdown is Hovered-----------------------------------------------------------------------------------------------------
+//@Runs when the settings dropdown is Hovered/Clicked-----------------------------------------------------------------------------------------------------
 var flag3 = true;
 
 function inside2() {
@@ -440,14 +440,18 @@ function outside2() {
   document.getElementById("list2").style.display = "none";
 }
 function btnClick() {
-  if (flag3) {
+  if (!flag3) {
     document.getElementById("list2").style.display = "block";
   }
-  else {
-    document.getElementById("list2").style.display = "none";
   }
-  flag3 = !flag3;
-}
+  window.addEventListener('mouseup', function(event){
+    var box = document.getElementById('list2');
+    if (event.target != box && event.target.parentNode != box){
+          box.style.display = 'none';
+          flag3=!flag3;
+      }
+  });
+
 
 //@Runs when the list elements of the dropdown is clicked------------------------------------------------------------------------------------------
 var flag1 = 0;
@@ -561,8 +565,8 @@ function choice(e,minutes) {
     arr[i].style.backgroundColor="rgb(140, 179, 238)";
     arr[i].style.color="#000";
   }
-  e.style.backgroundColor="#3075cf";
-  e.style.color="#E9E9E9";
+  e.style.backgroundColor="rgb(89, 151, 245)";
+  e.style.color="black";
   run = 1;
   Swal.close();
   if ($("#noty_bottomCenter_layout_container").is(":visible") == true) {
