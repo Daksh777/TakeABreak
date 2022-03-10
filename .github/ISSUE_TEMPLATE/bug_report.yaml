@@ -1,6 +1,5 @@
 name: Bug Report
 description: Report a bug you found
-title: "[Bug]: "
 labels: "bug"
 body:
   - type: markdown
@@ -23,12 +22,3 @@ body:
       placeholder: Kindly elaborate.
     validations:
       required: true
-
-  - type: dropdown #urgent
-    attributes:
-      label: Urgency (optional)
-      description: How urgent do you think it is to fix this bug?
-      options:
-        - Low priority
-        - Medium priority
-        - High priority
