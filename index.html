@@ -36,11 +36,10 @@
 <body class="main">
     <!-- @A dropdown menu for controlling notifications and audio alerts.----------------------------------------------------------------------------------------------------------------------------- -->
     <div class="top">
-        <a class="dropbtn" onmouseover="inside2()" onmouseout="outside2()" onclick="btnClick()">
-            <img src="assets/settings.svg" width="35rem" height="35rem"
-                style="background-color: #232323; border: none;">
+        <a  class="dropbtn" onmouseover="inside2()" onmouseleave="outside2()"  onclick="btnClick()">
+            <img src="assets/settings.svg" width="35rem" height="35rem">
         </a><br>
-        <div class="list" id="list2" onmouseover="inside2()" onmouseout="outside2()">
+        <div class="list" id="list2" onmouseover="inside2()" onmouseleave="outside2() ">
             <p id="show"></p>
             <label class="switch" id="switch1">
                 <input type="checkbox" id="notification">
@@ -53,6 +52,7 @@
             </label>
             <br>
         </div>
+        
     </div>
     <!-- @2 computerised voice alert audio added which will not be visible on home screen----------------------------------------------- -->
     <div>
@@ -66,10 +66,10 @@
     <div class="buttons" id="buttons">
         <ul>
 
-            <li><a class="time-button" id="btn_front" onclick="choice(5)">5 min</a></li>
-            <li><a class="time-button" id="btn_midL" onclick="choice(10)">10 min</a></li>
-            <li><a class="time-button" id="btn_midR" onclick="choice(15)">15 min</a></li>
-            <li><a class="time-button" id="btn_end" onclick="Custom()">Custom</a></li>
+            <li><a class="time-button" id="btn_front" onclick="choice(this,5)">5 min</a></li>
+            <li><a class="time-button" id="btn_midL" onclick="choice(this,10)">10 min</a></li>
+            <li><a class="time-button" id="btn_midR" onclick="choice(this,15)">15 min</a></li>
+            <li><a class="time-button" id="btn_end" onclick="Custom(this)">Custom</a></li>
 
 
         </ul>
