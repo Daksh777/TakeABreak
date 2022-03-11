@@ -446,7 +446,9 @@ function btnClick() {
   }
   window.addEventListener('mouseup', function(event){
     var box = document.getElementById('list2');
-    if (event.target != box && event.target.parentNode != box){
+    var b1 = document.getElementById('switch1');
+    var b2 = document.getElementById('switch2');
+    if ((event.target != box && event.target.parentNode != box)&&(event.target != b1 && event.target.parentNode != b1)&&(event.target != b2 && event.target.parentNode != b2)){
           box.style.display = 'none';
           flag3=!flag3;
       }
