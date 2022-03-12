@@ -229,6 +229,13 @@ ul.rig.columns-6 li {
     transition: opacity 0.3s 0.1s, transform 0.2s 0.1s;
 }
 
+.main img.logo{
+    width: 15%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -5rem;
+}
 /* @Span Styling */
 .switch > span {
     display: inline-block;
