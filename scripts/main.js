@@ -232,7 +232,7 @@ $(document).ready(function () {
 
   window.onload = function () {
     if (query != null) {
-      choice(query);
+      choice(null,query);
       $('#btn_end').addClass("clicked");
     };
   };
@@ -429,25 +429,31 @@ $(document).ready(function () {
   }
 });
 
-//@Runs when the settings dropdown is Hovered-----------------------------------------------------------------------------------------------------
-var flag3 = 0;
+//@Runs when the settings dropdown is Hovered/Clicked-----------------------------------------------------------------------------------------------------
+var flag3 = true;
 
 function inside2() {
   document.getElementById("list2").style.display = "block";
 }
 function outside2() {
+  if(flag3)
   document.getElementById("list2").style.display = "none";
 }
 function btnClick() {
-  if (flag3 == 0) {
+  if (!flag3) {
     document.getElementById("list2").style.display = "block";
-    flag3 = 1;
   }
-  else {
-    document.getElementById("list2").style.display = "none";
-    flag3 = 0;
   }
-}
+  window.addEventListener('mouseup', function(event){
+    var box = document.getElementById('list2');
+    var b1 = document.getElementById('switch1');
+    var b2 = document.getElementById('switch2');
+    if ((event.target != box && event.target.parentNode != box)&&(event.target != b1 && event.target.parentNode != b1)&&(event.target != b2 && event.target.parentNode != b2)){
+          box.style.display = 'none';
+          flag3=!flag3;
+      }
+  });
+
 
 //@Runs when the list elements of the dropdown is clicked------------------------------------------------------------------------------------------
 var flag1 = 0;
@@ -500,7 +506,7 @@ $("#audioAlert").click(function (event) {
 });
 
 /*Function that runs when custom button is pressed. Presents sweet alert then parses input accordingly*/
-function Custom() {
+function Custom(e) {
   $('.content').removeClass('visible');
   Swal.fire({
     title: "Custom Time",
@@ -532,7 +538,8 @@ function Custom() {
         return false
       }
       if (inputValue >= 0) {
-        choice(inputValue);
+        choice(e,inputValue);
+        document.getElementById("btn_end").innerHTML=inputValue+" min";
         $(".content").css("display", "inline");
         return true
       }
@@ -553,7 +560,15 @@ function Custom() {
 
 /*Run after time button clicked*/
 var run = 0;
-function choice(minutes) {
+function choice(e,minutes) {
+  let arr=(document.getElementsByClassName("time-button"));
+  for(let i=0;i<arr.length;i++)
+  {
+    arr[i].style.backgroundColor="rgb(140, 179, 238)";
+    arr[i].style.color="#000";
+  }
+  e.style.backgroundColor="rgb(89, 151, 245)";
+  e.style.color="black";
   run = 1;
   Swal.close();
   if ($("#noty_bottomCenter_layout_container").is(":visible") == true) {

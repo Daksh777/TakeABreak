@@ -6,7 +6,7 @@
 
 .swal2-styled.swal2-confirm {
     color: #000 !important;
-    background-color: #8cb3ee !important;
+    background-color: rgb(140, 179, 238) !important;
 }
 
 body,
@@ -169,11 +169,13 @@ ul.rig.columns-6 li {
 }
 .dropbtn{
     float: right;
-    background-color: #232323;
     margin: 0rem 2rem 0rem 0rem;
+    transition: 0.3s ease-in-out;
  }
  .dropbtn:hover{
     cursor: pointer;
+    transform-origin: center;
+    transform: rotate(120deg);
  }
  #list2{
     margin: 1rem -4rem 0rem 0rem;
