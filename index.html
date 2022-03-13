@@ -3,15 +3,15 @@
 <head>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
     <meta name="color-scheme" content="dark">
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <link rel="icon" type="image/x-icon" href="icon.svg">
-    <link rel="stylesheet" href="IconFont.css">
-    <link rel="stylesheet" type="text/css" href="bootstrap.css">
-    <link rel="stylesheet" href="themeToggle.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="icon" type="image/x-icon" href="assets/icon.svg">
+    <link rel="stylesheet" href="styles/IconFont.css">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles/themeToggle.css">
 
     <script src="scripts/jquery.min.js"></script>
     
-    
+
     <!-- Primary Meta Tags -->
     <title>Take a Break - Self-Destructing Tabs</title>
     <meta name="title" content="Take a Break - Self-Destructing Tabs">
@@ -34,8 +34,11 @@
 </head>
 
 <body class="main" id="full-container">
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiYavmFpFjZV9v_oiJKrBOd-jU_-aM2YCWbz6QQzLCPQ7bT0eVvSRbqoG90SMncu8p9XY&usqp=CAU" class="colorful toggle" id="colorful">
-<img src="https://icon-library.com/images/light-bulbs-icon/light-bulbs-icon-1.jpg" class="dark toggle" id="dark">
+    <!-- toggle icons -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiYavmFpFjZV9v_oiJKrBOd-jU_-aM2YCWbz6QQzLCPQ7bT0eVvSRbqoG90SMncu8p9XY&usqp=CAU" class="colorful toggle" id="colorful">
+    <img src="https://icon-library.com/images/light-bulbs-icon/light-bulbs-icon-1.jpg" class="dark toggle" id="dark">
+    <!-- toggle icons -->
+
         <h1 id="header">Take a Break</h1>
         <h2 id="subHeader" href="">Select a time to start your break</h2>
         <div id="time" style="display: none"></div>
@@ -134,21 +137,20 @@
                             </div>
                         </form>
                     </div>
-                
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalClose">Close</button>
                         <button type="submit" class="btn btn-primary" id="addSiteButton">Add Site</button>
                     </div>
-
-                    
                 </div>
             </div>
-        </div>
+        </div>  
+
+        <div id="add_after_me"></div>
+
     </div>
-    
-</div>
-<div id="add_after_me"></div>
-</div>
+
+</body>
 
 <script>
     const toggleBtn = document.getElementById('colorful');
@@ -177,8 +179,6 @@
         dark.style.display = 'none';
         document.getElementById("add_after_me").style.display = 'none';
     })
-
 </script>
-</body>
 
 </html>
