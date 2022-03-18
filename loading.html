@@ -1,69 +1,59 @@
 <html>
-
 <head>
-
+    
     <style>
-        p {
-            font-family: 'Product Sans', sans-serif;
-        }
-    </style>
-    <style>
-        h1{
-            margin: 0;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            text-align: center;
-            color: #fff;
-            font-size: 61px;
-        }
-
+        p {font-family: 'Product Sans', sans-serif;}
         body {
-            background-image: url('bg.png');
+             background-image: url('background.png'); 
             background-repeat: no-repeat;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
             background-size: cover;
+    font-family: Product Sans, sans-serif;
+    text-align: center;
+    color: #fff;
         }
-        h2{
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        .quote{
+            display: flex;
+            /* background-color: red; */
+            background-image: url('l1.jpg');
+            /* height: 300px; */
+            color: rgb(156, 210, 235);
+            border-radius: 30px;
+            font-size:20px;
+             text-align: center;
+           justify-content: space-around;
+           position: relative;
+           /* margin-top: auto; */
+            /* padding-left: 40px; */
         }
-        .break {
-            max-width: 100%;
-            max-height: 100%;
-        }
-
+        
     </style>
 </head>
+<body style="padding: 150px;text-align:center;vertical-align: middle;display: flex;align-items: center;justify-content: center;background-color: #232323;">
 
-<body
-    style="padding: 150px;text-align:center;vertical-align: middle;display: flex;align-items: center;justify-content: center;background-color: #232323;">
-    <div class="timer">
-        <h1>READY FOR THE BREAK TIME?</h1>
-        <h2>YOUR BREAK STARTS IN <span id="countdown"></span> SECONDS.</h2>
-    </div>
-     <img src="xyz.jpg" alt="Take a break" class="break">
-    <!-- <img src="break.png" alt="TAKE A BREAK" class="break"> -->
-    <!-- <h1>Loading site in <span id="countdown"></span> seconds.<br> -->
-    <!-- This website will self destruct in the specified time.</h1> -->
-    <!-- <h2>YOUR BREAK STARTS IN <span id="countdown"></span> seconds.</h2> -->
-   <!-- <div class="timer"> -->
-        <!-- <h1>YOUR BREAK STARTS IN <span id="countdown"></span> seconds.</h1> -->
-    <!-- </div> -->
-
+    <!-- <div class="box1"> -->
+        <!-- Get <strong> READY</strong> for the break in <span id="countdown"></span>seconds. -->
+     <!-- </div> -->
+     
+  <h1>Get <strong> READY</strong> for the break in <span id="countdown"></span>seconds.</h1>
+  <br>
+  <div class="quote">
+  <h2>The COMEBACK is always stronger than the SETBACK</h2></div>
 </body>
 
 <script>
     var timeleft = 5;
-    var downloadTimer = setInterval(function () {
-        if (timeleft <= 0) {
-            clearInterval(downloadTimer);
-            document.getElementById("countdown").innerHTML = "0";
-        } else {
-            document.getElementById("countdown").innerHTML = timeleft;
-        }
-        timeleft -= 1;
-    }, 1000);
+var downloadTimer = setInterval(function(){
+  if(timeleft <= 0){
+    clearInterval(downloadTimer);
+    document.getElementById("countdown").innerHTML = "0";
+  } else {
+    document.getElementById("countdown").innerHTML = timeleft;
+  }
+  timeleft -= 1;
+}, 1000);
 </script>
 
 </html>
