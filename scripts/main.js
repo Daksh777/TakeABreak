@@ -510,12 +510,12 @@ function Custom(e) {
   $('.content').removeClass('visible');
   Swal.fire({
     title: "Custom Time",
-    html: "<p style='font-family:Product Sans; letter-spacing:1px;'>How long do you want a break (in minutes)?</p>",
+    html: "<p style='font-family:Product Sans; letter-spacing:1px;'>How long do you want a break?</p>",
     input: 'text',
     animation: "slide-from-top",
     confirmButtonText: "Let's go!",
     showCancelButton: true,
-    inputPlaceholder: "Time in minutes",
+    inputPlaceholder: "35m, 1.5h, etc.",
     background: "#353535",
     color: "white",
     inputColor: '#1f1f1f',
@@ -537,9 +537,52 @@ function Custom(e) {
         });
         return false
       }
-      if (inputValue >= 0) {
-        choice(e,inputValue);
-        document.getElementById("btn_end").innerHTML=inputValue+" min";
+      var flag_min=0;
+      var flag_hrs=0;
+      let convertIntoMinVal=0;
+      for (let i = 0; i < inputValue.length; i++) {
+        if(inputValue[i]=='m'||inputValue[i]=='M')flag_min=1;
+        if(inputValue[i]=='h'||inputValue[i]=='H')flag_hrs=1;
+        
+      }
+
+      if(flag_hrs&&flag_min){
+        let hh=0;
+        let i;
+        for ( i = 0; i < inputValue.length; i++) {
+          if(inputValue[i]>='a'&&inputValue[i]<='z'||inputValue[i]>='A'&&inputValue[i]<='Z' ||inputValue[i]==' ')  break;
+          hh = hh*10+(inputValue[i]-'0');
+    
+        }
+        let mm=0;
+        for ( ; i < inputValue.length; i++) {
+          if(inputValue[i]>='a'&&inputValue[i]<='z'||inputValue[i]>='A'&&inputValue[i]<='Z'||inputValue[i]==' ')  continue;
+          mm = mm*10+(inputValue[i]-'0');
+          
+        }
+        convertIntoMinVal = hh*60+parseInt(mm);
+        
+
+      }else if(flag_hrs){
+        let hh=0;
+        for (let i = 0; i < inputValue.length; i++) {
+          if(inputValue[i]>='a'&&inputValue[i]<='z'||inputValue[i]>='A'&&inputValue[i]<='Z'||inputValue[i]==' ')  break;
+          hh = hh*10+(inputValue[i]-'0');
+    
+        }
+          convertIntoMinVal=hh*60;
+      }else{
+        let mm=0;
+      for (let i = 0; i < inputValue.length; i++) {
+        if(inputValue[i]>='a'&&inputValue[i]<='z'||inputValue[i]>='A'&&inputValue[i]<='Z'||inputValue[i]==' ')  break;
+        mm = mm*10+(inputValue[i]-'0');
+  
+      }
+        convertIntoMinVal=mm;
+      }
+      if (convertIntoMinVal >= 0) {
+        choice(e,convertIntoMinVal);
+        document.getElementById("btn_end").innerHTML=convertIntoMinVal+" min";
         $(".content").css("display", "inline");
         return true
       }
@@ -556,8 +599,6 @@ function Custom(e) {
     }
   });
 };
-
-
 /*Run after time button clicked*/
 var run = 0;
 function choice(e,minutes) {
