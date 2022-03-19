@@ -510,12 +510,12 @@ function Custom(e) {
   $('.content').removeClass('visible');
   Swal.fire({
     title: "Custom Time",
-    html: "<p style='font-family:Product Sans; letter-spacing:1px;'>How long do you want a break (in minutes)?</p>",
+    html: "<p style='font-family:Product Sans; letter-spacing:1px;'>How long do you want a break?</p>",
     input: 'text',
     animation: "slide-from-top",
     confirmButtonText: "Let's go!",
     showCancelButton: true,
-    inputPlaceholder: "Time in minutes and hrs ( like 1 h 2 m  )",
+    inputPlaceholder: "E.g., 35m, 1.5h, etc.",
     background: "#353535",
     color: "white",
     inputColor: '#1f1f1f',
