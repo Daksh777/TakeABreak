@@ -515,7 +515,7 @@ function Custom(e) {
     animation: "slide-from-top",
     confirmButtonText: "Let's go!",
     showCancelButton: true,
-    inputPlaceholder: "E.g., 35m, 1.5h, etc.",
+    inputPlaceholder: "35m, 1.5h, etc.",
     background: "#353535",
     color: "white",
     inputColor: '#1f1f1f',
