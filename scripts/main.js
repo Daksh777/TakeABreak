@@ -577,6 +577,47 @@ function startTimer(duration, display) {
                       
                      
                     });
+                    notification.onclick = (e) => {
+                      clearInterval(setInt);
+                      min=0;
+                      minutes=0;
+                      duration=0;
+                      diff=0;
+                     
+                        swal({
+                                title: "Extension of time",
+                                text: "How long do you want a more time (in minutes)?",
+                                type: "input",
+                                inputType:'number',
+                    
+                                animation: "slide-from-top",
+                                confirmButtonText: "Let's go!",
+                                showCancelButton: true,
+                                inputPlaceholder: "Time in minutes",
+                               
+                            },
+                            function(inputValue) {
+                                // // if (inputValue === false) {
+                                // //     return false;
+                                // },
+                                if(inputValue === "") {
+                                    swal.showInputError("You need to write something!");
+                                    return false
+                                } 
+                             
+                                console.log(inputValue);
+                                min=inputValue;
+                                duration=min*60;
+                                
+                                
+                                  startTimer(duration, timeDisplay);
+                                  
+                                  
+                                
+
+                            });
+                    };
+                        
                 
                 setTimeout(() => {
                   notification.close();
