@@ -1041,11 +1041,11 @@ function addGridElement(siteLabel, siteLink) {
     url: testLink,
     success: function () {
       $('.rig.columns-6.websites').append("<a class='siteLink' data-link=" + siteLink + " target='_blank'><li class='outbound-link' class='outbound-link'><img id='" + siteLabel + "' src='https://logo.clearbit.com/" + newLabel.toLowerCase() + ".com'/><p>" + newSiteLabel + "</p></li></a>");
-      $('.rig.columns-6.websites').append("<img src='../assets/delete.svg' class='delete' id='delete' data-tab = '" + siteLabel + "' data-name='" + siteLink + "'>");
+      $('.rig.columns-6.websites').append("<img src='assets/delete.svg' class='delete' id='delete' data-tab = '" + siteLabel + "' data-name='" + siteLink + "'>");
     },
     error: function () {
       $('.rig.columns-6.websites').append("<a class='siteLink' data-link=" + siteLink + " target='_blank'><li class='outbound-link' class='outbound-link'><img id='" + siteLabel + "' src='assets//web.png'/><p>" + newSiteLabel + "</p></li></a>");
-      $('.rig.columns-6.websites').append("<img src='../assets/delete.svg' style='cursor:pointer' id='delete' class='delete' data-tab = '" + siteLabel + "' data-name='" + siteLink + "'>");
+      $('.rig.columns-6.websites').append("<img src='assets/delete.svg' style='cursor:pointer' id='delete' class='delete' data-tab = '" + siteLabel + "' data-name='" + siteLink + "'>");
     }
   });
 };
