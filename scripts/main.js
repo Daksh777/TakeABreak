@@ -546,6 +546,9 @@ function Custom(e) {
         
       }
 
+
+    
+
       if(flag_hrs&&flag_min){
         let hh=0;
         let i;
@@ -580,7 +583,7 @@ function Custom(e) {
       }
         convertIntoMinVal=mm;
       }
-      if (convertIntoMinVal >= 0) {
+      if (convertIntoMinVal > 0) {
         choice(e,convertIntoMinVal);
         document.getElementById("btn_end").innerHTML=convertIntoMinVal+" min";
         $(".content").css("display", "inline");
@@ -591,7 +594,7 @@ function Custom(e) {
 
           html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter valid number!</p>",
           background: "#353535",
-
+          icon: "error",
           color: "white",
         });
         return false
