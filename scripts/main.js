@@ -546,7 +546,8 @@ function Custom(e) {
         
       }
 
-    
+    // checking whether the custom input is zero or not;
+    //ex-> 000,0001,0m,01h
      isZero = true;
       for( i = 0; i<inputValue.length; i++)
       {
