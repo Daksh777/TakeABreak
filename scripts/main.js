@@ -547,7 +547,19 @@ function Custom(e) {
       }
 
 
-    
+      var isZero = true;
+      for( i = 0; i<inputValue/length; i++)
+      {
+        if (inputValue[i] == "0"){
+          continue;
+        }
+
+        else if (parseInt(inputValue[i]) > 0){
+          isZero = false;
+          break;
+        }
+        
+      }
 
       if(flag_hrs&&flag_min){
         let hh=0;
