@@ -546,6 +546,34 @@ function Custom(e) {
         
       }
 
+    // checking whether the custom input is zero or not;
+    //ex-> 000,0001,0m,01h
+     isZero = true;
+      for( i = 0; i<inputValue.length; i++)
+      {
+      
+        if (inputValue[i] == '0'){
+          continue;
+        }
+        if ( (inputValue[i] > '0' && inputValue[i] <='9') || (inputValue[0] >"9" || inputValue[0] < "0")) {
+          isZero = false;
+          break;
+        }
+  
+  
+      }
+
+      if (isZero){
+      Swal.fire({
+        html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Number should be greater than 0!</p>",
+        background: "#353535",
+        icon: "error",
+        color: "white",
+      });
+      return false;
+      }
+
+
       if(flag_hrs&&flag_min){
         let hh=0;
         let i;
@@ -580,7 +608,7 @@ function Custom(e) {
       }
         convertIntoMinVal=mm;
       }
-      if (convertIntoMinVal >= 0) {
+      if (convertIntoMinVal > 0) {
         choice(e,convertIntoMinVal);
         document.getElementById("btn_end").innerHTML=convertIntoMinVal+" min";
         $(".content").css("display", "inline");
@@ -588,13 +616,12 @@ function Custom(e) {
       }
       else {
         Swal.fire({
-
           html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter valid number!</p>",
           background: "#353535",
-
+          icon: "error",
           color: "white",
         });
-        return false
+        return false;
       }
     }
   });
