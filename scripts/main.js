@@ -775,7 +775,10 @@ function OpenInNew(min, tab, type) {
       }
       /*If one of the windows is closed, find it in the array and delete it. Then find the length*/
       if (windowCount == 0 && complete == false) {
+
+        // clearing/stoping timeout to execute 
         clearTimeout(myTimeout);
+
         document.title = "Take a Break";
         Swal.fire({
           title: "You closed out early!",
@@ -902,19 +905,18 @@ function startTimer(duration, display) {
       }
    
 
-      // pausing the timer 
-      if(complete==false && windowCount==0)
-      {
+   
 
-        clearInterval(setInt);
-        setInt = null;
-        count = 0 ;
-        // resuming the timer  with (6 sec extension)   
-        min = Math.abs( ((time-6000) - (time - 6000) - (diff*1000)/60000)) ;
+   // pausing the timer 
+   if(complete==false && windowCount==0)
+   {
+
+     clearInterval(setInt);
+     setInt = null;
+     
     
-      }
-
-
+ 
+   }
   
     
 
