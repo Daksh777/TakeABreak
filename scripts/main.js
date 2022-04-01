@@ -913,8 +913,12 @@ function startTimer(duration, display) {
 
      clearInterval(setInt);
      setInt = null;
+
+     // decrementing count   
      count = 0 ;
-     // resuming the timer  with (6 sec extension)   
+
+     // resuming the timer  with (6 sec extension)  
+     
      min = Math.abs( ((time-6000) - (time - 6000) - (diff*1000)/60000)) ;
  
    }
