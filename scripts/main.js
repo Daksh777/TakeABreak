@@ -737,7 +737,7 @@ function OpenInNew(min, tab, type) {
         // imageUrl: getRandomTimeUp(gifTime, '/assets/gifs/'),
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location = "/index.html";
+          window.location = "./index.html";
         }
       })
       window.scrollTo(0, 0);
@@ -745,7 +745,7 @@ function OpenInNew(min, tab, type) {
       setTimeout(ale, 14000);
       function ale() {
         alert("That's all!");
-        window.location = "/index.html";
+        window.location = "./index.html";
       };
       $.fancybox.close();
     }, time);
