@@ -31,13 +31,13 @@ DailyQuotes();
   'use strict';
 
   if (!Array.prototype.indexOf) {
-    Array.prototype.indexOf = function (elt /*, from*/) {
+    Array.prototype.indexOf = function (elt /*, from*/ ) {
       var len = this.length >>> 0;
 
       var from = Number(arguments[1]) || 0;
-      from = (from < 0)
-        ? Math.ceil(from)
-        : Math.floor(from);
+      from = (from < 0) ?
+        Math.ceil(from) :
+        Math.floor(from);
       if (from < 0)
         from += len;
 
@@ -67,7 +67,9 @@ DailyQuotes();
     var query_key = this._getPrefixedKey(key, options);
 
     try {
-      localStorage.setItem(query_key, JSON.stringify({ "data": value }));
+      localStorage.setItem(query_key, JSON.stringify({
+        "data": value
+      }));
     } catch (e) {
       if (console) console.warn("Lockr didn't successfully save the '{" + key + ": " + value + "}' pair, because the localStorage is full.");
     }
@@ -81,7 +83,9 @@ DailyQuotes();
       value = JSON.parse(localStorage.getItem(query_key));
     } catch (e) {
       if (localStorage[query_key]) {
-        value = { data: localStorage.getItem(query_key) };
+        value = {
+          data: localStorage.getItem(query_key)
+        };
       } else {
         value = null;
       }
@@ -107,7 +111,9 @@ DailyQuotes();
 
     try {
       values.push(value);
-      json = JSON.stringify({ "data": values });
+      json = JSON.stringify({
+        "data": values
+      });
       localStorage.setItem(query_key, json);
     } catch (e) {
       console.log(e);
@@ -173,7 +179,9 @@ DailyQuotes();
     if (index > -1)
       values.splice(index, 1);
 
-    json = JSON.stringify({ "data": values });
+    json = JSON.stringify({
+      "data": values
+    });
 
     try {
       localStorage.setItem(query_key, json);
@@ -232,7 +240,7 @@ $(document).ready(function () {
 
   window.onload = function () {
     if (query != null) {
-      choice(null,query);
+      choice(null, query);
       $('#btn_end').addClass("clicked");
     };
   };
@@ -250,14 +258,14 @@ $(document).ready(function () {
 
     var site = $("form input[type='site']").val()
     var site_link = $("form input[type='site_link']").val()
-    var flaglink = 0, flagname = 0;
+    var flaglink = 0,
+      flagname = 0;
     if (site_link.trim() === "") {
       flaglink = 1;
     }
     if (site.trim() === "") {
       flagname = 1;
-    }
-    else if (~!site_link.indexOf("http")) {
+    } else if (~!site_link.indexOf("http")) {
       site_link = "http://" + site_link;
     }
 
@@ -278,26 +286,22 @@ $(document).ready(function () {
       document.getElementById("inputSiteLink").value = "";
       document.getElementById("inputSiteName").value = "";
       $('#myModal').modal('toggle');
-    }
-    else if (flaglink === 1 && flagname != 1) {
+    } else if (flaglink === 1 && flagname != 1) {
       document.getElementById("error").innerHTML = "<p style='color:#FF0000;font-family:Product Sans'>ERROR: Incorrect website URL</p>";
       document.getElementById("error").style.display = "block";
       document.getElementById("erro").innerHTML = "";
       document.getElementById("erro").style.display = "hidden";
-    }
-    else if (!ValidUrl() && flagname != 1) {
+    } else if (!ValidUrl() && flagname != 1) {
       document.getElementById("error").innerHTML = "<p style='color:#FF0000;font-family:Product Sans'>ERROR: Incorrect website URL</p>";
       document.getElementById("error").style.display = "block";
       document.getElementById("erro").innerHTML = "";
       document.getElementById("erro").style.display = "hidden";
-    }
-    else if (flagname === 1 && flaglink != 1) {
+    } else if (flagname === 1 && flaglink != 1) {
       document.getElementById("erro").innerHTML = "<p style='color:#FF0000;font-family:Product Sans''>ERROR: No label provided</p>";
       document.getElementById("erro").style.display = "block";
       document.getElementById("error").innerHTML = "";
       document.getElementById("error").style.display = "hidden";
-    }
-    else if (flagname == 1 && flaglink === 1) {
+    } else if (flagname == 1 && flaglink === 1) {
       document.getElementById("error").innerHTML = "<p style='color:#FF0000;font-family:Product Sans''>ERROR: Incorrect website URL</p>";
       document.getElementById("error").style.display = "block";
       document.getElementById("erro").innerHTML = "<p style='color:#FF0000;font-family:Product Sans''>ERROR: No label provided</p>";
@@ -435,45 +439,47 @@ var flag3 = true;
 function inside2() {
   document.getElementById("list2").style.display = "block";
 }
+
 function outside2() {
-  if(flag3)
-  document.getElementById("list2").style.display = "none";
+  if (flag3)
+    document.getElementById("list2").style.display = "none";
 }
+
 function btnClick() {
   if (!flag3) {
     document.getElementById("list2").style.display = "block";
   }
+}
+window.addEventListener('mouseup', function (event) {
+  var box = document.getElementById('list2');
+  var b1 = document.getElementById('switch1');
+  var b2 = document.getElementById('switch2');
+  if ((event.target != box && event.target.parentNode != box) && (event.target != b1 && event.target.parentNode != b1) && (event.target != b2 && event.target.parentNode != b2)) {
+    box.style.display = 'none';
+    flag3 = !flag3;
   }
-  window.addEventListener('mouseup', function(event){
-    var box = document.getElementById('list2');
-    var b1 = document.getElementById('switch1');
-    var b2 = document.getElementById('switch2');
-    if ((event.target != box && event.target.parentNode != box)&&(event.target != b1 && event.target.parentNode != b1)&&(event.target != b2 && event.target.parentNode != b2)){
-          box.style.display = 'none';
-          flag3=!flag3;
-      }
-  });
+});
 
 
 //@Runs when the list elements of the dropdown is clicked------------------------------------------------------------------------------------------
 var flag1 = 0;
 var flag2 = 0;
+
 function Notif_Click() {
   if (flag1 == 0) {
     document.getElementById("show").innerHTML = "";
     flag1 = 1;
-  }
-  else {
+  } else {
     document.getElementById("show").innerHTML = "";
     flag1 = 0;
   }
 }
+
 function Audio_Click() {
   if (flag2 == 0) {
     document.getElementById("show").innerHTML = "";
     flag2 = 1;
-  }
-  else {
+  } else {
     document.getElementById("show").innerHTML = "";
     flag2 = 0;
   }
@@ -537,84 +543,82 @@ function Custom(e) {
         });
         return false
       }
-      var flag_min=0;
-      var flag_hrs=0;
-      let convertIntoMinVal=0;
+      var flag_min = 0;
+      var flag_hrs = 0;
+      let convertIntoMinVal = 0;
       for (let i = 0; i < inputValue.length; i++) {
-        if(inputValue[i]=='m'||inputValue[i]=='M')flag_min=1;
-        if(inputValue[i]=='h'||inputValue[i]=='H')flag_hrs=1;
-        
+        if (inputValue[i] == 'm' || inputValue[i] == 'M') flag_min = 1;
+        if (inputValue[i] == 'h' || inputValue[i] == 'H') flag_hrs = 1;
+
       }
 
-    // checking whether the custom input is zero or not;
-    //ex-> 000,0001,0m,01h
-     isZero = true;
-      for( i = 0; i<inputValue.length; i++)
-      {
-      
-        if (inputValue[i] == '0'){
+      // checking whether the custom input is zero or not;
+      //ex-> 000,0001,0m,01h
+      isZero = true;
+      for (i = 0; i < inputValue.length; i++) {
+
+        if (inputValue[i] == '0') {
           continue;
         }
-        if ( (inputValue[i] > '0' && inputValue[i] <='9') || (inputValue[0] >"9" || inputValue[0] < "0")) {
+        if ((inputValue[i] > '0' && inputValue[i] <= '9') || (inputValue[0] > "9" || inputValue[0] < "0")) {
           isZero = false;
           break;
         }
-  
-  
+
+
       }
 
-      if (isZero){
-      Swal.fire({
-        html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Number should be greater than 0!</p>",
-        background: "#353535",
-        icon: "error",
-        color: "white",
-      });
-      return false;
+      if (isZero) {
+        Swal.fire({
+          html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Number should be greater than 0!</p>",
+          background: "#353535",
+          icon: "error",
+          color: "white",
+        });
+        return false;
       }
 
 
-      if(flag_hrs&&flag_min){
-        let hh=0;
+      if (flag_hrs && flag_min) {
+        let hh = 0;
         let i;
-        for ( i = 0; i < inputValue.length; i++) {
-          if(inputValue[i]>='a'&&inputValue[i]<='z'||inputValue[i]>='A'&&inputValue[i]<='Z' ||inputValue[i]==' ')  break;
-          hh = hh*10+(inputValue[i]-'0');
-    
-        }
-        let mm=0;
-        for ( ; i < inputValue.length; i++) {
-          if(inputValue[i]>='a'&&inputValue[i]<='z'||inputValue[i]>='A'&&inputValue[i]<='Z'||inputValue[i]==' ')  continue;
-          mm = mm*10+(inputValue[i]-'0');
-          
-        }
-        convertIntoMinVal = hh*60+parseInt(mm);
-        
+        for (i = 0; i < inputValue.length; i++) {
+          if (inputValue[i] >= 'a' && inputValue[i] <= 'z' || inputValue[i] >= 'A' && inputValue[i] <= 'Z' || inputValue[i] == ' ') break;
+          hh = hh * 10 + (inputValue[i] - '0');
 
-      }else if(flag_hrs){
-        let hh=0;
-        for (let i = 0; i < inputValue.length; i++) {
-          if(inputValue[i]>='a'&&inputValue[i]<='z'||inputValue[i]>='A'&&inputValue[i]<='Z'||inputValue[i]==' ')  break;
-          hh = hh*10+(inputValue[i]-'0');
-    
         }
-          convertIntoMinVal=hh*60;
-      }else{
-        let mm=0;
-      for (let i = 0; i < inputValue.length; i++) {
-        if(inputValue[i]>='a'&&inputValue[i]<='z'||inputValue[i]>='A'&&inputValue[i]<='Z'||inputValue[i]==' ')  break;
-        mm = mm*10+(inputValue[i]-'0');
-  
-      }
-        convertIntoMinVal=mm;
+        let mm = 0;
+        for (; i < inputValue.length; i++) {
+          if (inputValue[i] >= 'a' && inputValue[i] <= 'z' || inputValue[i] >= 'A' && inputValue[i] <= 'Z' || inputValue[i] == ' ') continue;
+          mm = mm * 10 + (inputValue[i] - '0');
+
+        }
+        convertIntoMinVal = hh * 60 + parseInt(mm);
+
+
+      } else if (flag_hrs) {
+        let hh = 0;
+        for (let i = 0; i < inputValue.length; i++) {
+          if (inputValue[i] >= 'a' && inputValue[i] <= 'z' || inputValue[i] >= 'A' && inputValue[i] <= 'Z' || inputValue[i] == ' ') break;
+          hh = hh * 10 + (inputValue[i] - '0');
+
+        }
+        convertIntoMinVal = hh * 60;
+      } else {
+        let mm = 0;
+        for (let i = 0; i < inputValue.length; i++) {
+          if (inputValue[i] >= 'a' && inputValue[i] <= 'z' || inputValue[i] >= 'A' && inputValue[i] <= 'Z' || inputValue[i] == ' ') break;
+          mm = mm * 10 + (inputValue[i] - '0');
+
+        }
+        convertIntoMinVal = mm;
       }
       if (convertIntoMinVal > 0) {
-        choice(e,convertIntoMinVal);
-        document.getElementById("btn_end").innerHTML=convertIntoMinVal+" min";
+        choice(e, convertIntoMinVal);
+        document.getElementById("btn_end").innerHTML = convertIntoMinVal + " min";
         $(".content").css("display", "inline");
         return true
-      }
-      else {
+      } else {
         Swal.fire({
           html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter valid number!</p>",
           background: "#353535",
@@ -628,15 +632,15 @@ function Custom(e) {
 };
 /*Run after time button clicked*/
 var run = 0;
-function choice(e,minutes) {
-  let arr=(document.getElementsByClassName("time-button"));
-  for(let i=0;i<arr.length;i++)
-  {
-    arr[i].style.backgroundColor="rgb(140, 179, 238)";
-    arr[i].style.color="#000";
+
+function choice(e, minutes) {
+  let arr = (document.getElementsByClassName("time-button"));
+  for (let i = 0; i < arr.length; i++) {
+    arr[i].style.backgroundColor = "rgb(140, 179, 238)";
+    arr[i].style.color = "#000";
   }
-  e.style.backgroundColor="rgb(89, 151, 245)";
-  e.style.color="black";
+  e.style.backgroundColor = "rgb(89, 151, 245)";
+  e.style.color = "black";
   run = 1;
   Swal.close();
   if ($("#noty_bottomCenter_layout_container").is(":visible") == true) {
@@ -690,6 +694,7 @@ function OpenInNew(min, tab, type) {
     //@Alert audio automatically plays after 50% and 90% time completion--------------------------------------------------------------
     var halfcall = setTimeout(halfAlertAudio, 0.5 * time);
     var fullcall = setTimeout(fullAlertAudio, 0.9 * time);
+
     function halfAlertAudio() {
       var a1 = document.getElementById("audio1");
       // plays the alert if audio permission in dropdown is allowed
@@ -697,6 +702,7 @@ function OpenInNew(min, tab, type) {
         a1.play();
       }
     }
+
     function fullAlertAudio() {
       var a2 = document.getElementById("audio2");
       // plays the alert if audio permission in dropdown is allowed
@@ -708,7 +714,7 @@ function OpenInNew(min, tab, type) {
 
 
     //runs when time is up
-    
+
     var myTimeout = window.setTimeout(function () {
       $.fancybox.close();
       for (i = 0; i < windowCount; i++) {
@@ -716,7 +722,7 @@ function OpenInNew(min, tab, type) {
       }
       complete = true;
       diff = 0;
-      
+
       document.getElementById("header").innerHTML = "Time's up!";
       document.getElementById("subHeader").innerHTML = "Get back to work!";
       document.title = "Take a Break";
@@ -743,6 +749,7 @@ function OpenInNew(min, tab, type) {
       window.scrollTo(0, 0);
 
       setTimeout(ale, 14000);
+
       function ale() {
         alert("That's all!");
         window.location = "./index.html";
@@ -794,7 +801,7 @@ function OpenInNew(min, tab, type) {
           allowOutsideClick: false,
           // imageUrl: getRandomTimeUp(gifTime, '/assets/gifs/'),
         }).then((result) => {
-          if (result.isConfirmed == false ) {
+          if (result.isConfirmed == false) {
             window.location = "./index.html";
           }
         })
@@ -845,11 +852,11 @@ function startTimer(duration, display) {
     seconds,
     minutes = 0,
     setInt = setInterval(timer, 700);
-    
+
   function timer() {
     var once = 0;
     /*get the number of seconds that have elapsed since startTimer() was called*/
-    diff = duration + 6 - (((Date.now() - start) / 1000) | 0);//@Added 6sec to the total duration of timer-----------------------------
+    diff = duration + 6 - (((Date.now() - start) / 1000) | 0); //@Added 6sec to the total duration of timer-----------------------------
     // does the same job as parseInt truncates the float
     minutes = (diff / 60) | 0;
     seconds = (diff % 60) | 0;
@@ -870,8 +877,7 @@ function startTimer(duration, display) {
           setTimeout(() => {
             first = false;
           }, 6000);
-        }
-        else {
+        } else {
           document.title = seconds + " seconds";
         }
 
@@ -890,8 +896,7 @@ function startTimer(duration, display) {
           setTimeout(() => {
             first = false;
           }, 6000);
-        }
-        else {
+        } else {
           document.title = minutes + ":" + seconds + " minutes";
         }
 
@@ -903,37 +908,37 @@ function startTimer(duration, display) {
         // example 05:00 not 04:59
         start = Date.now() + 1000;
       }
-   
 
-   
 
-   // pausing the timer 
-   if(complete==false && windowCount==0)
-   {
-    document.title = "Take a Break";
-    setTimeout(() => {
-      document.title = "Take a Break - Self-Destructing Tabs!";
-    }, 1500);
-    
-     clearInterval(setInt);
-     setInt = null;
-     
-    first = true
-     // decrementing count   
-     count = 0 ;
 
-     // resuming the timer  with (6 sec extension)  
-     
-     min = Math.abs( ((time-6000) - (time - 6000) - (diff*1000)/60000)) ;
- 
-   }
-  
-    
 
-    
+      // pausing the timer 
+      if (complete == false && windowCount == 0) {
+        document.title = "Take a Break";
+        setTimeout(() => {
+          document.title = "Take a Break - Self-Destructing Tabs!";
+        }, 1500);
+
+        clearInterval(setInt);
+        setInt = null;
+
+        first = true
+        // decrementing count   
+        count = 0;
+
+        // resuming the timer  with (6 sec extension)  
+
+        min = Math.abs(((time - 6000) - (time - 6000) - (diff * 1000) / 60000));
+
+      }
+
+
+
+
       //@Executes after 50percent of the time is over----------------------------------------------------------------------------------
       if (diff == duration * 0.5) {
         showNotification1();
+
         function showNotification1() {
           if (flag1 == 1) {
             const notification = new Notification("New Message from TakeABreak!", {
@@ -947,10 +952,11 @@ function startTimer(duration, display) {
             }, 10000);
           }
         }
- }
+      }
       //@Executes after 90percent of the time is over----------------------------------------------------------------------------------
       else if (diff == duration * 0.1) {
         showNotification2();
+
         function showNotification2() {
           if (flag1 == 1) {
             const notification = new Notification("New Message from TakeABreak!", {
@@ -959,14 +965,14 @@ function startTimer(duration, display) {
               vibrate: true
             })
 
-            setTimeout(() =>{
+            setTimeout(() => {
               notification.close();
             }, 10000);
           }
         }
       }
     }
-     
+
 
     if (complete == true || diff == 0) {
       /*("cleared setInt");*/
@@ -1042,20 +1048,15 @@ function updateSites() {
 
     if (siteName == 'Youtube') {
       imgSrc = 'assets/youtube.png'
-    }
-    else if (siteName == "Netflix") {
+    } else if (siteName == "Netflix") {
       imgSrc = "assets/netflix.png"
-    }
-    else if (siteName == "Facebook") {
+    } else if (siteName == "Facebook") {
       imgSrc = "assets/facebook.png"
-    }
-    else if (siteName == "Instagram") {
+    } else if (siteName == "Instagram") {
       imgSrc = "assets/instagram.png"
-    }
-    else if (siteName == 'Reddit') {
+    } else if (siteName == 'Reddit') {
       imgSrc = 'assets/reddit.png'
-    }
-    else {
+    } else {
       imgSrc = 'https://logo.clearbit.com/' + siteName.toLowerCase();
     }
     var req = $.ajax({
@@ -1064,7 +1065,7 @@ function updateSites() {
       timeout: 10000
     });
 
-    req.success(function () { });
+    req.success(function () {});
 
     req.error(function () {
       console.log('Oh noes! Error when updating sites');
@@ -1115,8 +1116,9 @@ function deleteTab(tab, tabLink) {
   $("[data-link='" + tabLink + "']").hide();
   Lockr.srem('customSites', [tab, tabLink]);
   var items = JSON.parse(localStorage.getItem("customSites"));
-/*    console.log(items.data[1]); // updated
-*/    for (var i = 0; i < items.data.length; i++) {
+  /*    console.log(items.data[1]); // updated
+   */
+  for (var i = 0; i < items.data.length; i++) {
     var name = items.data[i][0];
     if (name == tab) {
       items.data.splice(i, 1);
