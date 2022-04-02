@@ -320,7 +320,6 @@ $(document).ready(function () {
       animation: "slide-from-top",
       filter: 'blur(10px)',
       allowOutsideClick: false,
-      // imageUrl: getRandomTimeUp(gifTime, '/assets/gifs/'),
     }).then((result) => {
       if (result.isConfirmed) {
         tabLink = $(this).attr('data-name');
@@ -390,18 +389,6 @@ $(document).ready(function () {
       }
     }
   })
-  /*$(".outbound-link").fancybox({
-  
-      maxWidth: 800,
-      maxHeight: 600,
-      fitToView: false,
-      width: '70%',
-      height: '70%',
-      autoSize: false,
-      closeClick: false,
-      openEffect: 'none',
-      closeEffect: 'none'
-  });*/
 
   $('.time-button').click(function () {
     $(".time-button").each(function (i, hello) {
@@ -433,7 +420,7 @@ $(document).ready(function () {
   }
 });
 
-//@Runs when the settings dropdown is Hovered/Clicked-----------------------------------------------------------------------------------------------------
+// Runs when the settings dropdown is Hovered/Clicked
 var flag3 = true;
 
 function inside2() {
@@ -461,7 +448,7 @@ window.addEventListener('mouseup', function (event) {
 });
 
 
-//@Runs when the list elements of the dropdown is clicked------------------------------------------------------------------------------------------
+// Runs when the list elements of the dropdown is clicked
 var flag1 = 0;
 var flag2 = 0;
 
@@ -485,8 +472,8 @@ function Audio_Click() {
   }
 }
 
-var first = true; //@a variable to check whether a function is being called for the first time--------------------------------------------
-//@Alert Permission to Display Desktop Notifications--------------------------------------------------------------------------------------------------
+var first = true; // a variable to check whether a function is being called for the first time
+// Alert Permission to Display Desktop Notifications
 setInterval(function () {
   if (flag1 == 1) {
     if (Notification.permission !== 'denied') {
@@ -676,9 +663,6 @@ function OpenInNew(min, tab, type) {
     }, 6500);
     /*Place win in array. Increment windowCount.*/
     windows[windowCount] = win;
-    /*console.log(win);
-    console.log(windows);
-    console.log(windows.length);*/
     windowCount += 1;
 
 
@@ -713,7 +697,7 @@ function OpenInNew(min, tab, type) {
 
 
 
-    //runs when time is up
+    // runs when time is up
 
     var myTimeout = window.setTimeout(function () {
       $.fancybox.close();
@@ -735,11 +719,9 @@ function OpenInNew(min, tab, type) {
         color: "white",
         imageSize: "200x200",
         confirmButtonText: 'OK',
-
         animation: "slide-from-top",
         filter: 'blur(10px)',
         allowOutsideClick: false,
-        // imageUrl: getRandomTimeUp(gifTime, '/assets/gifs/'),
       }).then((result) => {
         if (result.isConfirmed) {
           window.location = "./index.html";
@@ -756,17 +738,6 @@ function OpenInNew(min, tab, type) {
       $.fancybox.close();
     }, time);
   }
-
-
-  //   window.setInterval(function(){
-  //     $(window).on('beforeunload ',function() {
-  //       return 'Are you sure ?';
-  //         for (i = 0; i < windowCount; i++) {
-  //             windows[i].location.href = "close.html"
-  //
-  //         }
-  //   });
-  // }, 250);
 
   var a = setInterval(d, 700);
 
@@ -816,35 +787,6 @@ function OpenInNew(min, tab, type) {
   };
 };
 
-// function closeChildren(){
-//     /*for(a=0; a<=windowCount+1; a++){
-//         console.log(a);*/
-//         windows[0].location.href = "close.html";
-//             windows[1].location.href = "close.html";
-//
-//     return 'Are you sure';
-//
-// };
-
-// gifTime = new Array(9);
-// gifTime[0] = 'timeup1.gif';
-// gifTime[1] = 'timeup2.gif';
-// gifTime[2] = 'timeup3.gif';
-// gifTime[3] = 'timeup4.gif';
-// gifTime[4] = 'timeup5.gif';
-// gifTime[5] = 'timeup6.gif';
-// gifTime[6] = 'timeup7.gif';
-// gifTime[7] = 'timeup8.gif';
-// gifTime[8] = 'timeup9.gif';
-// gifTime[9] = 'timeup10.gif';
-
-// function getRandomTimeUp(imgAr, path) {
-//     var num = Math.floor(Math.random() * imgAr.length);
-//     var img = imgAr[num];
-//     var imgStr = path + img;
-//     return imgStr;
-// }
-
 function startTimer(duration, display) {
   var start = Date.now(),
     seconds,
@@ -880,12 +822,6 @@ function startTimer(duration, display) {
         }
 
         document.getElementById("subHeader").innerHTML = seconds + " seconds remaining!";
-        // if (diff == 15) {
-        //     var notification = new Notification('Take a break', {
-        //         icon: '',
-        //         body:"15 seconds left!",
-        //     });
-        // }
       } else {
         display.textContent = minutes + ":" + seconds + " minutes";
 
@@ -981,53 +917,18 @@ function startTimer(duration, display) {
   };
 };
 
-// function oneMinNotif(once){
-//     if(once==0){
-//     var notification = new Notification('Take a break', {
-//                     icon: '',
-//                     body: "One minute left!",
-//                 });
-//     }
-// };
-// check if input form has focus, then check if enter button pressed
-// $(document).ready(function(e) {
-//     $("#enterUrl").focus(function() {
-//         $(document).keypress(function(e) {
-//             if (e.which == 13 && run == 1) {
-//                 customUrl();
-//             }
-//         });
-//     });
-// });
-
 function customUrl() {
   if (count == 0) {
     var customSite = document.getElementById("enterUrl").value;
     if (!~customSite.indexOf("http")) {
       customSite = "http://" + customSite;
     }
-    // if (!~customSite.indexOf(".com")) {
-    //     customSite = customSite + ".com";
-    // }
     OpenInNew(min, customSite);
     count = 1;
   }
 };
 
-/*Makes sure url has http in front*/
-// function checkURL(abc) {
-//     var string = abc.value;
-//     if (!~string.indexOf("http")) {
-//         string ="http://" + string;
-//     }
-//     if (!~string.indexOf(".com")) {
-//         string = string +".com";
-//     }
-//     abc.value = string;
-//     return abc;
-// };
-
-/*Runs to modify html and create grid with elements from array below*/
+// Runs to modify html and create grid with elements from array below
 var siteName = "";
 var siteLabel = "";
 var sites = [
@@ -1085,11 +986,6 @@ function updateSites() {
 
 };
 
-//
-// function deleteGridElement() {
-//   Lockr.rm('customSites', [site, site_link]);
-// }
-
 function addGridElement(siteLabel, siteLink) {
   var newLabel = siteLabel.replace(/\s+/g, '');
   var testLink = 'https://logo.clearbit.com/' + newLabel.toLowerCase() + '.com';
@@ -1114,8 +1010,6 @@ function deleteTab(tab, tabLink) {
   $("[data-link='" + tabLink + "']").hide();
   Lockr.srem('customSites', [tab, tabLink]);
   var items = JSON.parse(localStorage.getItem("customSites"));
-  /*    console.log(items.data[1]); // updated
-   */
   for (var i = 0; i < items.data.length; i++) {
     var name = items.data[i][0];
     if (name == tab) {
