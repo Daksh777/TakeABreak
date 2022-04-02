@@ -654,6 +654,7 @@ function choice(e,minutes) {
 
 var diff = 0;
 var complete = false;
+
 //Number of current winows open
 var windowCount = 0;
 //Stores windows
@@ -707,14 +708,15 @@ function OpenInNew(min, tab, type) {
 
 
     //runs when time is up
-    window.setTimeout(function () {
+    
+    var myTimeout = window.setTimeout(function () {
       $.fancybox.close();
       for (i = 0; i < windowCount; i++) {
         windows[i].location.href = "close.html"
       }
       complete = true;
       diff = 0;
-
+      
       document.getElementById("header").innerHTML = "Time's up!";
       document.getElementById("subHeader").innerHTML = "Get back to work!";
       document.title = "Take a Break";
@@ -735,7 +737,7 @@ function OpenInNew(min, tab, type) {
         // imageUrl: getRandomTimeUp(gifTime, '/assets/gifs/'),
       }).then((result) => {
         if (result.isConfirmed) {
-          window.location = "/index.html";
+          window.location = "./index.html";
         }
       })
       window.scrollTo(0, 0);
@@ -743,7 +745,7 @@ function OpenInNew(min, tab, type) {
       setTimeout(ale, 14000);
       function ale() {
         alert("That's all!");
-        window.location = "/index.html";
+        window.location = "./index.html";
       };
       $.fancybox.close();
     }, time);
@@ -773,26 +775,29 @@ function OpenInNew(min, tab, type) {
       }
       /*If one of the windows is closed, find it in the array and delete it. Then find the length*/
       if (windowCount == 0 && complete == false) {
-        // if (Lockr.get('pastBrowser') == undefined) {
-        //     Lockr.set('pastBrowser', 'yes');
-        document.getElementById('logo').scrollIntoView();
-        Swal.fire({
-          showCancelButton: true,
-          title: "You closed out early!",
-          html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Keep browsing to visit other sites before time's up</p>",
-          // animation: "slide-from-top",
-          confirmButtonText: "Keep Browsing!",
 
-          denyButtonText: "I'm done",
+        // clearing/stoping timeout to execute 
+        clearTimeout(myTimeout);
+
+        document.title = "Take a Break";
+        Swal.fire({
+          title: "You closed out early!",
+          // text: "<b><u>Quote of the day</u></b><br><br>" + "\"I’m a greater believer in luck, and I find the harder I work the more I have of it\"" + " -Thomas Jefferson",
           background: "#353535",
           color: "white",
+          showCancelButton: "true",
+          imageSize: "200x200",
+          confirmButtonText: "Keep Browsing!",
+          cancelButtonText: "I'm done!",
+          animation: "slide-from-top",
+          filter: 'blur(10px)',
+          allowOutsideClick: false,
+          // imageUrl: getRandomTimeUp(gifTime, '/assets/gifs/'),
         }).then((result) => {
-          if (result.isDenied) {
-            window.location = "index.html";
+          if (result.isConfirmed == false ) {
+            window.location = "./index.html";
           }
         })
-
-        // }
 
       }
 
@@ -840,7 +845,7 @@ function startTimer(duration, display) {
     seconds,
     minutes = 0,
     setInt = setInterval(timer, 700);
-
+    
   function timer() {
     var once = 0;
     /*get the number of seconds that have elapsed since startTimer() was called*/
@@ -892,12 +897,40 @@ function startTimer(duration, display) {
 
         document.getElementById("subHeader").innerHTML = minutes + ":" + seconds + " minutes remaining!";
       }
+
       if (diff <= 0) {
         // add one second so that the count down starts at the full duration
         // example 05:00 not 04:59
         start = Date.now() + 1000;
       }
+   
 
+   
+
+   // pausing the timer 
+   if(complete==false && windowCount==0)
+   {
+    document.title = "Take a Break";
+    setTimeout(() => {
+      document.title = "Take a Break - Self-Destructing Tabs!";
+    }, 1500);
+    
+     clearInterval(setInt);
+     setInt = null;
+     
+    first = true
+     // decrementing count   
+     count = 0 ;
+
+     // resuming the timer  with (6 sec extension)  
+     
+     min = Math.abs( ((time-6000) - (time - 6000) - (diff*1000)/60000)) ;
+ 
+   }
+  
+    
+
+    
       //@Executes after 50percent of the time is over----------------------------------------------------------------------------------
       if (diff == duration * 0.5) {
         showNotification1();
@@ -914,7 +947,7 @@ function startTimer(duration, display) {
             }, 10000);
           }
         }
-      }
+ }
       //@Executes after 90percent of the time is over----------------------------------------------------------------------------------
       else if (diff == duration * 0.1) {
         showNotification2();
@@ -926,13 +959,14 @@ function startTimer(duration, display) {
               vibrate: true
             })
 
-            setTimeout(() => {
+            setTimeout(() =>{
               notification.close();
             }, 10000);
           }
         }
       }
     }
+     
 
     if (complete == true || diff == 0) {
       /*("cleared setInt");*/
