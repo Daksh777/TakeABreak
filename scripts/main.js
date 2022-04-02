@@ -910,11 +910,11 @@ function startTimer(duration, display) {
    // pausing the timer 
    if(complete==false && windowCount==0)
    {
-    document.title = "Take a Break";
+    document.title = "Take a Break - Self-Destructing Tabs<";
      clearInterval(setInt);
      setInt = null;
      
-       first = true
+    first = true
      // decrementing count   
      count = 0 ;
 
