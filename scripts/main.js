@@ -913,6 +913,8 @@ function startTimer(duration, display) {
 
      clearInterval(setInt);
      setInt = null;
+     
+    document.title = "Take a Break";
 
      // decrementing count   
      count = 0 ;
