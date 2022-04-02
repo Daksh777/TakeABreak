@@ -685,13 +685,13 @@ function OpenInNew(min, tab, type) {
   }
   if (count == 0) {
     count = 1;
-    time = min * 60000 + 6000; //@Added Extra 6 seconds for loading page--------------------------------------------------------------
+    time = min * 60000 + 6000; // Added Extra 6 seconds for loading page
     var duration = 60 * min;
     timeDisplay = document.querySelector("#time");
     document.getElementById("buttons").style.visibility = "hidden";
     startTimer(duration, timeDisplay);
 
-    //@Alert audio automatically plays after 50% and 90% time completion--------------------------------------------------------------
+    // Alert audio automatically plays after 50% and 90% time completion
     var halfcall = setTimeout(halfAlertAudio, 0.5 * time);
     var fullcall = setTimeout(fullAlertAudio, 0.9 * time);
 
@@ -729,7 +729,6 @@ function OpenInNew(min, tab, type) {
 
       Swal.fire({
         title: "Time's up, back to work!",
-        // text: "<b><u>Quote of the day</u></b><br><br>" + "\"I’m a greater believer in luck, and I find the harder I work the more I have of it\"" + " -Thomas Jefferson",
         html: quote,
         icon: "success",
         background: "#353535",
@@ -789,7 +788,6 @@ function OpenInNew(min, tab, type) {
         document.title = "Take a Break";
         Swal.fire({
           title: "You closed out early!",
-          // text: "<b><u>Quote of the day</u></b><br><br>" + "\"I’m a greater believer in luck, and I find the harder I work the more I have of it\"" + " -Thomas Jefferson",
           background: "#353535",
           color: "white",
           showCancelButton: "true",
@@ -855,8 +853,8 @@ function startTimer(duration, display) {
 
   function timer() {
     var once = 0;
-    /*get the number of seconds that have elapsed since startTimer() was called*/
-    diff = duration + 6 - (((Date.now() - start) / 1000) | 0); //@Added 6sec to the total duration of timer-----------------------------
+    // get the number of seconds that have elapsed since startTimer() was called 
+    diff = duration + 6 - (((Date.now() - start) / 1000) | 0); // Added 6sec to the total duration of timer
     // does the same job as parseInt truncates the float
     minutes = (diff / 60) | 0;
     seconds = (diff % 60) | 0;
@@ -872,7 +870,7 @@ function startTimer(duration, display) {
       } else if (diff < 60) {
         display.textContent = seconds + " seconds";
 
-        //@stops the timer to be displayed on title till the loading page is shown--------------------------------
+        // stops the timer to be displayed on title till the loading page is shown
         if (first == true) {
           setTimeout(() => {
             first = false;
@@ -891,7 +889,7 @@ function startTimer(duration, display) {
       } else {
         display.textContent = minutes + ":" + seconds + " minutes";
 
-        //@stops the timer to be displayed on title till the loading page is shown------------------------------------------------
+        // stops the timer to be displayed on title till the loading page is shown
         if (first == true) {
           setTimeout(() => {
             first = false;
@@ -935,7 +933,7 @@ function startTimer(duration, display) {
 
 
 
-      //@Executes after 50percent of the time is over----------------------------------------------------------------------------------
+      // Executes after 50% of the time is over
       if (diff == duration * 0.5) {
         showNotification1();
 
@@ -953,7 +951,7 @@ function startTimer(duration, display) {
           }
         }
       }
-      //@Executes after 90percent of the time is over----------------------------------------------------------------------------------
+      // Executes after 90% of the time is over
       else if (diff == duration * 0.1) {
         showNotification2();
 
