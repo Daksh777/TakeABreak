@@ -914,8 +914,7 @@ function startTimer(duration, display) {
      clearInterval(setInt);
      setInt = null;
      
-    
-
+    firat = true;
      // decrementing count   
      count = 0 ;
 
