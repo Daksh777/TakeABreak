@@ -910,11 +910,11 @@ function startTimer(duration, display) {
    // pausing the timer 
    if(complete==false && windowCount==0)
    {
-
+    document.title = "Take a Break";
      clearInterval(setInt);
      setInt = null;
      
-    document.title = "Take a Break";
+    
 
      // decrementing count   
      count = 0 ;
