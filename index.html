@@ -34,6 +34,10 @@
 </head>
 
 <body class="main">
+    <!-- Blobs Added -->
+    <div class="shape-blob" ></div>
+	<div class="shape-blob one" ></div>
+	<div class="shape-blob two" ></div>
     <!-- @A dropdown menu for controlling notifications and audio alerts.----------------------------------------------------------------------------------------------------------------------------- -->
     <div class="top">
         <a  class="dropbtn" onmouseover="inside2()" onmouseleave="outside2()"  onclick="btnClick()">
@@ -46,11 +50,17 @@
                 <span onclick="Notif_Click()">Notifications</span>
             </label>
             <br>
-            <label class="switch" id="switch2" style="padding-bottom: 0.6rem;">
+            <label class="switch" id="switch2" >
                 <input type="checkbox" id="audioAlert">
                 <span onclick="Audio_Click()">Audio Alerts</span>
             </label>
             <br>
+            <label class="switch" id="switch3" style="padding-bottom: 0.5rem;">
+                <input type="checkbox" id="themeid">
+                <span onclick="theme()">Color Theme</span>
+            </label>
+            <br>
+          
         </div>
         
     </div>
