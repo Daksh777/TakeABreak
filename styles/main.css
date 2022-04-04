@@ -410,7 +410,7 @@ html {
 	transform: rotate(-180deg);
 	animation: transform 30s ease-in-out infinite both alternate, movement_two 60s ease-in-out infinite both;
 }
-.shape-blob.bone{
+/* .shape-blob.bone{
     overflow: hidden;
     background-color: var(--colorful3);
     z-index: -1;
@@ -420,7 +420,7 @@ html {
 	bottom:-80%;
 	transform: rotate(-180deg);
 	animation: transform 30s ease-in-out infinite both alternate, movement_two 60s ease-in-out infinite both;
-}
+} */
 
 @keyframes transform
 {
