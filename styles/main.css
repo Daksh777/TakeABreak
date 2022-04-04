@@ -368,8 +368,10 @@ html {
 }
 
 .colorful-theme{
-    --colorful:#ED1250;
- 
+    --colorful:#fcd56c;
+    --colorful1:#ED1250;
+    --colorful2:#81c995;
+    --colorful3:#8ab4f8;
 }
 
 /* Blob Added Start*/
@@ -388,6 +390,7 @@ html {
 	top: 50%;
 }
 .shape-blob.one{
+    background-color: var(--colorful1);
     z-index: -1;
 	height: 500px;
 	width: 500px;
@@ -398,11 +401,23 @@ html {
 }
 
 .shape-blob.two{
+    background-color: var(--colorful2);
     z-index: -1;
 	height: 350px;
 	width: 350px;
 	left: 500px;
 	top: -150px;
+	transform: rotate(-180deg);
+	animation: transform 30s ease-in-out infinite both alternate, movement_two 60s ease-in-out infinite both;
+}
+.shape-blob.bone{
+    overflow: hidden;
+    background-color: var(--colorful3);
+    z-index: -1;
+	height: 300px;
+	width: 300px;
+	left: 200px;
+	bottom:-80%;
 	transform: rotate(-180deg);
 	animation: transform 30s ease-in-out infinite both alternate, movement_two 60s ease-in-out infinite both;
 }
