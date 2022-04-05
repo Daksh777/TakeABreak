@@ -441,7 +441,8 @@ window.addEventListener('mouseup', function (event) {
   var box = document.getElementById('list2');
   var b1 = document.getElementById('switch1');
   var b2 = document.getElementById('switch2');
-  if ((event.target != box && event.target.parentNode != box) && (event.target != b1 && event.target.parentNode != b1) && (event.target != b2 && event.target.parentNode != b2)) {
+  var b3 = document.getElementById('switch3');
+  if ((event.target != box && event.target.parentNode != box) && (event.target != b1 && event.target.parentNode != b1) && (event.target != b2 && event.target.parentNode != b2) && (event.target != b3 && event.target.parentNode != b3) ) {
     box.style.display = 'none';
     flag3 = !flag3;
   }
@@ -1020,3 +1021,9 @@ function deleteTab(tab, tabLink) {
     }
   }
 };
+
+// blob added
+var themeid = document.getElementById("themeid");
+themeid.onclick = function(){
+  document.body.classList.toggle("colorful-theme");
+}

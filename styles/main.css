@@ -178,6 +178,7 @@ ul.rig.columns-6 li {
     transform: rotate(120deg);
  }
  #list2{
+    height:120px;
     margin: 1rem -4rem 0rem 0rem;
     float: right;
     display: none;
@@ -362,6 +363,92 @@ html {
     background: #232323
 }
 
+:root{
+    --colorful:#232323;
+}
+
+.colorful-theme{
+    --colorful:#fcd56c;
+    --colorful1:#ED1250;
+    --colorful2:#81c995;
+    --colorful3:#8ab4f8;
+}
+
+/* Blob Added Start*/
+.shape-blob {
+    background-color: var(--colorful);
+    z-index: -1;
+	height: 200px;
+	width: 200px;
+	border-radius: 30% 50% 20% 40%;
+  	animation: 
+		transform 20s ease-in-out infinite both alternate,
+		movement_one 40s ease-in-out infinite both;
+	opacity:.7;
+	position: absolute;
+	left: 70%;
+	top: 50%;
+}
+.shape-blob.one{
+    background-color: var(--colorful1);
+    z-index: -1;
+	height: 500px;
+	width: 500px;
+	left: -200px;
+	top: -150px;
+	transform: rotate(-180deg);
+	animation: transform 30s ease-in-out infinite both alternate, movement_two 60s ease-in-out infinite both;
+}
+
+.shape-blob.two{
+    background-color: var(--colorful2);
+    z-index: -1;
+	height: 350px;
+	width: 350px;
+	left: 500px;
+	top: -150px;
+	transform: rotate(-180deg);
+	animation: transform 30s ease-in-out infinite both alternate, movement_two 60s ease-in-out infinite both;
+}
+/* .shape-blob.bone{
+    overflow: hidden;
+    background-color: var(--colorful3);
+    z-index: -1;
+	height: 300px;
+	width: 300px;
+	left: 200px;
+	bottom:-80%;
+	transform: rotate(-180deg);
+	animation: transform 30s ease-in-out infinite both alternate, movement_two 60s ease-in-out infinite both;
+} */
+
+@keyframes transform
+{
+    0%,
+  100% { border-radius: 33% 67% 70% 30% / 30% 30% 70% 70%; } 
+   20% { border-radius: 37% 63% 51% 49% / 37% 65% 35% 63%; } 
+   40% { border-radius: 36% 64% 64% 36% / 64% 48% 52% 36%; } 
+   60% { border-radius: 37% 63% 51% 49% / 30% 30% 70% 70%; } 
+   80% { border-radius: 40% 60% 42% 58% / 41% 51% 49% 59%; } 
+}
+
+
+@keyframes movement_one
+{
+    0%,
+  100% { transform: none; }
+   50% { transform: translate(50%, 20%) rotateY(10deg) scale(1.2); }
+}
+
+@keyframes movement_two
+{
+    0%,
+  500% { transform: none; }
+   50% { transform: translate(50%, 20%) rotate(-200deg) scale(1.2);}
+}
+/* Blob Added End */
+
+
 body {
     margin: 0 0 100px
 }
@@ -385,7 +472,7 @@ body {
 h1 {
     font-size: 90px;
     text-align: center;
-    margin-top: 130px;
+    margin-top: 140px;
     margin-bottom: 40px;
     color: #fff
 }
