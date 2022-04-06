@@ -473,6 +473,12 @@ function Audio_Click() {
   }
 }
 
+//
+$(window).bind('beforeunload', function(){
+  
+
+});
+
 var first = true; // a variable to check whether a function is being called for the first time
 // Alert Permission to Display Desktop Notifications
 setInterval(function () {
