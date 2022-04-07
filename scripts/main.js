@@ -473,7 +473,7 @@ function Audio_Click() {
   }
 }
 
-
+//asking for permission to reload
 $(window).bind('beforeunload', function(){
 return "Do you want to leave";
 });
