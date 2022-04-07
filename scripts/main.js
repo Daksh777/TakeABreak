@@ -473,11 +473,33 @@ function Audio_Click() {
   }
 }
 
-//
-$(window).bind('beforeunload', function(){
-  
 
+$(window).bind('beforeunload', function(){
+return "Do you want to leave";
 });
+
+
+// function swal_Reload(){
+  
+//   Swal.fire({
+//     title: "Do you want to leave?",
+//     background: "#353535",
+//     color: "white",
+//     showCancelButton: "true",
+//     imageSize: "200x200",
+//     confirmButtonText: "Leave!",
+//     cancelButtonText: "Cancel!",
+//     animation: "slide-from-top",
+//     filter: 'blur(10px)',
+//     allowOutsideClick: false,
+//     // imageUrl: getRandomTimeUp(gifTime, '/assets/gifs/'),
+//   }).then((result) => {
+//     if (result.isConfirmed) {
+//       return "";
+    
+//     }
+//   })
+// }
 
 var first = true; // a variable to check whether a function is being called for the first time
 // Alert Permission to Display Desktop Notifications
