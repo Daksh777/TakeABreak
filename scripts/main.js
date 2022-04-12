@@ -894,7 +894,7 @@ function startTimer(duration, display) {
       // if (window.performance)  {
       //    console.info("window.performance works fine on this browser");
       //   }
-      //console.info(performance.navigation.type);
+      console.info(performance.navigation.type);
       if ((performance.navigation.type == performance.navigation.TYPE_RELOAD) && (diff > 0)) {
         // console.info( "This page is  reloaded");
   
