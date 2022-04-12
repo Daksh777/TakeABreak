@@ -473,11 +473,6 @@ function Audio_Click() {
   }
 }
 
-//asking for permission to reload
-$(window).bind('beforeunload', function(){
-return "Do you want to leave";
-});
-
 
 // function swal_Reload(){
   
@@ -894,7 +889,20 @@ function startTimer(duration, display) {
         min = Math.abs(((time - 6000) - (time - 6000) - (diff * 1000) / 60000));
 
       }
-
+      
+      //asking for permission to reload
+      // if (window.performance)  {
+      //    console.info("window.performance works fine on this browser");
+      //   }
+      //console.info(performance.navigation.type);
+      if ((performance.navigation.type == performance.navigation.TYPE_RELOAD) && (diff > 0)) {
+        // console.info( "This page is  reloaded");
+  
+        $(window).bind('beforeunload',function(){
+           return "Do you want to leave";
+         });
+       }
+    
 
 
 
