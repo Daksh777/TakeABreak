@@ -14,7 +14,7 @@
       
       <footer>
     <div id="quote-footer" class="footer-part">
-      <span id="storeQuote"></span>
+      <span id="quoteContainer"></span>
     </div>
     </footer>
 </body>
@@ -34,7 +34,7 @@
 
   var ans = DailyQuotes();
   ans.then(function (result) {
-    document.getElementById("storeQuote").innerHTML = result;
+    document.getElementById("quoteContainer").innerHTML = result;
   })
 </script>
 
