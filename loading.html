@@ -6,14 +6,16 @@
   <link rel="stylesheet" type="text/css" href="styles/loading.css">
 </head>
 <body>
- 
+  <div class="container">
     <h1>Loading site in <span id="countdown"></span> seconds.<br>
-    This website will self destruct in the specified time.</h1>
-
-    <footer>
-      <div class="footer-bottom">
-        <p><span id="storeQuote"></span></p>
+      This website will self destruct in the specified time.
+      </h1>
       </div>
+      
+      <footer>
+    <div id="quote-footer" class="footer-part">
+      <span id="storeQuote"></span>
+    </div>
     </footer>
 </body>
 
@@ -37,13 +39,13 @@
 </script>
 
 <script>
-    var timeleft = 5;
+    var timeLeft = 5;
 var downloadTimer = setInterval(function(){
-  if(timeleft <= 0){
+  if (timeLeft <= 0) {
     clearInterval(downloadTimer);
     document.getElementById("countdown").innerHTML = "0";
   } else {
-    document.getElementById("countdown").innerHTML = timeleft;
+    document.getElementById("countdown").innerHTML = timeLeft;
   }
   timeleft -= 1;
 }, 1000);
