@@ -453,6 +453,7 @@ window.addEventListener('mouseup', function (event) {
 var flag1 = 0;
 var flag2 = 0;
 
+
 function Notif_Click() {
   if (flag1 == 0) {
     document.getElementById("show").innerHTML = "";
@@ -472,6 +473,8 @@ function Audio_Click() {
     flag2 = 0;
   }
 }
+
+
 
 var first = true; // a variable to check whether a function is being called for the first time
 // Alert Permission to Display Desktop Notifications
@@ -498,7 +501,14 @@ $("#audioAlert").click(function (event) {
   else
     Lockr.set('audioAlert', false);
 });
-
+/*
+$("#todolist").click(function (event) {
+  if (flag4 === 1)
+    Lockr.set('todolist', true);
+  else
+    Lockr.set('todolist', false);
+});
+*/
 /*Function that runs when custom button is pressed. Presents sweet alert then parses input accordingly*/
 function Custom(e) {
   $('.content').removeClass('visible');
@@ -1027,3 +1037,22 @@ var themeid = document.getElementById("themeid");
 themeid.onclick = function(){
   document.body.classList.toggle("colorful-theme");
 }
+
+//todolist added
+var myWindow;
+var f=0;
+
+function opentodolist(){
+if(f==0)
+{
+myWindow = window.open("todolist.html","myWindow","width=350,height=430");
+f=1;
+}
+else
+//function closetodolist()
+{
+myWindow.close();
+f=0;
+}
+}
+
