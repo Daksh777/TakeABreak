@@ -32,6 +32,16 @@ html {
     font-display: swap;
 }
 
+/* styling for logo */
+.mainLogo{
+    display: block;
+    margin-left: auto;
+    padding-left: 50px;
+    margin-right: auto;
+    width: 150px;
+}
+
+
 @media screen {
     html {
         padding: 10px;
