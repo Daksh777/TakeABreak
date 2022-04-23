@@ -1,60 +1,62 @@
-const inputVal = document.getElementsByClassName('inputVal')[0];
+const inputElem = document.querySelector('#input-name');
+const form = document.querySelector('#form');
+const listElem = document.querySelector('#to-do-list');
+const buttonElem = document.querySelector('#to-do-list button');
 
-const addTaskBtn = document.getElementsByClassName('btn')[0];
+const toDoArray = JSON.parse(localStorage.getItem('to-do-list')) || [];
 
+function updateList(){
+  listElem.innerHTML = '';
 
-addTaskBtn.addEventListener('click', function (){
- 
-if(inputVal.value.trim()!=0){
-      let localItems = JSON.parse( localStorage.getItem('localItem'))
-   if(localItems === null){
-        taskList = []
+  for (const key in toDoArray) {
+    const li = document.createElement('li');
 
-   }else{
-       taskList = localItems;
-   }
-   taskList.push(inputVal.value)
-   localStorage.setItem('localItem', JSON.stringify(taskList)); 
+    const span = document.createElement('span');
+    span.innerText = toDoArray[key];
+
+    const button = document.createElement('button');
+    button.innerText = 'Delete';
+    button.setAttribute('key',key); 
+    button.classList.add('delete');
+
+    li.appendChild(span);
+    li.appendChild(button);
+    listElem.appendChild(li);
+  }
+
+  localStorage.setItem('to-do-list',JSON.stringify(toDoArray));
 }
 
-   showItem()
-})
+function addToList(value){
+  if (value === '') return;
 
-function showItem(){
-   let localItems = JSON.parse( localStorage.getItem('localItem'))
-   if(localItems === null){
-        taskList = []
+  toDoArray.push(value);
 
-   }else{
-       taskList = localItems;
-   }
-
-
-let html = '';
-let itemShow = document.querySelector('.todoLists');
-taskList.forEach((data, index )=> {
-   
-
-   html += `
-   <div class="todoList">
-   <p class="pText">${data}</p>
-   <button class="deleteTask" onClick="deleteItem(${index})">x</button>
-   </div>
-   `
-})
-itemShow.innerHTML = html;
-}
-showItem()
-
-function deleteItem(index){
-   let localItems = JSON.parse( localStorage.getItem('localItem'))
-   taskList.splice(index, 1)
-   localStorage.setItem('localItem', JSON.stringify(taskList));
-   showItem()
+  updateList();
+  inputElem.value = '';
+  inputElem.focus();
 }
 
-function clearTask(){
-   
-localStorage.clear()
-showItem()
+function deleteFromList(key){
+
+  toDoArray.splice(Number(key),1);
+
+  updateList();
+  inputElem.value = '';
+  inputElem.focus();
 }
+
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  addToList(inputElem.value);
+});
+
+document.addEventListener('click', e => {
+  const el = e.target;
+  if (el.classList.contains('delete')){ 
+    deleteFromList(el.getAttribute('key'));
+  }
+});
+
+updateList();

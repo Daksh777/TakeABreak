@@ -1041,11 +1041,17 @@ themeid.onclick = function(){
 //todolist added
 var myWindow;
 var f=0;
+var g=0;
 
+function clickfunc(){
+  opentodolist();
+  alertpop();
+}
 function opentodolist(){
 if(f==0)
 {
-myWindow = window.open("todolist.html","myWindow","width=350,height=430");
+  let params= `width=450,height=300,left=450,top=500`;
+myWindow = window.open("todolist.html","myWindow",params);
 f=1;
 }
 else
@@ -1055,4 +1061,14 @@ myWindow.close();
 f=0;
 }
 }
-
+function alertpop(){
+  if(g==0)
+  {
+  swal.fire("To do list added to the bottom")
+  g=1;
+}
+  else{
+    swal.close();
+    g=0;
+  }
+}

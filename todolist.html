@@ -8,20 +8,17 @@
 </head>
 <body>
     
-    <div class="container">
-        <div class="myTodo">
-            <div class="inputvalue">
-                <input class="inputVal" onfocus="this.value=''" type="text" placeholder="Add your task" value="">
-                <button class="btn">Add Task</button>
-            </div>
-            
-           
-            <div class="todoLists">
-                
-            </div>
-            <button class="clearTask" onclick="clearTask()">Clear all Task</button>
+    <section class="container">
+        <h1> To-do-list </h1>
+        <div>
+          <form action="" id="form">
+            <input type="text" id="input-name">
+            <button type="submit" id="btn-add">Add</button>
+          </form>
         </div>
-    </div>
+      
+        <ul id="to-do-list"></ul>
+      </section>
     <script src="scripts/todolist.js"></script>
 </body>
 </html>

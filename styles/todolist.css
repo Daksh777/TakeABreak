@@ -1,94 +1,102 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Product Sans';
-}
-body{
-    
-    background: #0e0c0c49;
-  
-}
-.container{
-    width: 350px;
-    height: 400px;
-    background: #0c0b0bc7;
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    border-radius: 10px;
-  
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+:root {
+  --primary-color: rgb(17, 54, 102);
+  --primary-color-darker: rgb(4, 20, 24);
+  --secondary-color: rgb(139, 23, 23);
+  --secondary-color-darker: rgb(24, 4, 4);
 }
 
-.todoList{
-    display: flex;
-    justify-content: space-between;
-    margin: 10px;
-    align-items: center;
-    background: #ffffff;
-    padding: 5px;
-  border-bottom: 1px solid gray;
-  border-radius: 5px;
-  height: 40px;
-  box-shadow: 5px 5px rgb(0, 0, 1, 0.5);
-  font-weight: bold;
-  flex-wrap: wrap;
-  width: 325px;
-  
+* {
+  box-sizing: border-box;
+  outline: 0;
 }
-.deleteTask{
-    cursor: pointer;
- width: 25px;
- height: 25px;
-    text-align: center;
-    border-radius: 50%;
-    background: orangered;
-    color: #ffffff;
-    outline: none;
-    align-items: center;
+
+body {
   margin: 0;
   padding: 0;
+  background: var(--primary-color);
+  font-family: 'Open sans', sans-serif;
+  font-size: 1.3em;
+  line-height: 1.5em;
 }
-.pText{
-    background: #ffffff;
-    text-transform: capitalize;
-   
+
+.container {
+  max-width: 640px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
 }
-.inputvalue{
-   
-    display: flex;
-    margin: 5px;
-    margin-bottom: 60px;
+
+h1{
+  text-align: center;
+  margin: 1em 0;
 }
-.inputVal{
-    width: 250px;
-    height: 40px;
-    border-radius: 5px;
-    margin-right: 5px;
-    
-    border: 2px solid rgb(69, 5, 187);
-  
+
+form{
+  display: flex;
 }
-.btn{
-    width: 100px;
-    background: #8cb3ee;
-    font-weight: bold;
-    outline-style: none;
-    border-radius: 5px;
-    ;
-    
+
+form input, form label, form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
 }
-.clearTask{
-    display: block;
-    position: absolute;
-   bottom: 5px;
-   left: 15%;
-   background: #8cb3ee;
-   width: 250px;
-   height: 35px;
-   border-radius: 5px;
-   text-transform: capitalize;
-   font-weight: bold;
-   cursor: pointer;
-   outline-style: none;
+
+form input {
+  font-size: 24px;
+  height: 50px;
+  padding: 0 20px;
+  flex: 5;
+}
+
+form input:focus {
+  outline: 1px solid var(--primary-color);
+}
+
+button{
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  height: 50px;
+  cursor: pointer;
+}
+
+form button {
+  background: var(--primary-color);
+  margin-left: 30px;
+  flex: 1;
+}
+
+form button:hover {
+  background: var(--primary-color-darker);
+}
+
+ul{
+  list-style-type: none;
+  display:flex;
+  padding:0;
+  flex-direction: column;
+}
+
+ul li{
+  margin: 10px auto;
+  background: #fff;
+  padding: 15px 20px;
+  outline: 1px solid var(--primary-color);
+  border-radius: 10px;
+  width: 100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul li button{
+  background: var(--secondary-color);
+  padding: 0 26px;
+}
+
+ul li button:hover{
+  background: var(--secondary-color-darker);
 }
