@@ -788,11 +788,66 @@ function OpenInNew(min, tab, type) {
   };
 };
 
+
+//*------ Pause and stop button -----------
+
+const stopBtn = document.querySelector(".stop-btn")
+const pauseBtn = document.querySelector(".pause-btn")
+const extraBtn = document.querySelector(".extra-btn")
+
+//*stop button handler
+stopBtn.addEventListener("click",()=>{
+    Swal.fire({
+        title: "Stop this timer ?",
+        background: "#353535",
+        color: "white",
+        showCancelButton: "true",
+        imageSize: "200x200",
+        confirmButtonText: "Yes, close it",
+        cancelButtonText: "No, wait!",
+        animation: "slide-from-top",
+        filter: 'blur(10px)',
+        allowOutsideClick: false,
+       
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location = "./index.html";
+        }
+      })
+})
+
+
+
+
 function startTimer(duration, display) {
+
+    //* show the pause and stop button
+
+    extraBtn.classList.add("active");
+
   var start = Date.now(),
     seconds,
     minutes = 0,
     setInt = setInterval(timer, 700);
+
+
+    //* handler for pause button 
+
+    pauseBtn.addEventListener("click",(e)=>{
+         
+       
+
+        if(e.target.textContent == "Pause") {
+            e.target.textContent = "Resume"
+           return clearInterval(setInt);
+        }
+       
+            e.target.textContent = "Pause"
+        
+        
+       return setInt =  setInterval(timer, 700);
+        
+    })
 
   function timer() {
     var once = 0;
@@ -847,7 +902,7 @@ function startTimer(duration, display) {
 
 
 
-      // pausing the timer 
+      //* pausing the timer 
       if (complete == false && windowCount == 0) {
         document.title = "Take a Break";
         setTimeout(() => {
@@ -866,12 +921,15 @@ function startTimer(duration, display) {
         min = Math.abs(((time - 6000) - (time - 6000) - (diff * 1000) / 60000));
 
       }
+
+     
+
+
       
       //asking for permission to reload
       // if (window.performance)  {
       //    console.info("window.performance works fine on this browser");
       //   }
-      console.info(performance.navigation.type);
       if ((performance.navigation.type == performance.navigation.TYPE_RELOAD) && (diff > 0)) {
         // console.info( "This page is  reloaded");
   
