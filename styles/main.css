@@ -532,7 +532,7 @@ div.buttons {
 
 
 .stop-btn,.pause-btn{
-    background: rgb(242, 44, 44);
+    background: #8cb3ee;
     width: 8em;
     height: 2.3em;
     border-radius: 0.35em;
@@ -542,14 +542,14 @@ div.buttons {
     cursor: pointer;
 }
 .pause-btn{
-    background-color: rgb(242, 179, 62);
+    background-color: #6e7881;
 }
 
 .stop-btn:hover{
-    background: rgb(236, 9, 9);
+    background: #78a9f3;
 }
 .pause-btn:hover{
-    background-color: rgb(232, 155, 11);
+    background-color: #636b72;
 }
 
 .buttons ul {
@@ -981,6 +981,11 @@ input#enterUrl {
         width: 125px;
         padding-bottom: 2px
     }
+
+    .extra-btn.active{
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media only screen and (min-device-width:360px) and (max-device-width:777px) and (orientation:portrait) {
@@ -1053,6 +1058,10 @@ input#enterUrl {
         position: absolute;
         bottom: 10px;
         left: 20px
+    }
+    .extra-btn.active{
+        flex-direction: column;
+        align-items: center;
     }
 }
 
