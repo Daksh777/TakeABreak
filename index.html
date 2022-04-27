@@ -1,0 +1,190 @@
+﻿<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="icon" type="image/x-icon" href="assets/icon.svg">
+    <link rel="stylesheet" href="styles/IconFont.css">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/sweetalert.min.js"></script>
+    <!-- Primary Meta Tags -->
+    <title>Take a Break - Self-Destructing Tabs</title>
+    <meta name="title" content="Take a Break - Self-Destructing Tabs">
+    <meta name="description"
+        content="Tackle procrastination by using self-destructing tabs and boost your productivity.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://breaks.eu.org/">
+    <meta property="og:title" content="Take a Break - Self-Destructing Tabs">
+    <meta property="og:description"
+        content="Tackle procrastination by using self-destructing tabs and boost your productivity.">
+    <meta property="og:image" content="assets/banner.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://breaks.eu.org/">
+    <meta property="twitter:title" content="Take a Break - Self-Destructing Tabs">
+    <meta property="twitter:description"
+        content="Tackle procrastination by using self-destructing tabs and boost your productivity.">
+    <meta property="twitter:image" content="assets/banner.png">
+
+</head>
+
+<body class="main">
+    <!-- Blobs Added -->
+    <div class="shape-blob" ></div>
+	<div class="shape-blob one" ></div>
+	<div class="shape-blob two" ></div>
+	<!-- <div class="shape-blob bone" ></div> -->
+    <!-- @A dropdown menu for controlling notifications and audio alerts.----------------------------------------------------------------------------------------------------------------------------- -->
+    <div class="top">
+        <a  class="dropbtn" onmouseover="inside2()" onmouseleave="outside2()"  onclick="btnClick()">
+            <img src="assets/settings.svg" width="35rem" height="35rem">
+        </a><br>
+        <div class="list" id="list2" onmouseover="inside2()" onmouseleave="outside2() ">
+            <p id="show"></p>
+            <label class="switch" id="switch1">
+                <input type="checkbox" id="notification">
+                <span onclick="Notif_Click()">Notifications</span>
+            </label>
+            <br>
+            <label class="switch" id="switch2" >
+                <input type="checkbox" id="audioAlert">
+                <span onclick="Audio_Click()">Audio Alerts</span>
+            </label>
+            <br>
+            <label class="switch" id="switch3" style="padding-bottom: 0.5rem;">
+                <input type="checkbox" id="themeid">
+                <span onclick="theme()">Color Theme</span>
+            </label>
+            <br>
+          
+        </div>
+        
+    </div>
+    <!-- @2 computerised voice alert audio added which will not be visible on home screen----------------------------------------------- -->
+    <div>
+        <audio id="audio1" src="assets/male50.mp3" controls style="display: none;"></audio>
+        <audio id="audio2" src="assets/male90.mp3" controls style="display: none;"></audio>
+    </div>
+
+    <h1 id="header">Take a Break</h1>
+    <h2 id="subHeader" href="">Select a time to start your break</h2>
+    <div id="time" style="display: none"></div>
+    <div class="buttons" id="buttons">
+        <ul>
+
+            <li><a class="time-button" id="btn_front" onclick="choice(this,5)">5 min</a></li>
+            <li><a class="time-button" id="btn_midL" onclick="choice(this,10)">10 min</a></li>
+            <li><a class="time-button" id="btn_midR" onclick="choice(this,15)">15 min</a></li>
+            <li><a class="time-button" id="btn_end" onclick="Custom(this)">Custom</a></li>
+
+
+        </ul>
+    </div>
+
+    <div class="content" style="display: none">
+        <div class="custom-url">
+            <h3 id="content-label">Enter website directly</h3>
+            <div class="enterUrlDiv">
+                <input id="enterUrl" pattern="https?://.+"
+                    class="form-control ui-autocomplete-input" placeholder="Go to..." name="keywords" type="url"
+                    autocomplete="off" style="background: #353535;">
+                <a id="urlClick" class="iconfont icon-arrow-right"></a>
+            </div>
+        </div>
+        <h3 id="content-label">Or, add websites/use pre-added websites</h3>
+        <div class="website_grid">
+            <ul class="rig columns-6 websites" id="grid">
+            </ul>
+        </div>
+    </div>
+
+    <div class="buttons" id="takeAnotherButton" style="display: none">
+        <ul>
+            <li><a class="takeAnother" id="takeAnother" href="index.html">Take another break?</a></li>
+        </ul>
+    </div>
+
+
+    <footer>
+
+        <div id="author" class="footer-part">Copyright © Daksh P. Jain</div>
+        <div id="social_icons">
+            <li>
+                <a href="https://daksh.eu.org" target="_blank" title="Website">
+                    <span class="iconfont icon-web">
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/daksh777/takeabreak" target="_blank " title="GitHub">
+                    <span class="iconfont icon-github" style="padding-left: 15px;">
+                    </span>
+                </a>
+            </li>
+        </div>
+    </footer>
+
+    <script src="scripts/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+
+    <script src="scripts/main.js" type="text/javascript"></script>
+    <script>
+        window.onbeforeunload = function () {
+            closeChildren();
+
+        };
+    </script>
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Add Custom Site</h4>
+                </div>
+
+                <div class="modal-body">
+                    <form class="custom-site-form">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="inputEmail3"
+                                style="color: white;font-family: 'Product Sans'">Card Label</label>
+                            <div class="col-sm-10" style="padding-bottom: 15px;padding-top: 10px;">
+                                <input type="site" class="form-control" id="inputSiteName"
+                                    placeholder="My personal website" autofocus>
+                                <p style="display: none; margin-top: 4px; margin-left: 3px;" id="erro"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="inputPassword3"
+                                style="color: white;font-family: 'Product Sans'">Link</label>
+                            <div class="col-sm-10" style="padding-top: 10px;">
+                                <input type="site_link" class="form-control" id="inputSiteLink"
+                                    placeholder="https://daksh.eu.org" <!--onblur="checkURL(this)" -->
+                                <p style="display: none; margin-top: 4px; margin-left: 3px;" id="error"></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalClose">Close</button>
+                    <button type="submit" class="btn btn-primary" id="addSiteButton">Add Site</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</body>
+
+</html>
