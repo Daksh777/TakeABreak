@@ -540,9 +540,11 @@ div.buttons {
     outline: none;
     border: none;
     cursor: pointer;
+    color: black;
 }
 .pause-btn{
     background-color: #6e7881;
+    color: white;
 }
 
 .stop-btn:hover{
