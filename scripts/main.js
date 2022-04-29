@@ -652,8 +652,16 @@ var windowCount = 0;
 //Stores windows
 var windows = [];
 
+//*------ Pause and stop button -----------
+
+const stopBtn = document.querySelector(".stop-btn")
+const pauseBtn = document.querySelector(".pause-btn")
+const extraBtn = document.querySelector(".extra-btn")
+
+
 function OpenInNew(min, tab, type) {
 
+   
   /*MAJOR KEY*/
   if (type != "video") {
     /*Assigns win to open loading.html. Write to page. Then change the location to whatever the user chose.*/
@@ -669,6 +677,8 @@ function OpenInNew(min, tab, type) {
 
   }
   if (count == 0) {
+       //* as soon as newtab opens 
+    pauseBtn.textContent = "Pause"
     count = 1;
     time = min * 60000 + 6000; // Added Extra 6 seconds for loading page
     var duration = 60 * min;
@@ -753,7 +763,8 @@ function OpenInNew(min, tab, type) {
       }
       /*If one of the windows is closed, find it in the array and delete it. Then find the length*/
       if (windowCount == 0 && complete == false) {
-
+          //* if no tab then remove the stop and pause button
+        extraBtn.classList.remove("active");
         // clearing/stoping timeout to execute 
         clearTimeout(myTimeout);
 
@@ -772,8 +783,9 @@ function OpenInNew(min, tab, type) {
           // imageUrl: getRandomTimeUp(gifTime, '/assets/gifs/'),
         }).then((result) => {
           if (result.isConfirmed == false) {
-            window.location = "./index.html";
+           return window.location = "./index.html";
           }
+          return setInt =  setInterval(timer, 700);
         })
 
       }
@@ -789,11 +801,6 @@ function OpenInNew(min, tab, type) {
 };
 
 
-//*------ Pause and stop button -----------
-
-const stopBtn = document.querySelector(".stop-btn")
-const pauseBtn = document.querySelector(".pause-btn")
-const extraBtn = document.querySelector(".extra-btn")
 
 //*stop button handler
 stopBtn.addEventListener("click",()=>{
@@ -819,6 +826,8 @@ stopBtn.addEventListener("click",()=>{
 
 
 
+var timer;
+var setInt
 function startTimer(duration, display) {
 
     //* show the pause and stop button
@@ -827,29 +836,14 @@ function startTimer(duration, display) {
 
   var start = Date.now(),
     seconds,
-    minutes = 0,
-    setInt = setInterval(timer, 700);
+    minutes = 0
 
 
     //* handler for pause button 
+    
 
-    pauseBtn.addEventListener("click",(e)=>{
-         
+    timer =  function () {
        
-
-        if(e.target.textContent == "Pause") {
-            e.target.textContent = "Resume"
-           return clearInterval(setInt);
-        }
-       
-            e.target.textContent = "Pause"
-        
-        
-       return setInt =  setInterval(timer, 700);
-        
-    })
-
-  function timer() {
     var once = 0;
     // get the number of seconds that have elapsed since startTimer() was called 
     diff = duration + 6 - (((Date.now() - start) / 1000) | 0); // Added 6sec to the total duration of timer
@@ -904,6 +898,7 @@ function startTimer(duration, display) {
 
       //* pausing the timer 
       if (complete == false && windowCount == 0) {
+        
         document.title = "Take a Break";
         setTimeout(() => {
           document.title = "Take a Break - Self-Destructing Tabs!";
@@ -987,7 +982,32 @@ function startTimer(duration, display) {
       return;
     }
   };
+
+  setInt= setInterval(timer, 700)
 };
+
+pauseBtn.addEventListener("click",(e)=>{
+         
+       
+       
+    if(e.target.textContent == "Pause") {
+        e.target.textContent = "Resume"
+       
+        clearInterval(setInt);
+        
+    }
+    else if(e.target.textContent == "Resume"){
+        console.log('clicked');
+        e.target.textContent = "Pause"
+
+        return setInt =  setInterval(timer, 700);
+    }
+   
+    
+    
+    
+})
+
 
 function customUrl() {
   if (count == 0) {
