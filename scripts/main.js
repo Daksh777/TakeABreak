@@ -207,6 +207,7 @@ DailyQuotes();
 
 }));
 
+
 var min;
 var count = 0;
 var tab;
@@ -268,7 +269,7 @@ $(document).ready(function () {
     } else if (~!site_link.indexOf("http")) {
       site_link = "http://" + site_link;
     }
-
+   
     /* Check if the url entered is valid or not using a regex */
     function ValidUrl() {
       UrlEntered = $('#inputSiteLink').val();
@@ -668,7 +669,13 @@ function OpenInNew(min, tab, type) {
     var win = window.open('loading.html', '_blank');
     // win.document.write('Loading site...this tab will self-destruct');
     setTimeout(function () {
+        // const prevLocation = win.location; 
       win.location = tab;
+   
+      
+    //   if(win.location !== prevLocation){
+    //       win.closed = false;
+    //   }
     }, 6500);
     /*Place win in array. Increment windowCount.*/
     windows[windowCount] = win;
@@ -676,6 +683,7 @@ function OpenInNew(min, tab, type) {
 
 
   }
+  
   if (count == 0) {
        //* as soon as newtab opens 
     pauseBtn.textContent = "Pause"
@@ -750,7 +758,7 @@ function OpenInNew(min, tab, type) {
     }, time);
   }
 
-  var a = setInterval(d, 700);
+  var a = setInterval(d, 1000);
 
   function d() {
 
@@ -785,7 +793,7 @@ function OpenInNew(min, tab, type) {
           if (result.isConfirmed == false) {
            return window.location = "./index.html";
           }
-          return setInt =  setInterval(timer, 700);
+          return setInt =  setInterval(timer, 1000);
         })
 
       }
@@ -828,6 +836,7 @@ stopBtn.addEventListener("click",()=>{
 
 var timer;
 var setInt
+var increase =0;
 function startTimer(duration, display) {
 
     //* show the pause and stop button
@@ -846,7 +855,7 @@ function startTimer(duration, display) {
        
     var once = 0;
     // get the number of seconds that have elapsed since startTimer() was called 
-    diff = duration + 6 - (((Date.now() - start) / 1000) | 0); // Added 6sec to the total duration of timer
+    diff = duration + 6 - ( increase++ | 0); // Added 6sec to the total duration of timer
     // does the same job as parseInt truncates the float
     minutes = (diff / 60) | 0;
     seconds = (diff % 60) | 0;
@@ -913,7 +922,7 @@ function startTimer(duration, display) {
 
         // resuming the timer  with (6 sec extension)  
 
-        min = Math.abs(((time - 6000) - (time - 6000) - (diff * 1000) / 60000));
+        // min = Math.abs(((time - 6000) - (time - 6000) - (diff * 1000) / 60000));
 
       }
 
@@ -983,7 +992,7 @@ function startTimer(duration, display) {
     }
   };
 
-  setInt= setInterval(timer, 700)
+  setInt= setInterval(timer, 1000)
 };
 
 pauseBtn.addEventListener("click",(e)=>{
@@ -1000,7 +1009,7 @@ pauseBtn.addEventListener("click",(e)=>{
         console.log('clicked');
         e.target.textContent = "Pause"
 
-        return setInt =  setInterval(timer, 700);
+        return setInt =  setInterval(timer, 1000);
     }
    
     
