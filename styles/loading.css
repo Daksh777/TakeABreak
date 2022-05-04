@@ -1,0 +1,139 @@
+#quote-footer {
+    position: fixed;
+    color: #fff;
+    left: 0px;
+    bottom: 0px;
+    height: auto;
+    font-size: 16px;
+    padding: 3px;
+    padding-left: 9px;
+    padding-right: 9px;
+    text-align: center;
+    font-family: 'Product Sans', sans-serif;
+    width: 100%;
+    background-color: #353535;
+}
+body {
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #232323;
+}
+
+.container {
+    padding-top: 150px;
+    padding-left: 150px;
+    padding-right: 150px;
+    color: #fff;
+    font-size: 31px;
+    text-align: center;
+    margin: 0;
+    vertical-align: center;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-family: 'Product Sans',
+    sans-serif;
+    align-items: center;
+}
+
+@media screen and (max-width:580px) {
+    .container {
+        padding-left: 50px;
+        padding-right: 50px;
+        font-size: 27px;
+        padding-top: 125px;
+    }
+
+    #quote-footer {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:720px) and (min-width:581px) {
+    .container {
+        padding-left: 55px;
+        padding-right: 55px;
+        font-size: 28px;
+        padding-top: 150px;
+    }
+    #quote-footer {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:1028px) and (min-width:721px) {
+    .container {
+        padding-left: 75px;
+        padding-right: 75px;
+        padding-top: 135px;
+    }
+
+    #quote-footer {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:400px) and (orientation:portrait) {
+    .container {
+        vertical-align: center;
+        padding-top: 50%;
+        padding-left: 55px;
+        padding-right: 55px;
+    }
+    
+    #quote-footer {
+        font-size: 32px;
+    }
+    }
+@media only screen and (min-device-width:360px) and (max-device-width:767px) and (orientation:portrait) {
+    .container {
+        vertical-align: center;
+        padding-top: 60%;
+        padding-left: 55px;
+        padding-right: 55px;
+    }
+    #quote-footer {
+        font-size: 34px;
+    }
+}
+@media only screen and (min-device-width:360px) and (max-device-width:773px) and (orientation:landscape) {
+    .container {
+        font-size: 30px;
+        padding-top: 75px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    
+    #quote-footer {
+        font-size: 22px;
+    }
+    }
+
+@media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:portrait) {
+    .container {
+        padding-top: 30%;
+        padding-left: 60px;
+        padding-right: 60px;
+        }
+        
+        #quote-footer {
+            font-size: 28px;
+        }
+        }
+
+
+@media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:landscape) {
+    .container {
+        font-size: 28px;
+        padding-top: 75px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    
+    #quote-footer {
+        font-size: 22px;
+    }
+}

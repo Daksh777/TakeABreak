@@ -1,34 +1,53 @@
+<!DOCTYPE html>
 <html>
 <head>
-    
-    <style>
-        p {font-family: 'Product Sans', sans-serif;}
-    </style>
-  <style>
-    h1 {margin: 0;
-    font-family: Product Sans, sans-serif;
-    text-align: center;
-    color: #fff;
-    font-size: 61px;}
-  </style>
+  <meta charset="UTF-8">
+  <title>Loading</title>
+  <link rel="stylesheet" type="text/css" href="styles/loading.css">
 </head>
-<body style="padding: 150px;text-align:center;vertical-align: middle;display: flex;align-items: center;justify-content: center;background-color: #232323;">
- 
+<body>
+  <div class="container">
     <h1>Loading site in <span id="countdown"></span> seconds.<br>
-    This website will self destruct in the specified time.</h1>
-
+      This website will self destruct in the specified time.
+      </h1>
+      </div>
+      
+      <footer>
+    <div id="quote-footer" class="footer-part">
+      <span id="quoteContainer"></span>
+    </div>
+    </footer>
 </body>
 
 <script>
-    var timeleft = 5;
+  let quote = "";
+  let apiUrl = "https://type.fit/api/quotes"
+  async function getJson(url) {
+    let quote_response = await fetch(url);
+    let quote_data = await quote_response.json()
+    let random = Math.floor(Math.random() * 1642);
+    return `<span class='moti_qoute'>❝${quote_data[random].text}❞</span> <br> <span class='moti_author'> ━ ${quote_data[random].author}</span>`;
+  }
+  async function DailyQuotes() {
+    return await getJson(apiUrl);
+  }
+
+  var ans = DailyQuotes();
+  ans.then(function (result) {
+    document.getElementById("quoteContainer").innerHTML = result;
+  })
+</script>
+
+<script>
+    var timeLeft = 5;
 var downloadTimer = setInterval(function(){
-  if(timeleft <= 0){
+  if (timeLeft <= 0) {
     clearInterval(downloadTimer);
     document.getElementById("countdown").innerHTML = "0";
   } else {
-    document.getElementById("countdown").innerHTML = timeleft;
+    document.getElementById("countdown").innerHTML = timeLeft;
   }
-  timeleft -= 1;
+  timeLeft -= 1;
 }, 1000);
 </script>
 
