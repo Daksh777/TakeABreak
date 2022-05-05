@@ -1123,7 +1123,12 @@ function deleteTab(tab, tabLink) {
 };
 
 // blob added
+var pre_theme = localStorage.getItem("theme");
+document.body.classList.toggle(pre_theme);
+var cur_theme = "Normal";
 var themeid = document.getElementById("themeid");
-themeid.onclick = function(){
+themeid.onclick = function () {
   document.body.classList.toggle("colorful-theme");
-}
+  localStorage.setItem("theme", "colorful-theme");
+};
+
