@@ -1124,6 +1124,12 @@ function deleteTab(tab, tabLink) {
 
 // blob added
 var pre_theme = localStorage.getItem("theme");
+if(pre_theme === 'colorful-theme'){
+  document.getElementById("themeid").checked=true;
+}
+else{
+  document.getElementById("themeid").checked=false;
+}
 document.body.classList.toggle(pre_theme);
 var cur_theme = "Normal";
 var themeid = document.getElementById("themeid");
