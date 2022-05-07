@@ -1,5 +1,3 @@
-
-
 //Random quote generator function
 let quote = "";
 let apiUrl = "https://type.fit/api/quotes";
@@ -16,7 +14,7 @@ async function getJson(url) {
           resolve(`<div><div class='moti_title'>Here's a quote to keep you motivated:</div>
     <span class='moti_qoute'>
         <img src="${image.urls.small}" alt="" srcset="">
-    </span> </div>❞`);
+    </span> </div>`);
 
         })
         return promise;
