@@ -655,7 +655,8 @@ var windows = [];
 
 //* ------- Circular timer ---------
 var num = 360;
-var circularContainer = document.querySelector(".container")
+var circularContainer = document.querySelector(".circular-container")
+var container = document.querySelector(".container")
 var secEle = document.querySelector(".sec");
 var minEle = document.querySelector(".min");
 
@@ -878,7 +879,7 @@ function startTimer(duration, display) {
     
     if (complete == false) {
 
-        circularContainer.style.background = ` conic-gradient(#8cb3ee ${num}deg ,#8cb3ee 0deg ,#585862d5 0deg,#585862d5 360deg)`
+        container.style.background = ` conic-gradient(#8cb3ee ${num}deg ,#8cb3ee 0deg ,#585862d5 0deg,#585862d5 360deg)`
         num = num - (num / timediff);
        
       if (diff == 60) {
