@@ -8,6 +8,14 @@
     color: #000 !important;
     background-color: rgb(140, 179, 238) !important;
 }
+.swal2-html-container{
+    margin: 0;
+}
+.swal2-input {
+  height: 2.625em;
+  padding: 0 25px;
+  background: #1f1f1f;
+}
 
 body,
 html {
