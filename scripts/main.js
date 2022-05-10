@@ -1125,5 +1125,5 @@ function deleteTab(tab, tabLink) {
 // blob added
 var themeid = document.getElementById("themeid");
 themeid.onclick = function(){
-  document.body.classList.toggle("colorful-theme");
+  document.body.classList.toggle("container");
 }

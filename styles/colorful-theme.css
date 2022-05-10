@@ -1,0 +1,135 @@
+.container {
+    margin: 0 auto;
+    transition: all 0.4s ease;
+}
+
+.container .one .content,
+.container .two .content,
+.container .three .content {
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    top: 0%;
+    left: 30%;
+    animation: 0.8s cubic-bezier(1, 0.06, 0.25, 1) backwards;
+}
+
+.container .one .content .piece,
+.container .two .content .piece,
+.container .three .content .piece {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    position: absolute;
+    border-radius: 80px;
+    z-index: -1;
+    animation: pieceLeft 8s cubic-bezier(1, 0.06, 0.25, 1) infinite both;
+}
+
+@keyframes pieceLeft {
+    50% {
+        left: 80%;
+        width: 10%;
+    }
+}
+
+@keyframes pieceRight {
+    50% {
+        right: 80%;
+        width: 10%;
+    }
+}
+
+
+.container .one .content .piece {
+    background: linear-gradient(90deg, #8077ea 13.7%, #eb73ff 94.65%);
+}
+
+.container .one .content .piece:nth-child(1) {
+    right: 15%;
+    top: 18%;
+    height: 30px;
+    width: 120px;
+    animation-delay: 0.5s;
+    animation-name: pieceRight;
+}
+
+.container .one .content .piece:nth-child(2) {
+    left: 15%;
+    top: 45%;
+    width: 150px;
+    height: 50px;
+    animation-delay: 1s;
+    animation-name: pieceLeft;
+}
+
+.container .one .content .piece:nth-child(3) {
+    left: 10%;
+    top: 75%;
+    height: 20px;
+    width: 70px;
+    animation-delay: 1.5s;
+    animation-name: pieceLeft;
+}
+
+.container .two .content .piece {
+    background: linear-gradient(90deg, #ffedc0 0%, #ff9d87 100%);
+}
+
+.container .two .content .piece:nth-child(1) {
+    left: 0%;
+    top: 25%;
+    height: 40px;
+    width: 120px;
+    animation-delay: 2s;
+    animation-name: pieceLeft;
+}
+
+.container .two .content .piece:nth-child(2) {
+    right: 15%;
+    top: 35%;
+    width: 180px;
+    height: 50px;
+    animation-delay: 2.5s;
+    animation-name: pieceRight;
+}
+
+.container .two .content .piece:nth-child(3) {
+    right: 10%;
+    top: 80%;
+    height: 20px;
+    width: 160px;
+    animation-delay: 3s;
+    animation-name: pieceRight;
+}
+
+.container .three .content .piece {
+    background: #fb8a8a;
+}
+
+.container .three .content .piece:nth-child(1) {
+    left: 25%;
+    top: 35%;
+    height: 20px;
+    width: 80px;
+    animation-name: pieceLeft;
+    animation-delay: 3.5s;
+}
+
+.container .three .content .piece:nth-child(2) {
+    right: 10%;
+    top: 55%;
+    width: 140px;
+    height: 40px;
+    animation-name: pieceRight;
+    animation-delay: 4s;
+}
+
+.container .three .content .piece:nth-child(3) {
+    left: 40%;
+    top: 68%;
+    height: 20px;
+    width: 80px;
+    animation-name: pieceLeft;
+    animation-delay: 4.5s;
+}
