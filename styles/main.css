@@ -524,6 +524,68 @@ div.buttons {
     position: relative
 }
 
+/*  ----- ------ Circular timer */
+
+
+.circular-container{
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: none;
+}
+.container{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: absolute;
+    width: 20em;
+    height: 20em;
+    border-radius: 50%;
+    
+    
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.container::before{
+    position: absolute;
+    content: "";
+    width: 95%;
+    height: 95%;
+    background: #232323;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    color: #fac7c78f;
+    transform: translate(-50%,-50%);
+}
+
+.text-container{
+    width: 70%;
+    height: 100px;
+   color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3em;
+    font-size:3.2em ;
+    transform: translate(-50%,-50%);
+
+}
+h3{
+  letter-spacing: 0.05em;
+    font-family: "Product Sans";
+    font-weight: 500;
+}
+
+
+
+
+
+
 /*----------- Stop Button style */
 
 .extra-btn{
