@@ -683,6 +683,13 @@ var windowCount = 0;
 //Stores windows
 var windows = [];
 
+//* ------- Circular timer ---------
+var num = 360;
+var circularContainer = document.querySelector(".circular-container")
+var container = document.querySelector(".container")
+var secEle = document.querySelector(".sec");
+var minEle = document.querySelector(".min");
+
 //*------ Pause and stop button -----------
 
 const stopBtn = document.querySelector(".stop-btn");
@@ -716,6 +723,8 @@ function OpenInNew(min, tab, type) {
     var duration = 60 * min;
     timeDisplay = document.querySelector("#time");
     document.getElementById("buttons").style.visibility = "hidden";
+    document.getElementById("subHeader").style.visibility = "hidden";
+    circularContainer.style.display = "block";
     startTimer(duration, timeDisplay);
 
     // Alert audio automatically plays after 50% and 90% time completion
@@ -777,7 +786,7 @@ function OpenInNew(min, tab, type) {
         window.location = "./index.html";
       }
       $.fancybox.close();
-    }, time);
+    }, time+1000);
   }
 
   var a = setInterval(d, 1000);
@@ -850,6 +859,9 @@ stopBtn.addEventListener("click", () => {
 var timer;
 var setInt;
 var increase = 0;
+var setInt
+var increase =0;
+
 function startTimer(duration, display) {
   //* show the pause and stop button
 
@@ -860,22 +872,33 @@ function startTimer(duration, display) {
     minutes = 0;
 
   //* handler for pause button
-
   timer = function () {
+    //* handler for pause button 
+    timer =  function () {
     var once = 0;
     // get the number of seconds that have elapsed since startTimer() was called
     diff = duration + 6 - (increase++ | 0); // Added 6sec to the total duration of timer
     // does the same job as parseInt truncates the float
+
+    const timediff = diff;
     minutes = (diff / 60) | 0;
     seconds = diff % 60 | 0;
     minutes = minutes < 10 ? +minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    
     if (complete == false) {
+
+        container.style.background = ` conic-gradient(#8cb3ee ${num}deg ,#8cb3ee 0deg ,#585862d5 0deg,#585862d5 360deg)`
+        num = num - (num / timediff);
+       
       if (diff == 60) {
         display.textContent = "1 minute";
         document.title = "1 minute";
         document.getElementById("subHeader").innerHTML = "1 minute remaining!";
         // oneMinNotif(once);
+        secEle.textContent = seconds;
+        minEle.textContent = minutes;
       } else if (diff < 60) {
         display.textContent = seconds + " seconds";
 
@@ -890,6 +913,9 @@ function startTimer(duration, display) {
 
         document.getElementById("subHeader").innerHTML =
           seconds + " seconds remaining!";
+        secEle.textContent = seconds;
+        minEle.textContent = minutes;
+        
       } else {
         display.textContent = minutes + ":" + seconds + " minutes";
 
@@ -901,9 +927,11 @@ function startTimer(duration, display) {
         } else {
           document.title = minutes + ":" + seconds + " minutes";
         }
-
         document.getElementById("subHeader").innerHTML =
           minutes + ":" + seconds + " minutes remaining!";
+        secEle.textContent = seconds;
+        minEle.textContent = minutes;
+      
       }
 
       if (diff <= 0) {
