@@ -213,20 +213,28 @@ const saAddSite = async () => {
     title: "Add custom Site",
     html:
       '<div style="font-family:Product Sans; letter-spacing:1px; margin:0;">' +
-      "<hr/>" +
-      "<h3>Card Label</h3>" +
-      '<input id="inputSiteName" class="swal2-input" placeholder="My personal website" autofocus style:"height: 2.625em; padding: 0 25px; background: #1f1f1f;">' +
+      '<input id="inputSiteName" class="swal2-input" placeholder="Name" autofocus style:"height: 2.625em; padding: 0 25px; background: #1f1f1f;">' +
       ' <p style="display: none; margin-top: 4px; margin-left: 3px;" id="erro"></p>' +
       "<br/>" +
-      "<h3>Link</h3>" +
-      '<input type="url" id="inputSiteLink" class="swal2-input" placeholder="https://daksh.eu.org" autofocus>' +
+      '<input type="url" id="inputSiteLink" class="swal2-input" placeholder="Link" autofocus>' +
       '<p style="display: none; margin-top: 4px; margin-left: 3px;" id="error"></p>' +
-      "<hr/>" +
       "</div>",
     background: "#353535",
     color: "white",
     focusConfirm: false,
     preConfirm: () => {
+      if (!document.getElementById("inputSiteLink").value.match(
+      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+    )) {
+        Swal.showValidationMessage(
+          '<i class="fa fa-info-circle"></i> Invalid URL'
+        );
+      }
+      if (!document.getElementById("inputSiteName").value){
+          Swal.showValidationMessage(
+            '<i class="fa fa-info-circle" style="font-family:Product sans"></i> Please Enter the Site Name'
+          );
+      }
       return [
         document.getElementById("inputSiteName").value,
         document.getElementById("inputSiteLink").value,
