@@ -3,7 +3,9 @@
 .swal2-styled {
     font-family: 'Product Sans';
 }
-
+#swal2-validation-message {
+  font-family: 'Product sans';
+}
 .swal2-styled.swal2-confirm {
     color: #000 !important;
     background-color: rgb(140, 179, 238) !important;
