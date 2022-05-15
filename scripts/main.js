@@ -207,6 +207,110 @@ DailyQuotes();
 
 }));
 
+var array1 = [];
+const saAddSite = async () => {
+  const { value: formValues } = await Swal.fire({
+    title: "Add custom Site",
+    html:
+      '<div style="font-family:Product Sans; letter-spacing:1px; margin:0;">' +
+      '<input id="inputSiteName" class="swal2-input" placeholder="Name" autofocus style:"height: 2.625em; padding: 0 25px; background: #1f1f1f;">' +
+      ' <p style="display: none; margin-top: 4px; margin-left: 3px;" id="erro"></p>' +
+      "<br/>" +
+      '<input type="url" id="inputSiteLink" class="swal2-input" placeholder="Link" autofocus>' +
+      '<p style="display: none; margin-top: 4px; margin-left: 3px;" id="error"></p>' +
+      "</div>",
+    background: "#353535",
+    color: "white",
+    focusConfirm: false,
+    preConfirm: () => {
+      if (!document.getElementById("inputSiteLink").value.match(
+      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+    )) {
+        Swal.showValidationMessage(
+          '<i class="fa fa-info-circle"></i> Invalid URL'
+        );
+      }
+      if (!document.getElementById("inputSiteName").value){
+          Swal.showValidationMessage(
+            '<i class="fa fa-info-circle" style="font-family:Product sans"></i> Please Enter the Site Name'
+          );
+      }
+      return [
+        document.getElementById("inputSiteName").value,
+        document.getElementById("inputSiteLink").value,
+      ];
+    },
+  });
+
+  if (formValues) {
+    array1 = formValues;
+    addSite();
+
+    // Swal.fire(JSON.stringify(formValues));
+  }
+  console.log("aaaa", array1);
+};
+const addSite = () => {
+  var site = array1[0];
+  var site_link = array1[1];
+  var flaglink = 0,
+    flagname = 0;
+  if (site_link.trim() === "") {
+    flaglink = 1;
+  }
+  if (site.trim() === "") {
+    flagname = 1;
+  } else if (~!site_link.indexOf("http")) {
+    site_link = "http://" + site_link;
+  }
+
+  /* Check if the url entered is valid or not using a regex */
+  function ValidUrl() {
+    UrlEntered = site_link;
+    result = UrlEntered.match(
+      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+    );
+    return result;
+  }
+
+  if (flaglink != 1 && flagname != 1 && ValidUrl()) {
+    Lockr.sadd("customSites", [site, site_link]);
+    addGridElement(site, site_link);
+    document.getElementById("error").innerHTML = "";
+    document.getElementById("error").style.display = "hidden";
+    document.getElementById("erro").innerHTML = "";
+    document.getElementById("erro").style.display = "hidden";
+    document.getElementById("SiteLink").value = "";
+    document.getElementById("SiteName").value = "";
+    $("#mm1").modal("toggle");
+  } else if (flaglink === 1 && flagname != 1) {
+    document.getElementById("error").innerHTML =
+      "<p style='color:#FF0000;font-family:Product Sans'>ERROR: Incorrect website URL</p>";
+    document.getElementById("error").style.display = "block";
+    document.getElementById("erro").innerHTML = "";
+    document.getElementById("erro").style.display = "hidden";
+  } else if (!ValidUrl() && flagname != 1) {
+    document.getElementById("error").innerHTML =
+      "<p style='color:#FF0000;font-family:Product Sans'>ERROR: Incorrect website URL</p>";
+    document.getElementById("error").style.display = "block";
+    document.getElementById("erro").innerHTML = "";
+    document.getElementById("erro").style.display = "hidden";
+  } else if (flagname === 1 && flaglink != 1) {
+    document.getElementById("erro").innerHTML =
+      "<p style='color:#FF0000;font-family:Product Sans''>ERROR: No label provided</p>";
+    document.getElementById("erro").style.display = "block";
+    document.getElementById("error").innerHTML = "";
+    document.getElementById("error").style.display = "hidden";
+  } else if (flagname == 1 && flaglink === 1) {
+    document.getElementById("error").innerHTML =
+      "<p style='color:#FF0000;font-family:Product Sans''>ERROR: Incorrect website URL</p>";
+    document.getElementById("error").style.display = "block";
+    document.getElementById("erro").innerHTML =
+      "<p style='color:#FF0000;font-family:Product Sans''>ERROR: No label provided</p>";
+    document.getElementById("erro").style.display = "block";
+  }
+};
+console.log("aaaa", array1);
 
 var min;
 var count = 0;
@@ -254,6 +358,8 @@ $(document).ready(function () {
     document.getElementById("inputSiteName").value = "";
 
   });
+  
+
 
   $("#addSiteButton").click(function (event) {
 
@@ -286,7 +392,7 @@ $(document).ready(function () {
       document.getElementById("erro").style.display = "hidden";
       document.getElementById("inputSiteLink").value = "";
       document.getElementById("inputSiteName").value = "";
-      $('#myModal').modal('toggle');
+      $('#mm1').modal1('toggle');
     } else if (flaglink === 1 && flagname != 1) {
       document.getElementById("error").innerHTML = "<p style='color:#FF0000;font-family:Product Sans'>ERROR: Incorrect website URL</p>";
       document.getElementById("error").style.display = "block";
@@ -351,6 +457,13 @@ $(document).ready(function () {
     res = enteredUrl.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
     return (res !== null);
   }
+   const isUrlValid1 = () => {
+     enteredUrl = $("#inputSiteLink").val();
+     res = enteredUrl.match(
+       /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+     );
+     return res !== null;
+   };
 
   /*Runs on 'enter url' click*/
   $('#urlClick').click(function () {
@@ -370,26 +483,45 @@ $(document).ready(function () {
     }
   });
 
-  $('body').keyup(e => {
+  // $('body').keyup(e => {
 
-    isVisible = $('.content').hasClass('visible')
-    if (e.key === 'Enter' && isVisible) {
-      if (isUrlValid()) {
-        if (count == 0) {
-          customUrl();
-          count = 1;
+  //   isVisible = $('.content').hasClass('visible')
+  //   if (e.key === 'Enter' && isVisible) {
+  //     if (isUrlValid()) {
+  //       if (count == 0) {
+  //         customUrl();
+  //         count = 1;
+  //       }
+  //     } else {
+  //       Swal.fire({
+  //         html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter a valid website URL!</p>",
+  //         background: "#353535",
+  //         icon: "error",
+
+  //         color: "white",
+  //       });
+  //     }
+  //   }
+  // })
+
+    $("body").keyup((e) => {
+      if (e.key === "Enter") {
+        if (isUrlValid1()) {
+          if (count == 0) {
+            customUrl1();
+            count = 1;
+          }
+        } else {
+          Swal.fire({
+            html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter a valid website URL!</p>",
+            background: "#353535",
+            icon: "error",
+
+            color: "white",
+          });
         }
-      } else {
-        Swal.fire({
-          html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Please enter a valid website URL!</p>",
-          background: "#353535",
-          icon: "error",
-
-          color: "white",
-        });
       }
-    }
-  })
+    });
 
   $('.time-button').click(function () {
     $(".time-button").each(function (i, hello) {
@@ -1054,6 +1186,7 @@ function customUrl() {
   }
 };
 
+
 // Runs to modify html and create grid with elements from array below
 var siteName = "";
 var siteLabel = "";
@@ -1066,7 +1199,9 @@ var sites = [
 ];
 
 function updateSites() {
-  $('.rig.columns-6.websites').append("<a data-toggle='modal' data-target='#myModal' class='addCustom'><li class='outbound-link'><img id='Add Site' src='assets/plus.png'><p>Add Site</p></li></a>")
+  $(".rig.columns-6.websites").append(
+    "<a data-toggle='modal1' onclick='saAddSite()' data-target='#mm1' class='addCustom'><li class='outbound-link'><img id='Add Site' src='assets/plus.png' onclick='saAddSite()'><p>Add Site</p></li></a>"
+  );
   for (i = 0; i < sites.length; i++) {
     siteName = sites[i][0];
     siteLabel = sites[i][1];

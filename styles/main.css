@@ -3,10 +3,20 @@
 .swal2-styled {
     font-family: 'Product Sans';
 }
-
+#swal2-validation-message {
+  font-family: 'Product sans';
+}
 .swal2-styled.swal2-confirm {
     color: #000 !important;
     background-color: rgb(140, 179, 238) !important;
+}
+.swal2-html-container{
+    margin: 0;
+}
+.swal2-input {
+  height: 2.625em;
+  padding: 0 25px;
+  background: #1f1f1f;
 }
 
 body,
