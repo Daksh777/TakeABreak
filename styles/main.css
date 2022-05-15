@@ -529,6 +529,12 @@ div.buttons {
 /*  ----- ------ Circular timer */
 
 
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 360deg;
+  }
+
 .circular-container{
     width: 100%;
     height: auto;
@@ -536,6 +542,7 @@ div.buttons {
     display: none;
 }
 .container{
+    --a:360deg;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -543,8 +550,8 @@ div.buttons {
     width: 20em;
     height: 20em;
     border-radius: 50%;
-    
-    
+    background: conic-gradient(#8cb3ee var(--a) ,#8cb3ee 0deg ,#585862d5 0deg,#585862d5 360deg);
+    transition:--a 1s;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
