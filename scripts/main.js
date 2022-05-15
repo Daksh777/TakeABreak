@@ -1010,8 +1010,9 @@ function startTimer(duration, display) {
 
     
     if (complete == false) {
-
-        container.style.background = ` conic-gradient(#8cb3ee ${num}deg ,#8cb3ee 0deg ,#585862d5 0deg,#585862d5 360deg)`
+        container.style.setProperty("--a",num+"deg")
+        const a = container.style.getPropertyValue("--a");
+        container.style.background = ` conic-gradient(#8cb3ee var(--a) ,#8cb3ee 0deg ,#585862d5 0deg,#585862d5 360deg)`
         num = num - (num / timediff);
        
       if (diff == 60) {
