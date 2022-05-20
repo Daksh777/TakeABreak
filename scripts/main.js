@@ -1302,3 +1302,12 @@ themeid.onclick = function () {
     document.body.classList.toggle("colorful-theme");
   }
 };
+
+//about added
+document.getElementById('aboutcorner').addEventListener('click',function(){
+  Swal.fire(
+    'Welcome!',
+    'Select a break time, go to your favorite website and when the time\'s up, your tab will self-destruct!',
+    'information'
+  );
+})
