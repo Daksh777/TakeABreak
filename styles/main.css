@@ -3,10 +3,20 @@
 .swal2-styled {
     font-family: 'Product Sans';
 }
-
+#swal2-validation-message {
+  font-family: 'Product sans';
+}
 .swal2-styled.swal2-confirm {
     color: #000 !important;
     background-color: rgb(140, 179, 238) !important;
+}
+.swal2-html-container{
+    margin: 0;
+}
+.swal2-input {
+  height: 2.625em;
+  padding: 0 25px;
+  background: #1f1f1f;
 }
 
 body,
@@ -515,6 +525,74 @@ div.buttons {
     width: 100%;
     position: relative
 }
+
+/*  ----- ------ Circular timer */
+
+
+@property --a {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 360deg;
+  }
+
+.circular-container{
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: none;
+}
+.container{
+    --a:360deg;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: absolute;
+    width: 20em;
+    height: 20em;
+    border-radius: 50%;
+    background: conic-gradient(#8cb3ee var(--a) ,#8cb3ee 0deg ,#585862d5 0deg,#585862d5 360deg);
+    transition:--a 1s;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.container::before{
+    position: absolute;
+    content: "";
+    width: 95%;
+    height: 95%;
+    background: #232323;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    color: #fac7c78f;
+    transform: translate(-50%,-50%);
+}
+
+.text-container{
+    width: 70%;
+    height: 100px;
+   color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3em;
+    font-size:3.2em ;
+    transform: translate(-50%,-50%);
+
+}
+h3{
+    font-family: "Product Sans";
+    font-weight: 500;
+}
+
+
+
+
+
 
 /*----------- Stop Button style */
 
