@@ -6,10 +6,11 @@
 .container .one .content,
 .container .two .content,
 .container .three .content {
-    width: 80%;
-    height: 95%;
+    width: 700px;
+    height: 700px;
     position: absolute;
-    left: 15%;
+    top: 0%;
+    left: 30%;
     animation: 0.8s cubic-bezier(1, 0.06, 0.25, 1) backwards;
 }
 
