@@ -10,9 +10,15 @@
     font-style: normal;
 }
 
+#logo-img {
+	width: min(50vw, 200px);
+}
+
 .logo-parent {
     position: relative;
+    padding-top: 6rem;
 }
+
 .logo-child {
   position: absolute;
   left: 50%;
