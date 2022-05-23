@@ -10,6 +10,28 @@
     font-style: normal;
 }
 
+#logo-img {
+	width: min(50vw, 200px);
+}
+
+.logo-parent {
+    position: relative;
+    padding-top: 6rem;
+}
+
+.logo-child {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: 200%;
+  transform: translate(-50%, -50%);
+}
+
+.logo-child img{
+    height: 10rem;
+    width: 10rem;
+}
+
 [class*='icon-']:before {
     display: inline-block;
     font-family: 'IconFont';
