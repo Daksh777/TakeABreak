@@ -516,6 +516,44 @@ div.buttons {
     position: relative
 }
 
+/*----------- Stop Button style */
+
+.extra-btn{
+    height: auto;
+    margin-bottom: 3em;
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    display: none;
+}
+.extra-btn.active{
+    display: flex;
+}
+
+
+.stop-btn,.pause-btn{
+    background: #8cb3ee;
+    width: 8em;
+    height: 2.3em;
+    border-radius: 0.35em;
+    font-size: 1.2em;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+}
+.pause-btn{
+    background-color: #6e7881;
+    color: white;
+}
+
+.stop-btn:hover{
+    background: #78a9f3;
+}
+.pause-btn:hover{
+    background-color: #636b72;
+}
+
 .buttons ul {
     clear: left;
     margin-bottom: 10px;
@@ -945,6 +983,11 @@ input#enterUrl {
         width: 125px;
         padding-bottom: 2px
     }
+
+    .extra-btn.active{
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media only screen and (min-device-width:360px) and (max-device-width:777px) and (orientation:portrait) {
@@ -1017,6 +1060,10 @@ input#enterUrl {
         position: absolute;
         bottom: 10px;
         left: 20px
+    }
+    .extra-btn.active{
+        flex-direction: column;
+        align-items: center;
     }
 }
 

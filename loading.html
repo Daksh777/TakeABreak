@@ -1,34 +1,201 @@
+<!DOCTYPE html>
 <html>
 <head>
-    
-    <style>
-        p {font-family: 'Product Sans', sans-serif;}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
+  <title>Loading</title>
+  <link rel="stylesheet" type="text/css" href="styles/loading.css">
   <style>
-    h1 {margin: 0;
-    font-family: Product Sans, sans-serif;
-    text-align: center;
-    color: #fff;
-    font-size: 61px;}
+    #quote-footer {
+      position: fixed;
+      color: #fff;
+      left: 0px;
+      bottom: 0px;
+      height: auto;
+      font-size: 16px;
+      padding: 10px;
+      text-align: center;
+      font-family: 'Product Sans', sans-serif;
+      width: 100%;
+      background-color: #353535;
+    }
+  
+    body {
+      text-align: center;
+      vertical-align: middle;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #232323;
+    }
+  
+    .container {
+      padding-top: 150px;
+      padding-left: 150px;
+      padding-right: 150px;
+      color: #fff;
+      font-size: 31px;
+      text-align: center;
+      margin: 0;
+      vertical-align: center;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      font-family: 'Product Sans',
+        sans-serif;
+      align-items: center;
+    }
+  </style>
+  <style>
+    @media screen and (max-width:580px) {
+      .container {
+        padding-left: 50px;
+        padding-right: 50px;
+        font-size: 27px;
+        padding-top: 125px;
+      }
+  
+      #quote-footer {
+        font-size: 16px;
+      }
+    }
+  
+    @media screen and (max-width:720px) and (min-width:581px) {
+      .container {
+        padding-left: 55px;
+        padding-right: 55px;
+        font-size: 28px;
+        padding-top: 150px;
+      }
+  
+      #quote-footer {
+        font-size: 16px;
+      }
+    }
+  
+    @media screen and (max-width:1028px) and (min-width:721px) {
+      .container {
+        padding-left: 75px;
+        padding-right: 75px;
+        padding-top: 135px;
+      }
+  
+      #quote-footer {
+        font-size: 16px;
+      }
+    }
+  
+    @media only screen and (min-device-width:320px) and (max-device-width:400px) and (orientation:portrait) {
+      .container {
+        vertical-align: center;
+        padding-top: 50%;
+        padding-left: 55px;
+        padding-right: 55px;
+      }
+  
+      #quote-footer {
+        font-size: 32px;
+      }
+    }
+  
+    @media only screen and (min-device-width:360px) and (max-device-width:767px) and (orientation:portrait) {
+      .container {
+        vertical-align: center;
+        padding-top: 65px;
+        font-size: 22px;
+        padding-left: 45px;
+        padding-right: 45px;
+      }
+  
+      #quote-footer {
+        font-size: 16px;
+        padding-left: 4px;
+        padding-right: 4px;
+      }
+    }
+  
+    @media only screen and (min-device-width:360px) and (max-device-width:773px) and (orientation:landscape) {
+      .container {
+        font-size: 30px;
+        padding-top: 75px;
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+  
+      #quote-footer {
+        font-size: 22px;
+      }
+    }
+  
+    @media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:portrait) {
+      .container {
+        padding-top: 30%;
+        padding-left: 60px;
+        padding-right: 60px;
+      }
+  
+      #quote-footer {
+        font-size: 28px;
+      }
+    }
+  
+    @media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:landscape) {
+      .container {
+        font-size: 28px;
+        padding-top: 75px;
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+  
+      #quote-footer {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
-<body style="padding: 150px;text-align:center;vertical-align: middle;display: flex;align-items: center;justify-content: center;background-color: #232323;">
- 
+<body>
+  <div class="container">
     <h1>Loading site in <span id="countdown"></span> seconds.<br>
-    This website will self destruct in the specified time.</h1>
-
+      This website will self destruct in the specified time.
+    </h1>
+    </div>
+    
+    <footer>
+    <div id="quote-footer" class="footer-part">
+      <span id="quoteContainer"></span>
+    </div>
+  </footer>
 </body>
 
 <script>
-    var timeleft = 5;
+  let quote = "";
+  let apiUrl = "https://type.fit/api/quotes"
+  async function getJson(url) {
+    let quote_response = await fetch(url);
+    let quote_data = await quote_response.json()
+    let random = Math.floor(Math.random() * 1642);
+    return `<span class='moti_qoute'>❝${quote_data[random].text}❞</span> <br> <span class='moti_author'> ━ ${quote_data[random].author}</span>`;
+  }
+  async function DailyQuotes() {
+    return await getJson(apiUrl);
+  }
+
+  var ans = DailyQuotes();
+  ans.then(function (result) {
+    document.getElementById("quoteContainer").innerHTML = result;
+  })
+</script>
+
+<script>
+    var timeLeft = 5;
 var downloadTimer = setInterval(function(){
-  if(timeleft <= 0){
+  if (timeLeft <= 0) {
     clearInterval(downloadTimer);
     document.getElementById("countdown").innerHTML = "0";
   } else {
-    document.getElementById("countdown").innerHTML = timeleft;
+    document.getElementById("countdown").innerHTML = timeLeft;
   }
-  timeleft -= 1;
+  timeLeft -= 1;
 }, 1000);
 </script>
 
