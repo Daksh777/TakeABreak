@@ -1,11 +1,11 @@
-.theme {
+.colorful-theme {
     margin: 0 auto;
     transition: all 0.4s ease;
 }
 
-.theme .one .content,
-.theme .two .content,
-.theme .three .content {
+.colorful-theme .one .content,
+.colorful-theme .two .content,
+.colorful-theme .three .content {
     width: 80%;
     height: 95%;
     position: absolute;
@@ -13,9 +13,9 @@
     animation: 0.8s cubic-bezier(1, 0.06, 0.25, 1) backwards;
 }
 
-.theme .one .content .piece,
-.theme .two .content .piece,
-.theme .three .content .piece {
+.colorful-theme .one .content .piece,
+.colorful-theme .two .content .piece,
+.colorful-theme .three .content .piece {
     width: 200px;
     height: 200px;
     display: flex;
@@ -40,11 +40,11 @@
 }
 
 
-.theme .one .content .piece {
+.colorful-theme .one .content .piece {
     background: linear-gradient(90deg, #8077ea 13.7%, #eb73ff 94.65%);
 }
 
-.theme .one .content .piece:nth-child(1) {
+.colorful-theme .one .content .piece:nth-child(1) {
     right: 15%;
     top: 18%;
     height: 30px;
@@ -53,7 +53,7 @@
     animation-name: pieceRight;
 }
 
-.theme .one .content .piece:nth-child(2) {
+.colorful-theme .one .content .piece:nth-child(2) {
     left: 15%;
     top: 45%;
     width: 150px;
@@ -62,7 +62,7 @@
     animation-name: pieceLeft;
 }
 
-.theme .one .content .piece:nth-child(3) {
+.colorful-theme .one .content .piece:nth-child(3) {
     left: 10%;
     top: 75%;
     height: 20px;
@@ -71,11 +71,11 @@
     animation-name: pieceLeft;
 }
 
-.theme .two .content .piece {
+.colorful-theme .two .content .piece {
     background: linear-gradient(90deg, #ffedc0 0%, #ff9d87 100%);
 }
 
-.theme .two .content .piece:nth-child(1) {
+.colorful-theme .two .content .piece:nth-child(1) {
     left: 0%;
     top: 25%;
     height: 40px;
@@ -84,7 +84,7 @@
     animation-name: pieceLeft;
 }
 
-.theme .two .content .piece:nth-child(2) {
+.colorful-theme .two .content .piece:nth-child(2) {
     right: 15%;
     top: 35%;
     width: 180px;
@@ -93,7 +93,7 @@
     animation-name: pieceRight;
 }
 
-.theme .two .content .piece:nth-child(3) {
+.colorful-theme .two .content .piece:nth-child(3) {
     right: 10%;
     top: 80%;
     height: 20px;
@@ -102,11 +102,11 @@
     animation-name: pieceRight;
 }
 
-.theme .three .content .piece {
+.colorful-theme .three .content .piece {
     background: #fb8a8a;
 }
 
-.theme .three .content .piece:nth-child(1) {
+.colorful-theme .three .content .piece:nth-child(1) {
     left: 25%;
     top: 35%;
     height: 20px;
@@ -115,7 +115,7 @@
     animation-delay: 3.5s;
 }
 
-.theme .three .content .piece:nth-child(2) {
+.colorful-theme .three .content .piece:nth-child(2) {
     right: 10%;
     top: 55%;
     width: 140px;
@@ -124,7 +124,7 @@
     animation-delay: 4s;
 }
 
-.theme .three .content .piece:nth-child(3) {
+.colorful-theme .three .content .piece:nth-child(3) {
     left: 40%;
     top: 68%;
     height: 20px;
