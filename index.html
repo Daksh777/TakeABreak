@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 
 <head>
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0">
@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="assets/icon.svg">
     <link rel="stylesheet" href="styles/IconFont.css">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+   
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/sweetalert.min.js"></script>
     <!-- Primary Meta Tags -->
@@ -71,7 +72,22 @@
         <audio id="audio2" src="assets/male90.mp3" controls style="display: none;"></audio>
     </div>
 
+    <!-- Added logo of the website -->
+    <div class="logo-parent">
+        <div class="logo-child">
+            <img src="assets/logo.svg" alt="icon" id="logo-img">
+        </div>
+    </div>
     <h1 id="header">Take a Break</h1>
+    <div class="circular-container">
+        <div class="container">
+            <div class="text-container">
+                <h3 class="min">00</h3>
+                <h3 class="dot">:</h3>
+                <h3 class="sec">00</h3>
+            </div>
+        </div>
+    </div>
     <h2 id="subHeader" href="">Select a time to start your break</h2>
     <div class="extra-btn">
         <button class="pause-btn">Pause</button>
@@ -145,48 +161,6 @@
         };
     </script>
 
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">Add Custom Site</h4>
-                </div>
-
-                <div class="modal-body">
-                    <form class="custom-site-form">
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="inputEmail3"
-                                style="color: white;font-family: 'Product Sans'">Card Label</label>
-                            <div class="col-sm-10" style="padding-bottom: 15px;padding-top: 10px;">
-                                <input type="site" class="form-control" id="inputSiteName"
-                                    placeholder="My personal website" autofocus>
-                                <p style="display: none; margin-top: 4px; margin-left: 3px;" id="erro"></p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label" for="inputPassword3"
-                                style="color: white;font-family: 'Product Sans'">Link</label>
-                            <div class="col-sm-10" style="padding-top: 10px;">
-                                <input type="site_link" class="form-control" id="inputSiteLink"
-                                    placeholder="https://daksh.eu.org" <!--onblur="checkURL(this)" -->
-                                <p style="display: none; margin-top: 4px; margin-left: 3px;" id="error"></p>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="modalClose">Close</button>
-                    <button type="submit" class="btn btn-primary" id="addSiteButton">Add Site</button>
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
 
 </body>
