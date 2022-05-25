@@ -752,7 +752,7 @@ function Custom(e) {
       }
       if (convertIntoMinVal > 0) {
         choice(e, convertIntoMinVal);
-        document.getElementById("btn_end").innerHTML = convertIntoMinVal + " min";
+        document.getElementById("btn_end").innerHTML = parseFloat(convertIntoMinVal).toFixed(2) + " min";
         $(".content").css("display", "inline");
         return true
       } else {
