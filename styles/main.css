@@ -610,6 +610,7 @@ h3{
 
 
 .stop-btn,.pause-btn{
+    font-family: "Product Sans";
     background: #8cb3ee;
     width: 8em;
     height: 2.3em;
@@ -1910,4 +1911,26 @@ button.confirm {
 
 .sa-button-container {
     margin-top: -5%;
+}
+
+#logo-img {
+	width: min(50vw, 140px);
+}
+
+.logo-parent {
+    position: relative;
+    padding-top: 6rem;
+}
+
+.logo-child {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: 200%;
+  transform: translate(-50%, -50%);
+}
+
+.logo-child img{
+    height: 10rem;
+    width: 10rem;
 }

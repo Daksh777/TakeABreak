@@ -666,8 +666,11 @@ function Custom(e) {
       }
       var flag_min = 0;
       var flag_hrs = 0;
+      var flag_sec = 0;
       let convertIntoMinVal = 0;
       for (let i = 0; i < inputValue.length; i++) {
+        if (inputValue[i] == 's' || inputValue[i] == 'S') flag_sec = 1;
+
         if (inputValue[i] == 'm' || inputValue[i] == 'M') flag_min = 1;
         if (inputValue[i] == 'h' || inputValue[i] == 'H') flag_hrs = 1;
 
@@ -725,7 +728,20 @@ function Custom(e) {
 
         }
         convertIntoMinVal = hh * 60;
-      } else {
+      } 
+
+      
+      else if (flag_sec) {
+        let ss = 0;
+        for (let i = 0; i < inputValue.length; i++) {
+          if (inputValue[i] >= 'a' && inputValue[i] <= 'z' || inputValue[i] >= 'A' && inputValue[i] <= 'Z' || inputValue[i] == ' ') break;
+          ss = ss * 10 + (inputValue[i] - '0');
+
+        }
+        convertIntoMinVal = ss/60;
+      }
+      
+      else {
         let mm = 0;
         for (let i = 0; i < inputValue.length; i++) {
           if (inputValue[i] >= 'a' && inputValue[i] <= 'z' || inputValue[i] >= 'A' && inputValue[i] <= 'Z' || inputValue[i] == ' ') break;
@@ -736,7 +752,7 @@ function Custom(e) {
       }
       if (convertIntoMinVal > 0) {
         choice(e, convertIntoMinVal);
-        document.getElementById("btn_end").innerHTML = convertIntoMinVal + " min";
+        document.getElementById("btn_end").innerHTML = parseFloat(convertIntoMinVal).toFixed(2) + " min";
         $(".content").css("display", "inline");
         return true
       } else {
@@ -1303,3 +1319,13 @@ themeid.onclick = function () {
   }
 };
 
+
+//about added
+document.getElementById('aboutcorner').addEventListener('click',function(){
+  Swal.fire({
+    html: "<p style='font-family:Product Sans; letter-spacing:1px;'>Welcome! Select a break time, go to your favorite website and when the time's up, your tab will self-destruct!</p>",
+    background: "#353535",
+    color: "white",
+    icon: "info",
+  })
+});
