@@ -1,11 +1,28 @@
 //Random quote generator function
 let quote = "";
-let apiUrl = "https://type.fit/api/quotes"
+let apiUrl = "https://type.fit/api/quotes";
+const api_key = "c_XkgSCIgq34agYtWGjpx-33g5-UuBLT5awrCmguk2g"
 async function getJson(url) {
-  let quote_response = await fetch(url);
-  let quote_data = await quote_response.json()
-  let random = Math.floor(Math.random() * 1642);
-  return `<div class='moti_title'>Here's a quote to keep you motivated:</div> <span class='moti_qoute'>❝${quote_data[random].text}❞</span> <br> <span class='moti_author'> ━ ${quote_data[random].author}</span>`;
+  let random = Math.floor(Math.random() * 10);
+  const promise = new Promise((resolve, reject) => {
+    fetch(`https://api.unsplash.com/search/photos?query=motivational&client_id=${api_key}`)
+      .then(response => response.json())
+      .then((data) => {
+        const promise = new Promise((resolve, reject) => {
+          let image = data.results[random];
+          console.log(image.urls.regular);
+          resolve(`<div><div class='moti_title'>Here's a quote to keep you motivated:</div>
+    <span class='moti_qoute'>
+        <img src="${image.urls.small}" alt="" srcset="">
+    </span> </div>`);
+
+        })
+        return promise;
+      }).then(x => {
+        resolve(x)
+      });
+  })
+  return promise
 }
 async function DailyQuotes() {
   quote = await getJson(apiUrl)
@@ -31,7 +48,7 @@ DailyQuotes();
   'use strict';
 
   if (!Array.prototype.indexOf) {
-    Array.prototype.indexOf = function (elt /*, from*/ ) {
+    Array.prototype.indexOf = function (elt /*, from*/) {
       var len = this.length >>> 0;
 
       var from = Number(arguments[1]) || 0;
@@ -575,7 +592,7 @@ window.addEventListener('mouseup', function (event) {
   var b1 = document.getElementById('switch1');
   var b2 = document.getElementById('switch2');
   var b3 = document.getElementById('switch3');
-  if ((event.target != box && event.target.parentNode != box) && (event.target != b1 && event.target.parentNode != b1) && (event.target != b2 && event.target.parentNode != b2) && (event.target != b3 && event.target.parentNode != b3) ) {
+  if ((event.target != box && event.target.parentNode != box) && (event.target != b1 && event.target.parentNode != b1) && (event.target != b2 && event.target.parentNode != b2) && (event.target != b3 && event.target.parentNode != b3)) {
     box.style.display = 'none';
     flag3 = !flag3;
   }
@@ -1100,22 +1117,18 @@ function startTimer(duration, display) {
 
       }
 
-     
-
-
-      
       //asking for permission to reload
       // if (window.performance)  {
       //    console.info("window.performance works fine on this browser");
       //   }
       if ((performance.navigation.type == performance.navigation.TYPE_RELOAD) && (diff > 0)) {
         // console.info( "This page is  reloaded");
-  
-        $(window).bind('beforeunload',function(){
-           return "Do you want to leave";
-         });
-       }
-    
+
+        $(window).bind('beforeunload', function () {
+          return "Do you want to leave";
+        });
+      }
+
 
 
 
@@ -1242,7 +1255,7 @@ function updateSites() {
       timeout: 10000
     });
 
-    req.success(function () {});
+    req.success(function () { });
 
     req.error(function () {
       console.log('Oh noes! Error when updating sites');
