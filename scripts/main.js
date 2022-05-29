@@ -1311,13 +1311,14 @@ document.body.classList.toggle(pre_theme);
 var themeid = document.getElementById("themeid");
 themeid.onclick = function () {
   if ((document.getElementById("themeid").checked === true)) {
-    localStorage.setItem("theme", "colorful-theme");
+    localStorage.setItem("theme", "theme");
     document.body.classList.toggle("colorful-theme");
   } else {
     localStorage.removeItem("theme");
     document.body.classList.toggle("colorful-theme");
   }
 };
+
 
 //about added
 document.getElementById('aboutcorner').addEventListener('click',function(){
