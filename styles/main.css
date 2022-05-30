@@ -519,7 +519,7 @@ h3#content-label {
    display: flex;
    justify-content: center;
    align-items: center;
-   gap: 2.3em;
+   gap: 3.1em;
 }
 div.buttons {
     position: relative;
@@ -639,14 +639,14 @@ h3{
 #btn_midL,
 .buttons ul li a {
     /* padding: 14px 47px */
-    padding: 0.6em 2em;
+    padding: 0.6em 1.8em;
 }
 
 .buttons ul li a {
     font-family: 'Product Sans', sans-serif;
     cursor: pointer;
     color: #000;
-    font-size: 1.2em;
+    font-size: 1.4em;
     float: left;
     transition: .3s;
     display: block;
