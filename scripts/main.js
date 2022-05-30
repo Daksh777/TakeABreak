@@ -1342,3 +1342,18 @@ document.getElementById('aboutcorner').addEventListener('click',function(){
     icon: "info",
   })
 });
+
+// add time button added
+
+function takeTime() {
+  
+  let time = prompt("Please enter time you want to add in minutes", "5");
+  let currtime = new Date().getMinutes();
+
+  time =  Number(time);
+   currtime = Number(currtime);
+  let val = time + currtime
+  let x = val.toString();
+  document.getElementById("minutes").innerHTML = x;
+  console.log(val);
+}

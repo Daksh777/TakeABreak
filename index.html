@@ -11,6 +11,7 @@
    
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/sweetalert.min.js"></script>
+    
     <!-- Primary Meta Tags -->
     <title>Take a Break - Self-Destructing Tabs</title>
     <meta name="title" content="Take a Break - Self-Destructing Tabs">
@@ -111,7 +112,7 @@
     <div class="circular-container">
         <div class="container">
             <div class="text-container">
-                <h3 class="min">00</h3>
+                <h3 id="minutes" class="min">00</h3>
                 <h3 class="dot">:</h3>
                 <h3 class="sec">00</h3>
             </div>
@@ -121,6 +122,7 @@
     <div class="extra-btn">
         <button class="pause-btn">Pause</button>
         <button class="stop-btn">Stop</button>
+        <button id="add" class="add-btn" onclick="takeTime()">Add Time</button>
     </div>
     <div id="time" style="display: none"></div>
     <div class="buttons" id="buttons">

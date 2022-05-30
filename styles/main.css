@@ -610,7 +610,7 @@ h3{
 }
 
 
-.stop-btn,.pause-btn{
+.stop-btn,.pause-btn,.add-btn{
     font-family: "Product Sans";
     background: #8cb3ee;
     width: 8em;
@@ -632,6 +632,15 @@ h3{
 }
 .pause-btn:hover{
     background-color: #636b72;
+}
+
+.add-btn{
+    background-color: black;
+    color: white;
+}
+
+.add-btn:hover{
+    background-color: #78a9f3;
 }
 
 
