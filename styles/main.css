@@ -519,7 +519,7 @@ h3#content-label {
    display: flex;
    justify-content: center;
    align-items: center;
-   gap: 1em;
+   gap: 2.3em;
 }
 div.buttons {
     position: relative;
@@ -639,7 +639,7 @@ h3{
 #btn_midL,
 .buttons ul li a {
     /* padding: 14px 47px */
-    padding: 0.6em 1.6em;
+    padding: 0.6em 2em;
 }
 
 .buttons ul li a {
