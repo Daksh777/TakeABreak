@@ -48,7 +48,7 @@ html {
     }
 
     .buttons ul {
-        left: 54%;
+        /* left: 54%; */
     }
 }
 
@@ -506,25 +506,26 @@ h3#content-label {
     color: #e9e9e9
 }
 
-.buttons ul,
+
 .buttons ul li {
     list-style: none;
     padding: 0;
-    position: relative;
-    float: left;
-    margin-right: 30px !important
-}
+    height: auto;
 
+}
+.buttons ul{
+   min-height: 5em;
+    padding: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 1em;
+}
 div.buttons {
     position: relative;
     padding-bottom: 50px;
 }
 
-.buttons {
-    float: left;
-    width: 100%;
-    position: relative
-}
 
 /*  ----- ------ Circular timer */
 
@@ -633,29 +634,19 @@ h3{
     background-color: #636b72;
 }
 
-.buttons ul {
-    clear: left;
-    margin-bottom: 10px;
-    left: 51%;
-    text-align: center
-}
 
-.buttons ul li {
-    display: block;
-    margin: 1rem;
-    right: 50%
-}
 
 #btn_midL,
 .buttons ul li a {
-    padding: 14px 47px
+    /* padding: 14px 47px */
+    padding: 0.6em 1.6em;
 }
 
 .buttons ul li a {
     font-family: 'Product Sans', sans-serif;
     cursor: pointer;
     color: #000;
-    font-size: 22px;
+    font-size: 1.2em;
     float: left;
     transition: .3s;
     display: block;
@@ -678,7 +669,7 @@ h3{
     background: #8cb3ee;
     border-radius: 5px !important
 }
-
+/* 
 #btn_front {
     border-radius: 10px 0 0 10px
 }
@@ -692,7 +683,7 @@ h3{
     padding: 14px 35px;
     width: -webkit-fill-available;
     width: -moz-available;
-}
+} */
 
 div#takeAnotherButton {
     top: 200px;
@@ -934,39 +925,28 @@ input#enterUrl {
     }
 
     .buttons ul {
-        margin-top: 0
+        margin-top: 0;
+        flex-wrap: wrap;
     }
 
-    .buttons ul li {
-        line-height: 60px;
-        float: none
-    }
 
     .buttons ul li a {
-        font-size: 22px;
-        margin-bottom: 10px;
-        width: 45px;
+        
+     
         border-radius: 10px;
         border-width: 2px 1px
     }
 
     #btn_front,
     #btn_midL {
-        width: -webkit-fill-available;
-        width: -moz-available;
         border-radius: 10px
     }
 
     #btn_midR {
-        width: 89px;
+   
         border-radius: 10px
     }
 
-    #btn_end {
-        width: -webkit-fill-available;
-        width: -moz-available;
-        border-radius: 10px
-    }
 
     .footer {
         bottom: 10px;
@@ -1008,39 +988,6 @@ input#enterUrl {
         margin-bottom: 32px
     }
 
-    .buttons ul {
-        margin-top: 0
-    }
-
-    .buttons ul li {
-        line-height: 60px;
-        float: none
-    }
-
-    .buttons ul li a {
-        font-size: 22px;
-        margin-bottom: 10px;
-        width: 72px;
-        height: 29px
-    }
-
-    #btn_front,
-    #btn_midL {
-        border-width: 2px 1px;
-        width: 65px;
-        border-radius: 10px;
-        height: 29px
-    }
-
-    #btn_midR {
-        border-radius: 10px;
-        width: 77px;
-        height: 29px
-    }
-
-    #btn_end {
-        height: 29px
-    }
 
     .footer a {
         font-size: 11px
@@ -1071,25 +1018,7 @@ input#enterUrl {
 
 @media only screen and (min-device-width:360px) and (max-device-width:777px) and (orientation:portrait) {
 
-    #btn_front,
-    #btn_midL {
-        width: 65px
-    }
-
-    #btn_front,
-    #btn_midL,
-    #btn_midR {
-        border-width: 2px 1px;
-        border-radius: 10px;
-        height: 29px
-    }
-
-    #btn_end,
-    #btn_front,
-    #btn_midL,
-    #btn_midR {
-        height: 29px
-    }
+  
 
     h1 {
         font-size: 61px;
@@ -1101,29 +1030,11 @@ input#enterUrl {
         margin-bottom: 20%
     }
 
-    .buttons ul {
-        margin-top: 0
-    }
-
-    .buttons ul li {
-        line-height: 60px;
-        float: none
-    }
-
-    .buttons ul li a {
-        font-size: 22px;
-        margin-bottom: 10px;
-        width: 65px;
-        height: 29px
-    }
+   
 
     #author,
     #takeAnother {
         font-size: 13px
-    }
-
-    #btn_midR {
-        width: 77px
     }
 
     div#takeAnotherButton {
@@ -1162,43 +1073,18 @@ input#enterUrl {
         margin-bottom: 30px;
         color: #e9e9e9
     }
-
-    .buttons {
-        width: 100%;
-        overflow: hidden;
-        position: relative
-    }
-
-    .buttons ul {
-        margin-bottom: 50px;
-        left: 50%
-    }
-
-    .buttons ul li {
-        margin: 0;
-        padding: 0;
-        right: 50%
-    }
-
-    .buttons ul li a {
-        font-size: 18px;
-        padding: 14px 44px;
-    }
+    
 
     .footer a {
         font-size: 10px
     }
 }
 
+
+
 @media only screen and (min-device-width:768px) and (max-device-width:1024px) and (orientation:portrait) {
 
-    .buttons,
-    .buttons ul,
-    .buttons ul li {
-        float: left;
-        position: relative
-    }
-
+   
     .buttons ul,
     h2 {
         text-align: center
@@ -1226,21 +1112,7 @@ input#enterUrl {
         overflow: hidden
     }
 
-    .buttons ul {
-        clear: left;
-        list-style: none;
-        margin-bottom: 50px;
-        padding: 0;
-        left: 50%
-    }
-
-    .buttons ul li {
-        display: block;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        right: 50%
-    }
+   
 
     .buttons ul li a {
         font-size: 21px
@@ -1251,13 +1123,6 @@ input#enterUrl {
         font-size: 19px
     }
 
-    #btn_midL {
-        padding: 14px 40px
-    }
-
-    #btn_end {
-        display: inline
-    }
 
     .footer a {
         color: #dbdbdb;
@@ -1274,12 +1139,7 @@ input#enterUrl {
         text-align: center
     }
 
-    .buttons,
-    .buttons ul,
-    .buttons ul li {
-        position: relative;
-        float: left
-    }
+    
 
     .buttons ul,
     h1,
@@ -1300,37 +1160,11 @@ input#enterUrl {
 
     .buttons {
         width: 100%;
-        overflow: hidden
+        overflow: hidden;
     }
 
-    .buttons ul {
-        clear: left;
-        list-style: none;
-        margin-bottom: 50px;
-        padding: 0;
-        left: 50%
-    }
-
-    .buttons ul li {
-        display: block;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        right: 50%
-    }
-
-    .buttons ul li a {
-        font-family: 'Product Sans', sans-serif;
-        color: #303030;
-        font-size: 36px;
-        background: #dbdbdb;
-        padding: 14px 44px;
-        text-decoration: none;
-        float: left;
-        transition: .3s;
-        display: block;
-        line-height: 1.3em
-    }
+   
+    
 
     .footer a {
         font-family: 'Product Sans', sans-serif;
