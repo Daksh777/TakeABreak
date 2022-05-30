@@ -1277,15 +1277,14 @@ function updateSites() {
 };
 
 async function addGridElement(siteLabel, siteLink) {
-    const faviconFetcher = `https://cors-proxy-3434.herokuapp.com/http://www.google.com/s2/favicons?domain=${siteLink}`
-    var newLabel = siteLabel.replace(/\s+/g, '');
+    const faviconFetcher = `https://logo.clearbit.com/${siteLink}`
    
     var newSiteLabel = siteLabel.substring(0, 14);
     var newSiteLabel = newSiteLabel.replace(/\s/g, '&nbsp;')
    try {
        const res = await fetch(faviconFetcher)
         if(res.status == 200){
-            $('.rig.columns-6.websites').append(`<a class='siteLink' data-link=${siteLink} target='_blank'><li class='outbound-link' class='outbound-link'><img id= ${siteLabel} src=http://www.google.com/s2/favicons?domain=${siteLink}   /> <p> ${newSiteLabel}</p></li></a>`)
+            $('.rig.columns-6.websites').append(`<a class='siteLink' data-link=${siteLink} target='_blank'><li class='outbound-link' class='outbound-link'><img id= ${siteLabel} src=https://logo.clearbit.com/${siteLink}   /> <p> ${newSiteLabel}</p></li></a>`)
           
 
         }
