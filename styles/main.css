@@ -189,8 +189,8 @@ ul.rig.columns-6 li {
  }
  #list2{
     height:120px;
-    margin: 1rem -4rem 0rem 0rem;
-    float: right;
+    float:right;
+    margin: 1rem 0rem 0rem 8rem;
     display: none;
     background-color: #353535;
     border-radius: 5px;
