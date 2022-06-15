@@ -265,12 +265,11 @@ const saAddSite = async () => {
 
     // Swal.fire(JSON.stringify(formValues));
   }
-  
+  console.log("aaaa", array1);
 };
 const addSite = () => {
   var site = array1[0];
   var site_link = array1[1];
-  console.log(site_link);
   var flaglink = 0,
     flagname = 0;
   if (site_link.trim() === "") {
@@ -278,7 +277,9 @@ const addSite = () => {
   }
   if (site.trim() === "") {
     flagname = 1;
-  } 
+  } else if (~!site_link.indexOf("http")) {
+    site_link = "http://" + site_link;
+  }
 
   /* Check if the url entered is valid or not using a regex */
   function ValidUrl() {
@@ -1276,32 +1277,24 @@ function updateSites() {
 
 };
 
-async function addGridElement(siteLabel, siteLink) {
-    const faviconFetcher = `https://logo.clearbit.com/${siteLink}`
-   
-    var newSiteLabel = siteLabel.substring(0, 14);
-    var newSiteLabel = newSiteLabel.replace(/\s/g, '&nbsp;')
-   try {
-       const res = await fetch(faviconFetcher)
-        if(res.status == 200){
-            $('.rig.columns-6.websites').append(`<a class='siteLink' data-link=${siteLink} target='_blank'><li class='outbound-link' class='outbound-link'><img id= ${siteLabel} src=https://logo.clearbit.com/${siteLink}   /> <p> ${newSiteLabel}</p></li></a>`)
-          
+function addGridElement(siteLabel, siteLink) {
+  var newLabel = siteLabel.replace(/\s+/g, '');
+  var testLink = 'https://logo.clearbit.com/' + newLabel.toLowerCase() + '.com';
+  var newSiteLabel = siteLabel.substring(0, 14);
+  var newSiteLabel = newSiteLabel.replace(/\s/g, '&nbsp;')
 
-        }
-        else{
-           $('.rig.columns-6.websites').append("<a class='siteLink' data-link=" + siteLink + " target='_blank'><li class='outbound-link' class='outbound-link'><img id='" + siteLabel + "' src='assets//web.png'/><p>" + newSiteLabel + "</p></li></a>");
-          
-
-       }
-
-   } catch (error) {
-      console.log(error.message);
-   }
-    
- 
-    $('.rig.columns-6.websites').append("<img src='assets/delete.svg' class='delete' id='delete' data-tab = '" + siteLabel + "' data-name='" + siteLink + "'>");
-   
-    
+  $.ajax({
+    type: 'HEAD',
+    url: testLink,
+    success: function () {
+      $('.rig.columns-6.websites').append("<a class='siteLink' data-link=" + siteLink + " target='_blank'><li class='outbound-link' class='outbound-link'><img id='" + siteLabel + "' src='https://logo.clearbit.com/" + newLabel.toLowerCase() + ".com'/><p>" + newSiteLabel + "</p></li></a>");
+      $('.rig.columns-6.websites').append("<img src='assets/delete.svg' class='delete' id='delete' data-tab = '" + siteLabel + "' data-name='" + siteLink + "'>");
+    },
+    error: function () {
+      $('.rig.columns-6.websites').append("<a class='siteLink' data-link=" + siteLink + " target='_blank'><li class='outbound-link' class='outbound-link'><img id='" + siteLabel + "' src='assets//web.png'/><p>" + newSiteLabel + "</p></li></a>");
+      $('.rig.columns-6.websites').append("<img src='assets/delete.svg' style='cursor:pointer' id='delete' class='delete' data-tab = '" + siteLabel + "' data-name='" + siteLink + "'>");
+    }
+  });
 };
 
 function deleteTab(tab, tabLink) {
